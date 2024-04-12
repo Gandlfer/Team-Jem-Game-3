@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqbp4veamxsnf"]
+
+[ext_resource type="Script" path="res://Scenes/hands.gd" id="1_64mig"]
+[ext_resource type="PackedScene" uid="uid://daofc3dmss87g" path="res://Scenes/LeftHand.tscn" id="2_qt5ss"]
+[ext_resource type="PackedScene" uid="uid://bjfjw4p7sq65p" path="res://Scenes/RightHand.tscn" id="3_pdhtk"]
+
+[node name="Hands" type="Node2D"]
+script = ExtResource("1_64mig")
+
+[node name="Left hand" parent="." instance=ExtResource("2_qt5ss")]
+
+[node name="LeftHandParticles" type="CPUParticles2D" parent="Left hand"]
+position = Vector2(-32, 140)
+amount = 532
+lifetime = 0.25
+preprocess = 0.6
+fixed_fps = 60
+emission_shape = 3
+emission_rect_extents = Vector2(40, 40)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 695.23
+initial_velocity_max = 695.23
+scale_amount_max = 3.0
+
+[node name="Right hand" parent="." instance=ExtResource("3_pdhtk")]
+position = Vector2(261, 1)
+
+[node name="RightHandParticles" type="CPUParticles2D" parent="Right hand"]
+position = Vector2(27, 138)
+amount = 532
+lifetime = 0.25
+preprocess = 0.6
+fixed_fps = 60
+emission_shape = 3
+emission_rect_extents = Vector2(40, 40)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 695.23
+initial_velocity_max = 695.23
+scale_amount_max = 3.0
