@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bjfjw4p7sq65p"]
 
-[ext_resource type="Script" path="res://Scenes/RightHand.gd" id="1_qwkif"]
+[ext_resource type="Script" path="res://Scripts/RightHand.gd" id="1_qwkif"]
 [ext_resource type="Texture2D" uid="uid://esnfq73o3j7v" path="res://Assets/Holding_Hand_PNG_Clipart.png" id="2_npues"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_21k0y"]

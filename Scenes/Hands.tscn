@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bqbp4veamxsnf"]
 
-[ext_resource type="Script" path="res://Scenes/hands.gd" id="1_64mig"]
+[ext_resource type="Script" path="res://Scripts/hands.gd" id="1_64mig"]
 [ext_resource type="PackedScene" uid="uid://daofc3dmss87g" path="res://Scenes/LeftHand.tscn" id="2_qt5ss"]
 [ext_resource type="PackedScene" uid="uid://bjfjw4p7sq65p" path="res://Scenes/RightHand.tscn" id="3_pdhtk"]
 
