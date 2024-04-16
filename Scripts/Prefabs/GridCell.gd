@@ -1,6 +1,6 @@
 extends Node2D
 
-var cell = preload("res://Cell.tscn")
+var cell = preload("res://Scenes/Prefabs/Cell.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
