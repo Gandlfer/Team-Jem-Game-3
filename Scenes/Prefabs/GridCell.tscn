@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://boyqpn5qxpipp"]
+
+[ext_resource type="Script" path="res://Scripts/Prefabs/GridCell.gd" id="1_ojtvt"]
+
+[node name="Grid" type="Node2D"]
+script = ExtResource("1_ojtvt")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+custom_minimum_size = Vector2(70, 70)
+offset_right = 300.0
+offset_bottom = 300.0
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 6
