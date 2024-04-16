@@ -1,6 +1,7 @@
-extends CenterContainer
+extends Node2D
 
 var draggable = false
+var hovering = false
 var is_inside_dropable = false
 var body_ref
 var initialPos: Vector2
@@ -13,26 +14,31 @@ func _ready():
 func _process(delta):
 	if draggable:
 		
-		if Input.is_action_just_pressed("mouseclick"):
+		if Input.is_action_just_pressed("left_mouse_click"):
 			initialPos = global_position
-		if Input.is_action_pressed("mouseclick"):
-			print("Pressed")
-			print(global_position, " ",get_global_mouse_position())
+			Global.is_dragging = true
+		if Input.is_action_pressed("left_mouse_click"):
+			#print("Pressed")
+			#print(global_position, " ",get_global_mouse_position())
 			global_position = get_global_mouse_position()
-		elif Input.is_action_just_released("mouseclick"):
-			print("Released")
-			#Global.is_dragging = false
+		elif Input.is_action_just_released("left_mouse_click"):
+			#print("Released")
+			Global.is_dragging = false
 			var tween = get_tree().create_tween()
 			if is_inside_dropable:
 				tween.tween_property(self,"position",body_ref.position,0.2).set_ease(Tween.EASE_OUT)
 			else:
 				tween.tween_property(self,"global_position",initialPos,0.2).set_ease(Tween.EASE_OUT)
-	
+	if hovering:
+		if Input.is_action_just_pressed("right_mouse_click"):
+			rotation_degrees=rotation_degrees+90
 
 
 func _on_area_2d_body_entered(body):
-	if body.is_in_group('Dropable'):
-		pass
+	#print("From Z shape ",body.name)
+	#if body.is_in_group('Dropable'):
+		#print("Collided")
+		#pass
 	pass # Replace with function body.
 
 
@@ -42,8 +48,9 @@ func _on_area_2d_body_exited(body):
 
 func _on_area_2d_mouse_entered():
 	#if not Global.is_dragging:
-	print("Mouse inside")
+	#print("Mouse inside")
 	draggable = true
+	hovering = true
 		
 	pass # Replace with function body.
 
@@ -51,8 +58,9 @@ func _on_area_2d_mouse_entered():
 func _on_area_2d_mouse_exited():
 	#print("Mouse Left")
 	#if not Global.is_dragging:
-	print("Mouse left")
+	#print("Mouse left")
 	draggable = false
+	hovering = false
 		#Global.is_dragging = false
 		#print("Mouse Left")
 	pass # Replace with function body.
