@@ -10,6 +10,7 @@ size = Vector2(75, 75)
 size = Vector2(75, 75)
 
 [node name="PuzzlePiece" type="Control"]
+custom_minimum_size = Vector2(70, 70)
 layout_mode = 3
 anchors_preset = 0
 mouse_filter = 2
