@@ -4,13 +4,15 @@
 [ext_resource type="Texture2D" uid="uid://bq8qjj46w5hgv" path="res://Assets/tile.png" id="1_g21if"]
 [ext_resource type="PackedScene" uid="uid://bet4n7nso6jw" path="res://Scenes/Prefabs/PuzzlePiece.tscn" id="2_tf3qn"]
 
-[node name="Test" type="CenterContainer"]
-use_top_left = true
+[node name="Test" type="Node2D"]
 script = ExtResource("1_dkclq")
 
 [node name="L" type="GridContainer" parent="."]
-custom_minimum_size = Vector2(70, 70)
-layout_mode = 2
+custom_minimum_size = Vector2(75, 75)
+offset_left = -113.0
+offset_top = -113.0
+offset_right = 113.0
+offset_bottom = 113.0
 theme_override_constants/h_separation = 8
 theme_override_constants/v_separation = 8
 columns = 3
@@ -58,6 +60,8 @@ layout_mode = 2
 texture = ExtResource("1_g21if")
 
 [node name="Area2D" type="Area2D" parent="L"]
+collision_layer = 16
+collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="L/Area2D"]
 polygon = PackedVector2Array(0, 74, 78, 74, 78, 0, 231, 0, 231, 75, 153, 75, 153, 153, 0, 153)

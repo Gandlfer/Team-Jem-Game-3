@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c87nchcsjooys"]
 
-[ext_resource type="PackedScene" uid="uid://boyqpn5qxpipp" path="res://Scenes/Prefabs/GridCell.tscn" id="2_esk54"]
+[ext_resource type="PackedScene" uid="uid://boyqpn5qxpipp" path="res://Scenes/Prefabs/GridCellMaker.tscn" id="2_esk54"]
 [ext_resource type="PackedScene" uid="uid://c51rc5w7qrimf" path="res://Scenes/Prefabs/Shapes/Z_Shape.tscn" id="2_ofdel"]
 
 [node name="Puzzle" type="Node2D"]
@@ -8,6 +8,7 @@
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
 offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0.388235, 0.388235, 0.388235, 1)
@@ -21,7 +22,4 @@ limit_bottom = 100
 position = Vector2(336, 72)
 
 [node name="Test" parent="CanvasLayer" instance=ExtResource("2_ofdel")]
-offset_left = 992.0
-offset_top = 160.0
-offset_right = 992.0
-offset_bottom = 160.0
+position = Vector2(952, 240)
