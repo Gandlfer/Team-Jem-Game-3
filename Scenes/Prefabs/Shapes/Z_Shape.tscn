@@ -1,0 +1,68 @@
+[gd_scene load_steps=4 format=3 uid="uid://c51rc5w7qrimf"]
+
+[ext_resource type="Script" path="res://Scripts/Prefabs/Shapes.gd" id="1_dkclq"]
+[ext_resource type="Texture2D" uid="uid://bq8qjj46w5hgv" path="res://Assets/tile.png" id="1_g21if"]
+[ext_resource type="PackedScene" uid="uid://bet4n7nso6jw" path="res://Scenes/Prefabs/PuzzlePiece.tscn" id="2_tf3qn"]
+
+[node name="Test" type="CenterContainer"]
+use_top_left = true
+script = ExtResource("1_dkclq")
+
+[node name="L" type="GridContainer" parent="."]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 3
+
+[node name="Blank" type="TextureRect" parent="L"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+texture = ExtResource("1_g21if")
+
+[node name="PuzzlePiece" parent="L" instance=ExtResource("2_tf3qn")]
+layout_mode = 2
+
+[node name="PuzzlePiece5" parent="L" instance=ExtResource("2_tf3qn")]
+layout_mode = 2
+
+[node name="PuzzlePiece2" parent="L" instance=ExtResource("2_tf3qn")]
+layout_mode = 2
+
+[node name="PuzzlePiece4" parent="L" instance=ExtResource("2_tf3qn")]
+layout_mode = 2
+
+[node name="Blank2" type="TextureRect" parent="L"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+texture = ExtResource("1_g21if")
+
+[node name="Blank4" type="TextureRect" parent="L"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+texture = ExtResource("1_g21if")
+
+[node name="Blank3" type="TextureRect" parent="L"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+texture = ExtResource("1_g21if")
+
+[node name="Blank5" type="TextureRect" parent="L"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+texture = ExtResource("1_g21if")
+
+[node name="Area2D" type="Area2D" parent="L"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="L/Area2D"]
+polygon = PackedVector2Array(0, 74, 78, 74, 78, 0, 231, 0, 231, 75, 153, 75, 153, 153, 0, 153)
+
+[connection signal="body_entered" from="L/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="L/Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="mouse_entered" from="L/Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="L/Area2D" to="." method="_on_area_2d_mouse_exited"]
