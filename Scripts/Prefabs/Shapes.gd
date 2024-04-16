@@ -48,15 +48,16 @@ func _process(delta):
 		if Input.is_action_just_pressed("right_mouse_click"):
 			rotation_degrees=rotation_degrees+90
 	
-	for x in $L.get_children():
-			#print(x.name)
-			if "PuzzlePiece" in x.name:
-				if !x.collided:
-					is_inside_dropable=false
+	#for x in $L.get_children():
+			##print(x.name)
+			#if "PuzzlePiece" in x.name:
+				#if !x.collided:
+					#is_inside_dropable=false
 
 func blockIn():
 	var inside = true
-	for x in $L.get_children():
+	#get_child(0)
+	for x in get_child(0).get_children():
 			#print(x.name)
 			if "PuzzlePiece" in x.name:
 				inside = inside and x.collided
