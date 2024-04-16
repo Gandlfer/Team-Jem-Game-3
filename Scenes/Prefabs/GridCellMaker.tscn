@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/Prefabs/GridCell.gd" id="1_ojtvt"]
 
-[node name="Grid" type="Node2D"]
+[node name="GridCellMaker" type="Node2D"]
 script = ExtResource("1_ojtvt")
 
 [node name="GridContainer" type="GridContainer" parent="."]
