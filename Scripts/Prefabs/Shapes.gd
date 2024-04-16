@@ -8,16 +8,20 @@ var initialPos: Vector2
 var itemPos : Vector2
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	initialPos = global_position
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	blockIn()
+	
 	if draggable:
 		
 		if Input.is_action_just_pressed("left_mouse_click"):
-			initialPos = global_position
-			Global.is_dragging = true
+			#initialPos = global_position
+			pass
+			#Global.is_dragging = true
 		if Input.is_action_pressed("left_mouse_click"):
 			#print("Pressed")
 			#print(global_position, " ",get_global_mouse_position())
@@ -32,7 +36,9 @@ func _process(delta):
 			#var mouse_pos : Vector2 = get_global_mouse_position()
 			if is_inside_dropable:
 				global_position = itemPos
-			Global.is_dragging = false
+			else:
+				global_position = initialPos
+			#Global.is_dragging = false
 			var tween = get_tree().create_tween()
 			#if is_inside_dropable:
 				#tween.tween_property(self,"position",body_ref.position,0.2).set_ease(Tween.EASE_OUT)
@@ -41,22 +47,39 @@ func _process(delta):
 	if hovering:
 		if Input.is_action_just_pressed("right_mouse_click"):
 			rotation_degrees=rotation_degrees+90
-
-
-func _on_area_2d_body_entered(body):
-	#print("From Z shape ",body.name)
-	var inside = true
-	if body.is_in_group('Dropable'):
-		#print("Collided")
-		for x in $L.get_children():
+	
+	for x in $L.get_children():
 			#print(x.name)
 			if "PuzzlePiece" in x.name:
 				if !x.collided:
-					inside=false
-	if inside:
-		is_inside_dropable=true
-	else:
-		is_inside_dropable = false
+					is_inside_dropable=false
+
+func blockIn():
+	var inside = true
+	for x in $L.get_children():
+			#print(x.name)
+			if "PuzzlePiece" in x.name:
+				inside = inside and x.collided
+				#if !x.collided:
+					#is_inside_dropable=false
+	is_inside_dropable=inside
+	#print("Block ",is_inside_dropable)
+		
+func _on_area_2d_body_entered(body):
+	#print("From Z shape ",body.name)
+	pass
+	#var inside = true
+	#if body.is_in_group('Dropable'):
+		##print("Collided")
+		#for x in $L.get_children():
+			##print(x.name)
+			#if "PuzzlePiece" in x.name:
+				#if !x.collided:
+					#inside=false
+	#if inside:
+		#is_inside_dropable=true
+	#else:
+		#is_inside_dropable = false
 
 
 
@@ -66,7 +89,8 @@ func _on_area_2d_body_exited(body):
 
 func _on_area_2d_mouse_entered():
 	#if not Global.is_dragging:
-	#print("Mouse inside")
+	print("Mouse inside")
+	#if not Global.is_dragging:
 	draggable = true
 	hovering = true
 		
@@ -74,7 +98,7 @@ func _on_area_2d_mouse_entered():
 
 
 func _on_area_2d_mouse_exited():
-	#print("Mouse Left")
+	print("Mouse Left")
 	#if not Global.is_dragging:
 	#print("Mouse left")
 	draggable = false
