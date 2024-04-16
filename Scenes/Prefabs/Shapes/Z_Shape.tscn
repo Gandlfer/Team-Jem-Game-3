@@ -60,8 +60,7 @@ layout_mode = 2
 texture = ExtResource("1_g21if")
 
 [node name="Area2D" type="Area2D" parent="L"]
-collision_layer = 16
-collision_mask = 0
+collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="L/Area2D"]
 polygon = PackedVector2Array(0, 74, 78, 74, 78, 0, 231, 0, 231, 75, 153, 75, 153, 153, 0, 153)

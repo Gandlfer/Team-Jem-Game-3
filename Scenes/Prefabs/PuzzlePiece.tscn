@@ -30,11 +30,14 @@ offset_bottom = 70.0
 texture = ExtResource("1_q1q5k")
 
 [node name="Area2D" type="Area2D" parent="PuzzlePieceBody"]
-collision_layer = 0
-collision_mask = 2
+collision_layer = 4
+collision_mask = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PuzzlePieceBody/Area2D"]
 position = Vector2(37.5, 37.5)
 shape = SubResource("RectangleShape2D_xnvi7")
 
+[connection signal="area_entered" from="PuzzlePieceBody/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="PuzzlePieceBody/Area2D" to="." method="_on_area_2d_area_exited"]
 [connection signal="body_entered" from="PuzzlePieceBody/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="PuzzlePieceBody/Area2D" to="." method="_on_area_2d_body_exited"]

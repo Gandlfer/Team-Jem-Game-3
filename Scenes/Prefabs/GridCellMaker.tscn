@@ -1,14 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://boyqpn5qxpipp"]
+[gd_scene load_steps=3 format=3 uid="uid://boyqpn5qxpipp"]
 
 [ext_resource type="Script" path="res://Scripts/Prefabs/GridCell.gd" id="1_ojtvt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ujovu"]
+size = Vector2(74.5, 75.5)
 
 [node name="GridCellMaker" type="Node2D"]
 script = ExtResource("1_ojtvt")
 
 [node name="GridContainer" type="GridContainer" parent="."]
-custom_minimum_size = Vector2(70, 70)
-offset_right = 300.0
-offset_bottom = 300.0
-theme_override_constants/h_separation = 8
-theme_override_constants/v_separation = 8
+offset_right = 40.0
+offset_bottom = 40.0
 columns = 6
+
+[node name="Area2D" type="Area2D" parent="." groups=["Dropable"]]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(225, 225)
+scale = Vector2(6, 6)
+shape = SubResource("RectangleShape2D_ujovu")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

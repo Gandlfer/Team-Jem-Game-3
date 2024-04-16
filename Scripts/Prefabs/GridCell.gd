@@ -14,3 +14,9 @@ func _ready():
 func _process(delta):
 	#$GridContainer.get_children()
 	pass
+
+
+func _on_area_2d_body_entered(body):
+	if body.is_in_group("PuzzlePiece"):
+		print("Entered")
+	pass # Replace with function body.

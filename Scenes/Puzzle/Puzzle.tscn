@@ -8,18 +8,17 @@
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-visible = false
 offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0.388235, 0.388235, 0.388235, 1)
+
+[node name="GridContainer" parent="CanvasLayer/ColorRect" instance=ExtResource("2_esk54")]
+position = Vector2(336, 72)
 
 [node name="Camera2D" type="Camera2D" parent="CanvasLayer"]
 limit_left = 0
 limit_top = 0
 limit_bottom = 100
-
-[node name="GridContainer" parent="CanvasLayer" instance=ExtResource("2_esk54")]
-position = Vector2(336, 72)
 
 [node name="Test" parent="CanvasLayer" instance=ExtResource("2_ofdel")]
 position = Vector2(952, 240)
