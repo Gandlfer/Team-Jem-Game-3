@@ -12,6 +12,7 @@ size = Vector2(75, 75)
 [node name="PuzzlePiece" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+mouse_filter = 2
 script = ExtResource("1_ou8ot")
 
 [node name="PuzzlePieceBody" type="StaticBody2D" parent="." groups=["PuzzlePiece"]]
