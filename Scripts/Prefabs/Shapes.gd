@@ -6,6 +6,7 @@ var is_inside_dropable = false
 var body_ref
 var initialPos: Vector2
 var itemPos : Vector2
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	initialPos = global_position
@@ -25,8 +26,6 @@ func _process(delta):
 		if Input.is_action_pressed("left_mouse_click"):
 			#print("Pressed")
 			#print(global_position, " ",get_global_mouse_position())
-			var mouse_pos : Vector2 = get_global_mouse_position()
-			#global_position=
 			itemPos = get_global_mouse_position()
 			#itemPos = Vector2(snapped(mouse_pos.x,158),snapped(mouse_pos.y,158))
 			global_position = itemPos
@@ -38,8 +37,12 @@ func _process(delta):
 				global_position = itemPos
 			else:
 				global_position = initialPos
+				queue_free()
 			Global.is_dragging = false
-			var tween = get_tree().create_tween()
+			Global.needAdd = true
+			Global.node = get_groups()[0]
+			#print(self.name)
+			#var tween = get_tree().create_tween()
 			#if is_inside_dropable:
 				#tween.tween_property(self,"position",body_ref.position,0.2).set_ease(Tween.EASE_OUT)
 			#else:
@@ -47,12 +50,7 @@ func _process(delta):
 	if hovering:
 		if Input.is_action_just_pressed("right_mouse_click"):
 			rotation_degrees=rotation_degrees+90
-	
-	#for x in $L.get_children():
-			##print(x.name)
-			#if "PuzzlePiece" in x.name:
-				#if !x.collided:
-					#is_inside_dropable=false
+
 
 func blockIn():
 	var inside = true
@@ -63,6 +61,7 @@ func blockIn():
 				inside = inside and x.collided
 				#if !x.collided:
 					#is_inside_dropable=false
+	#print(inside)
 	is_inside_dropable=inside
 	#print("Block ",is_inside_dropable)
 		

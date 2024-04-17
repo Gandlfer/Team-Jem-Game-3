@@ -62,5 +62,3 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DBottom"]
 position = Vector2(491, -237.281)
 shape = SubResource("RectangleShape2D_anvsp")
-
-[connection signal="body_entered" from="Area2DGridMaker" to="." method="_on_area_2d_body_entered"]

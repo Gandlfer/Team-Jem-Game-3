@@ -21,5 +21,5 @@ func _on_area_2d_body_entered(body):
 
 
 func _on_area_2d_area_entered(area):
-	print(area.name)
+	#print(area.name)
 	pass # Replace with function body.
