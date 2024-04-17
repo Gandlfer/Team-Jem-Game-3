@@ -34,14 +34,21 @@ func _on_area_2d_body_exited(body):
 
 
 func _on_area_2d_area_entered(area):
+
+	if area.is_in_group("BlockedBox"):
+		#print(area.name)
+		collided = false
 	if area.is_in_group("Dropable"):
+		#print(area.name)
 		collided = true
-		#print("Here")
+
 
 
 
 func _on_area_2d_area_exited(area):
 	if area.is_in_group("Dropable"):
 		collided = false
+	if area.is_in_group("BlockedBox"):
+		collided = true
 		#print("Here")
 
