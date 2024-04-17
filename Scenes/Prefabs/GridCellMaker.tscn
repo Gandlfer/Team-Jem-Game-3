@@ -15,13 +15,13 @@ theme_override_constants/h_separation = 8
 theme_override_constants/v_separation = 8
 columns = 6
 
-[node name="Area2D" type="Area2D" parent="." groups=["Dropable"]]
+[node name="Area2DGridMaker" type="Area2D" parent="." groups=["Dropable"]]
 collision_layer = 8
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DGridMaker"]
 position = Vector2(225, 225)
 scale = Vector2(6, 6)
 shape = SubResource("RectangleShape2D_ujovu")
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2DGridMaker" to="." method="_on_area_2d_body_entered"]
