@@ -1,11 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://c87nchcsjooys"]
+[gd_scene load_steps=3 format=3 uid="uid://c87nchcsjooys"]
 
 [ext_resource type="PackedScene" uid="uid://boyqpn5qxpipp" path="res://Scenes/Prefabs/GridCellMaker.tscn" id="2_esk54"]
-[ext_resource type="PackedScene" uid="uid://c51rc5w7qrimf" path="res://Scenes/Prefabs/Shapes/Z_Shape.tscn" id="2_ofdel"]
-[ext_resource type="PackedScene" uid="uid://dxqvuo1fweml3" path="res://Scenes/Prefabs/Shapes/t_shape.tscn" id="3_8wsu4"]
-[ext_resource type="PackedScene" uid="uid://c7bm3m70pc1v7" path="res://Scenes/Prefabs/Shapes/L_Shape.tscn" id="3_tsy1d"]
-[ext_resource type="PackedScene" uid="uid://dypq7bk547kem" path="res://Scenes/Prefabs/Shapes/I_Shape.tscn" id="4_u8lop"]
-[ext_resource type="PackedScene" uid="uid://c3ou86e8s1732" path="res://Scenes/Prefabs/Shapes/square_shape.tscn" id="6_ysmfh"]
+[ext_resource type="PackedScene" uid="uid://cf0xre6u821sn" path="res://Scenes/Prefabs/PieceSpawner.tscn" id="2_t2gl5"]
 
 [node name="Puzzle" type="Node2D"]
 
@@ -27,17 +23,4 @@ limit_bottom = 100
 [node name="GridContainer" parent="CanvasLayer" instance=ExtResource("2_esk54")]
 position = Vector2(336, 72)
 
-[node name="Test" parent="CanvasLayer" instance=ExtResource("2_ofdel")]
-position = Vector2(963, 164)
-
-[node name="T_Shape" parent="CanvasLayer" instance=ExtResource("3_8wsu4")]
-position = Vector2(171, 532)
-
-[node name="IShape" parent="CanvasLayer" instance=ExtResource("4_u8lop")]
-position = Vector2(171, 176)
-
-[node name="LShape" parent="CanvasLayer" instance=ExtResource("3_tsy1d")]
-position = Vector2(967, 337)
-
-[node name="Square_shape" parent="CanvasLayer" instance=ExtResource("6_ysmfh")]
-position = Vector2(997, 458)
+[node name="PieceSpawner" parent="CanvasLayer" instance=ExtResource("2_t2gl5")]
