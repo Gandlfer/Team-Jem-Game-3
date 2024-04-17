@@ -1,16 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://c87nchcsjooys"]
+[gd_scene load_steps=7 format=3 uid="uid://c87nchcsjooys"]
 
 [ext_resource type="PackedScene" uid="uid://boyqpn5qxpipp" path="res://Scenes/Prefabs/GridCellMaker.tscn" id="2_esk54"]
 [ext_resource type="PackedScene" uid="uid://c51rc5w7qrimf" path="res://Scenes/Prefabs/Shapes/Z_Shape.tscn" id="2_ofdel"]
+[ext_resource type="PackedScene" uid="uid://dxqvuo1fweml3" path="res://Scenes/Prefabs/Shapes/t_shape.tscn" id="3_8wsu4"]
 [ext_resource type="PackedScene" uid="uid://c7bm3m70pc1v7" path="res://Scenes/Prefabs/Shapes/L_Shape.tscn" id="3_tsy1d"]
+[ext_resource type="PackedScene" uid="uid://dypq7bk547kem" path="res://Scenes/Prefabs/Shapes/I_Shape.tscn" id="4_u8lop"]
+[ext_resource type="PackedScene" uid="uid://c3ou86e8s1732" path="res://Scenes/Prefabs/Shapes/square_shape.tscn" id="6_ysmfh"]
 
 [node name="Puzzle" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-offset_right = 1152.0
-offset_bottom = 648.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0.388235, 0.388235, 0.388235, 1)
 
 [node name="Camera2D" type="Camera2D" parent="CanvasLayer"]
@@ -22,7 +28,16 @@ limit_bottom = 100
 position = Vector2(336, 72)
 
 [node name="Test" parent="CanvasLayer" instance=ExtResource("2_ofdel")]
-position = Vector2(952, 240)
+position = Vector2(963, 164)
+
+[node name="T_Shape" parent="CanvasLayer" instance=ExtResource("3_8wsu4")]
+position = Vector2(171, 532)
+
+[node name="IShape" parent="CanvasLayer" instance=ExtResource("4_u8lop")]
+position = Vector2(171, 176)
 
 [node name="LShape" parent="CanvasLayer" instance=ExtResource("3_tsy1d")]
-position = Vector2(959, 428)
+position = Vector2(967, 337)
+
+[node name="Square_shape" parent="CanvasLayer" instance=ExtResource("6_ysmfh")]
+position = Vector2(997, 458)

@@ -24,16 +24,24 @@ custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
 texture = ExtResource("1_g21if")
 
-[node name="PuzzlePiece" parent="Z" instance=ExtResource("2_tf3qn")]
+[node name="PuzzlePieceI" parent="Z" instance=ExtResource("2_tf3qn")]
+modulate = Color(0, 0.835294, 0.235294, 1)
+self_modulate = Color(0, 0.835294, 0.235294, 1)
 layout_mode = 2
 
-[node name="PuzzlePiece5" parent="Z" instance=ExtResource("2_tf3qn")]
+[node name="PuzzlePieceII" parent="Z" instance=ExtResource("2_tf3qn")]
+modulate = Color(0, 0.835294, 0.235294, 1)
+self_modulate = Color(0, 0.835294, 0.235294, 1)
 layout_mode = 2
 
-[node name="PuzzlePiece2" parent="Z" instance=ExtResource("2_tf3qn")]
+[node name="PuzzlePieceIII" parent="Z" instance=ExtResource("2_tf3qn")]
+modulate = Color(0, 0.835294, 0.235294, 1)
+self_modulate = Color(0, 0.835294, 0.235294, 1)
 layout_mode = 2
 
-[node name="PuzzlePiece4" parent="Z" instance=ExtResource("2_tf3qn")]
+[node name="PuzzlePieceIV" parent="Z" instance=ExtResource("2_tf3qn")]
+modulate = Color(0, 0.835294, 0.235294, 1)
+self_modulate = Color(0, 0.835294, 0.235294, 1)
 layout_mode = 2
 
 [node name="Blank2" type="TextureRect" parent="Z"]

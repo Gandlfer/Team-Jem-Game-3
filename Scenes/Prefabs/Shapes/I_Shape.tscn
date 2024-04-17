@@ -1,0 +1,90 @@
+[gd_scene load_steps=4 format=3 uid="uid://dypq7bk547kem"]
+
+[ext_resource type="Script" path="res://Scripts/Prefabs/Shapes.gd" id="1_nc0jn"]
+[ext_resource type="PackedScene" uid="uid://bet4n7nso6jw" path="res://Scenes/Prefabs/PuzzlePiece.tscn" id="2_x2x8t"]
+[ext_resource type="Texture2D" uid="uid://bq8qjj46w5hgv" path="res://Assets/tile.png" id="3_axkuh"]
+
+[node name="IShape" type="Node2D"]
+script = ExtResource("1_nc0jn")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+custom_minimum_size = Vector2(75, 75)
+offset_left = -113.0
+offset_top = -113.0
+offset_right = 113.0
+offset_bottom = 113.0
+mouse_filter = 2
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 3
+
+[node name="Blank4" type="TextureRect" parent="GridContainer"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+texture = ExtResource("3_axkuh")
+
+[node name="PuzzlePiece1" parent="GridContainer" instance=ExtResource("2_x2x8t")]
+modulate = Color(0.188235, 1, 1, 1)
+self_modulate = Color(0.188235, 1, 1, 1)
+layout_mode = 2
+
+[node name="Blank6" type="TextureRect" parent="GridContainer"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+texture = ExtResource("3_axkuh")
+
+[node name="Blank7" type="TextureRect" parent="GridContainer"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+texture = ExtResource("3_axkuh")
+
+[node name="PuzzlePiece2" parent="GridContainer" instance=ExtResource("2_x2x8t")]
+modulate = Color(0.188235, 1, 1, 1)
+self_modulate = Color(0.188235, 1, 1, 1)
+layout_mode = 2
+
+[node name="Blank8" type="TextureRect" parent="GridContainer"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+texture = ExtResource("3_axkuh")
+
+[node name="Blank10" type="TextureRect" parent="GridContainer"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+texture = ExtResource("3_axkuh")
+
+[node name="PuzzlePiece3" parent="GridContainer" instance=ExtResource("2_x2x8t")]
+modulate = Color(0.188235, 1, 1, 1)
+self_modulate = Color(0.188235, 1, 1, 1)
+layout_mode = 2
+
+[node name="Blank9" type="TextureRect" parent="GridContainer"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+texture = ExtResource("3_axkuh")
+
+[node name="Blank11" type="TextureRect" parent="GridContainer"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+texture = ExtResource("3_axkuh")
+
+[node name="PuzzlePiece4" parent="GridContainer" instance=ExtResource("2_x2x8t")]
+modulate = Color(0.188235, 1, 1, 1)
+self_modulate = Color(0.188235, 1, 1, 1)
+layout_mode = 2
+
+[node name="Area2D" type="Area2D" parent="GridContainer"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GridContainer/Area2D"]
+position = Vector2(64, 37)
+polygon = PackedVector2Array(14, 272, 14, -37, 89, -37, 89, 272)
+
+[connection signal="mouse_entered" from="GridContainer/Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/Area2D" to="." method="_on_area_2d_mouse_exited"]
