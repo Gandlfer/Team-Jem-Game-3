@@ -1,0 +1,26 @@
+[gd_scene load_steps=7 format=3 uid="uid://cf0xre6u821sn"]
+
+[ext_resource type="Script" path="res://Scenes/Puzzle/Piece Spawner.gd" id="1_of1kl"]
+[ext_resource type="PackedScene" uid="uid://c51rc5w7qrimf" path="res://Scenes/Prefabs/Shapes/Z_Shape.tscn" id="2_jsmmc"]
+[ext_resource type="PackedScene" uid="uid://dxqvuo1fweml3" path="res://Scenes/Prefabs/Shapes/t_shape.tscn" id="3_6n3qo"]
+[ext_resource type="PackedScene" uid="uid://dypq7bk547kem" path="res://Scenes/Prefabs/Shapes/I_Shape.tscn" id="4_f0bfs"]
+[ext_resource type="PackedScene" uid="uid://c7bm3m70pc1v7" path="res://Scenes/Prefabs/Shapes/L_Shape.tscn" id="5_mv1qt"]
+[ext_resource type="PackedScene" uid="uid://c3ou86e8s1732" path="res://Scenes/Prefabs/Shapes/square_shape.tscn" id="6_rsuin"]
+
+[node name="PieceSpawner" type="CanvasLayer"]
+script = ExtResource("1_of1kl")
+
+[node name="ZShape" parent="." instance=ExtResource("2_jsmmc")]
+position = Vector2(984, 160)
+
+[node name="TShape" parent="." instance=ExtResource("3_6n3qo")]
+position = Vector2(144, 544)
+
+[node name="IShape" parent="." instance=ExtResource("4_f0bfs")]
+position = Vector2(128, 176)
+
+[node name="LShape" parent="." instance=ExtResource("5_mv1qt")]
+position = Vector2(967, 337)
+
+[node name="Square_shape" parent="." instance=ExtResource("6_rsuin")]
+position = Vector2(992, 496)
