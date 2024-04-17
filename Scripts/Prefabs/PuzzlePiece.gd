@@ -13,7 +13,11 @@ func _process(delta):
 
 
 func _on_area_2d_body_entered(body):
-	if body.is_in_group("Dropable"):
+	#print(get_child(0))
+	#print(body)
+	#print(get_child(0)==body)
+	if body.is_in_group("PuzzlePiece"):
+		#print(body.get_node(""))
 		#print("turn true")
 		#collided = true
 		pass
@@ -34,7 +38,9 @@ func _on_area_2d_body_exited(body):
 
 
 func _on_area_2d_area_entered(area):
-
+	if area.is_in_group("OutofBounds"):
+		print("OutofBounds")
+		collided = false
 	if area.is_in_group("BlockedBox"):
 		#print(area.name)
 		collided = false
@@ -48,6 +54,8 @@ func _on_area_2d_area_entered(area):
 func _on_area_2d_area_exited(area):
 	if area.is_in_group("Dropable"):
 		collided = false
+	if area.is_in_group("BlockedBox"):
+		collided = true
 	if area.is_in_group("BlockedBox"):
 		collided = true
 		#print("Here")
