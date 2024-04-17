@@ -1,28 +1,24 @@
 [gd_scene load_steps=4 format=3 uid="uid://c3ou86e8s1732"]
 
 [ext_resource type="Script" path="res://Scripts/Prefabs/Shapes.gd" id="1_n0fhv"]
-[ext_resource type="Texture2D" uid="uid://bq8qjj46w5hgv" path="res://Assets/tile.png" id="2_jjcxy"]
 [ext_resource type="PackedScene" uid="uid://bet4n7nso6jw" path="res://Scenes/Prefabs/PuzzlePiece.tscn" id="3_uad5d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dsgvt"]
+size = Vector2(154, 152)
 
 [node name="Square_shape" type="Node2D"]
 script = ExtResource("1_n0fhv")
 
 [node name="Z" type="GridContainer" parent="."]
 custom_minimum_size = Vector2(75, 75)
-offset_left = -192.0
-offset_top = -29.0
-offset_right = 34.0
-offset_bottom = 197.0
+offset_left = -76.0
+offset_top = -76.0
+offset_right = 77.0
+offset_bottom = 77.0
 mouse_filter = 2
 theme_override_constants/h_separation = 8
 theme_override_constants/v_separation = 8
-columns = 3
-
-[node name="Blank" type="TextureRect" parent="Z"]
-modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(70, 70)
-layout_mode = 2
-texture = ExtResource("2_jjcxy")
+columns = 2
 
 [node name="PuzzlePiece_a" parent="Z" instance=ExtResource("3_uad5d")]
 modulate = Color(1, 0.188235, 0.541176, 1)
@@ -34,12 +30,6 @@ modulate = Color(1, 0.188235, 0.541176, 1)
 self_modulate = Color(1, 0.188235, 0.541176, 1)
 layout_mode = 2
 
-[node name="Blank4" type="TextureRect" parent="Z"]
-modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(70, 70)
-layout_mode = 2
-texture = ExtResource("2_jjcxy")
-
 [node name="PuzzlePiece_c" parent="Z" instance=ExtResource("3_uad5d")]
 modulate = Color(1, 0.188235, 0.541176, 1)
 self_modulate = Color(1, 0.188235, 0.541176, 1)
@@ -50,30 +40,12 @@ modulate = Color(1, 0.188235, 0.541176, 1)
 self_modulate = Color(1, 0.188235, 0.541176, 1)
 layout_mode = 2
 
-[node name="Blank2" type="TextureRect" parent="Z"]
-modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(70, 70)
-layout_mode = 2
-texture = ExtResource("2_jjcxy")
-
-[node name="Blank3" type="TextureRect" parent="Z"]
-modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(70, 70)
-layout_mode = 2
-texture = ExtResource("2_jjcxy")
-
-[node name="Blank5" type="TextureRect" parent="Z"]
-modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(70, 70)
-layout_mode = 2
-texture = ExtResource("2_jjcxy")
-
 [node name="Area2D" type="Area2D" parent="Z"]
 collision_mask = 2
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Z/Area2D"]
-position = Vector2(0, -3)
-polygon = PackedVector2Array(78, 156, 78, 0, 231, 0, 233, 156)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Z/Area2D"]
+position = Vector2(77, 76)
+shape = SubResource("RectangleShape2D_dsgvt")
 
 [connection signal="body_entered" from="Z/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Z/Area2D" to="." method="_on_area_2d_body_exited"]

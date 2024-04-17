@@ -21,7 +21,7 @@ func _process(delta):
 		if Input.is_action_just_pressed("left_mouse_click"):
 			#initialPos = global_position
 			pass
-			#Global.is_dragging = true
+			Global.is_dragging = true
 		if Input.is_action_pressed("left_mouse_click"):
 			#print("Pressed")
 			#print(global_position, " ",get_global_mouse_position())
@@ -38,7 +38,7 @@ func _process(delta):
 				global_position = itemPos
 			else:
 				global_position = initialPos
-			#Global.is_dragging = false
+			Global.is_dragging = false
 			var tween = get_tree().create_tween()
 			#if is_inside_dropable:
 				#tween.tween_property(self,"position",body_ref.position,0.2).set_ease(Tween.EASE_OUT)
@@ -91,19 +91,19 @@ func _on_area_2d_body_exited(body):
 func _on_area_2d_mouse_entered():
 	#if not Global.is_dragging:
 	print("Mouse inside")
-	#if not Global.is_dragging:
-	draggable = true
-	hovering = true
+	if not Global.is_dragging:
+		draggable = true
+		hovering = true
 		
 	pass # Replace with function body.
 
 
 func _on_area_2d_mouse_exited():
 	print("Mouse Left")
-	#if not Global.is_dragging:
+	if not Global.is_dragging:
 	#print("Mouse left")
-	draggable = false
-	hovering = false
+		draggable = false
+		hovering = false
 		#Global.is_dragging = false
 		#print("Mouse Left")
 	pass # Replace with function body.
