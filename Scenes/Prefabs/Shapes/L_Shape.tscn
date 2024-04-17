@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/Prefabs/Shapes.gd" id="1_m8xq6"]
 [ext_resource type="PackedScene" uid="uid://bet4n7nso6jw" path="res://Scenes/Prefabs/PuzzlePiece.tscn" id="2_d3tiq"]
 
-[node name="LShape" type="Node2D"]
+[node name="LShape" type="Node2D" groups=["LShape"]]
 script = ExtResource("1_m8xq6")
 
 [node name="GridContainer" type="GridContainer" parent="."]

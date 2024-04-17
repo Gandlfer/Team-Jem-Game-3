@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bq8qjj46w5hgv" path="res://Assets/tile.png" id="2_kio1n"]
 [ext_resource type="PackedScene" uid="uid://bet4n7nso6jw" path="res://Scenes/Prefabs/PuzzlePiece.tscn" id="3_ciwd7"]
 
-[node name="T_Shape" type="Node2D"]
+[node name="TShape" type="Node2D" groups=["TShape"]]
 position = Vector2(116, 119)
 script = ExtResource("1_r806o")
 

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bq8qjj46w5hgv" path="res://Assets/tile.png" id="1_g21if"]
 [ext_resource type="PackedScene" uid="uid://bet4n7nso6jw" path="res://Scenes/Prefabs/PuzzlePiece.tscn" id="2_tf3qn"]
 
-[node name="Test" type="Node2D"]
+[node name="ZShape" type="Node2D" groups=["ZShape"]]
 script = ExtResource("1_dkclq")
 
 [node name="Z" type="GridContainer" parent="."]

@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dsgvt"]
 size = Vector2(154, 152)
 
-[node name="Square_shape" type="Node2D"]
+[node name="Square_shape" type="Node2D" groups=["Square_shape"]]
 script = ExtResource("1_n0fhv")
 
 [node name="Z" type="GridContainer" parent="."]
