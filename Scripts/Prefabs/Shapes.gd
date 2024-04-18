@@ -6,6 +6,9 @@ var is_inside_dropable = false
 var body_ref
 var initialPos: Vector2
 var itemPos : Vector2
+var grid_size = 70 # cell size added by KK...
+var offset = Vector2(10, 23) # added by KK...
+var grid_origin = Vector2(336, 72) # added by KK...
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -34,7 +37,7 @@ func _process(delta):
 			#print("Released")
 			#var mouse_pos : Vector2 = get_global_mouse_position()
 			if is_inside_dropable:
-				global_position = itemPos
+				global_position = snapped_position(itemPos, offset) # altered by KK...
 			else:
 				global_position = initialPos
 				queue_free()
@@ -51,6 +54,11 @@ func _process(delta):
 		if Input.is_action_just_pressed("right_mouse_click"):
 			rotation_degrees=rotation_degrees+90
 
+func snapped_position(pos: Vector2, offset: Vector2) -> Vector2: # added by KK...
+	var relative_pos = pos - grid_origin
+	var snapped_x = int((relative_pos.x - offset.x) / grid_size) * grid_size + grid_size / 2
+	var snapped_y = int((relative_pos.y - offset.y) / grid_size) * grid_size + grid_size / 2
+	return Vector2(snapped_x, snapped_y) + offset + grid_origin
 
 func blockIn():
 	var inside = true
