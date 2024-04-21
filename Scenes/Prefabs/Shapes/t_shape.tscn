@@ -70,9 +70,12 @@ layout_mode = 2
 texture = ExtResource("2_kio1n")
 
 [node name="Area2D" type="Area2D" parent="GridContainer"]
+collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GridContainer/Area2D"]
 polygon = PackedVector2Array(0, 78, 78, 77, 78, -1, 153, -1, 154, 77, 231, 77, 231, 153, 0, 153)
 
+[connection signal="body_entered" from="GridContainer/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="GridContainer/Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="mouse_entered" from="GridContainer/Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="GridContainer/Area2D" to="." method="_on_area_2d_mouse_exited"]

@@ -11,10 +11,10 @@ script = ExtResource("1_n0fhv")
 
 [node name="Z" type="GridContainer" parent="."]
 custom_minimum_size = Vector2(75, 75)
-offset_left = -76.0
-offset_top = -76.0
-offset_right = 77.0
-offset_bottom = 77.0
+offset_left = -37.5
+offset_top = -37.5
+offset_right = 115.5
+offset_bottom = 115.5
 mouse_filter = 2
 theme_override_constants/h_separation = 8
 theme_override_constants/v_separation = 8
