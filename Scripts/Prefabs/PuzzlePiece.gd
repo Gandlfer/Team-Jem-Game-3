@@ -14,8 +14,8 @@ func _ready():
 func _process(delta):
 	#print(!outofbound," ", !blocked ," ", dropable)
 	collided = !outofbound and !blocked and dropable and !pieces
-	if collided == true:
-		print(collided)
+	#if collided == true:
+		#print(collided)
 	pass
 
 
@@ -24,6 +24,7 @@ func _on_area_2d_body_entered(body):
 	#print(body)
 	#print(get_child(0)==body)
 	if body.is_in_group("PuzzlePiece") and !(get_child(0)==body):
+		print("Something")
 		pieces = true
 		
 
@@ -40,11 +41,11 @@ func _on_area_2d_area_entered(area):
 		blocked = true
 	if area.is_in_group("Dropable"):
 		dropable = true
-		print("In")
+		#print("In")
 
 func _on_area_2d_area_exited(area):
 	if area.is_in_group("Dropable"):
-		print("Out")
+		#print("Out")
 		dropable = false
 	if area.is_in_group("BlockedBox"):
 		blocked = false

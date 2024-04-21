@@ -38,7 +38,7 @@ offset_bottom = 76.0
 texture = SubResource("CanvasTexture_upkeh")
 
 [node name="Line2D" type="Line2D" parent="GridCellBody"]
-position = Vector2(0.589286, 0.613095)
+position = Vector2(0.5, 1.5)
 scale = Vector2(3.67857, 3.72619)
 points = PackedVector2Array(0, 0, 20, 0, 20, 20, 0, 20)
 closed = true
@@ -46,25 +46,28 @@ width = 0.5
 default_color = Color(0, 0, 0, 1)
 
 [node name="Area2DCell" type="Area2D" parent="GridCellBody"]
+position = Vector2(-21, 23)
 collision_layer = 16
 collision_mask = 4
 script = ExtResource("2_gw3qd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GridCellBody/Area2DCell"]
-position = Vector2(38, 38.5)
+position = Vector2(58.5, 15.5)
 shape = SubResource("RectangleShape2D_g6rxe")
 
 [node name="Blocked" type="Sprite2D" parent="GridCellBody/Area2DCell"]
 visible = false
-position = Vector2(38, 38.5)
+position = Vector2(59, 16)
 scale = Vector2(0.109195, 0.132979)
 texture = ExtResource("3_g5doq")
 
 [node name="Label" type="Label" parent="."]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 0.5
+offset_top = 1.5
+offset_right = 40.5
+offset_bottom = 24.5
 
 [connection signal="area_entered" from="GridCellBody/Area2DCell" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="GridCellBody/Area2DCell" to="." method="_on_area_2d_body_entered"]
