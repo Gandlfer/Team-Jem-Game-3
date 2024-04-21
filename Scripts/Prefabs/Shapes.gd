@@ -6,7 +6,7 @@ var is_inside_dropable = false
 var body_ref
 var initialPos: Vector2
 var itemPos : Vector2
-
+var list = {}
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	initialPos = global_position
@@ -36,7 +36,9 @@ func _process(delta):
 			#print("Released")
 			#var mouse_pos : Vector2 = get_global_mouse_position()
 			if is_inside_dropable:
-				global_position = itemPos
+				#getClosest()
+				#global_position = itemPos
+				global_position = getClosest()
 			else:
 				global_position = initialPos
 				queue_free()
@@ -51,7 +53,21 @@ func _process(delta):
 				#tween.tween_property(self,"global_position",Vector2(snapped(mouse_pos.x,83),snapped(mouse_pos.y,83)),0.2).set_ease(Tween.EASE_OUT)
 	
 
-
+func getClosest():
+	var smallest_dict = 0
+	var dist = 100000.0
+	for x in list.keys():
+		var calcDist=global_position.distance_to(Vector2(list[x].global_position.x + 37.5,list[x].global_position.y + 37.5))
+		if dist > calcDist:
+			smallest_dict = x
+			dist = calcDist
+		#global_position.distance_to()
+		#print(list[x].global_position.x - 37.5)
+		#print(global_position.distance_to(Vector2(list[x].global_position.x - 37.5,list[x].global_position.y - 37.5)))
+		pass
+	#print(list[smallest_dict].get_node("../Label").text)
+	return Vector2(list[smallest_dict].global_position.x + 37.5,list[smallest_dict].global_position.y + 37.5)
+	
 func blockIn():
 	var inside = true
 	#get_child(0)
@@ -67,9 +83,12 @@ func blockIn():
 		
 func _on_area_2d_body_entered(body):
 	#print("From Z shape ",body.name)
-	pass
 	#var inside = true
-	#if body.is_in_group('Dropable'):
+	if body.is_in_group('Dropable'):
+		#print("From L shape ",body.name,body.get_node("../Label").text)
+		list[body.get_node("../Label").text]=body
+		#print(list.keys())
+		#list.append(body)
 		##print("Collided")
 		#for x in $L.get_children():
 			##print(x.name)
@@ -84,12 +103,15 @@ func _on_area_2d_body_entered(body):
 
 
 func _on_area_2d_body_exited(body):
+	if body.is_in_group('Dropable'):
+		#print("Exit from L shape ",body.name,body.get_node("../Label").text)
+		list.erase(body.get_node("../Label").text)
 	pass # Replace with function body.
 
 
 func _on_area_2d_mouse_entered():
 	#if not Global.is_dragging:
-	print("Mouse inside")
+	#print("Mouse inside")
 	if not Global.is_dragging:
 		draggable = true
 		hovering = true
@@ -98,7 +120,7 @@ func _on_area_2d_mouse_entered():
 
 
 func _on_area_2d_mouse_exited():
-	print("Mouse Left")
+	#print("Mouse Left")
 	if not Global.is_dragging:
 	#print("Mouse left")
 		draggable = false
