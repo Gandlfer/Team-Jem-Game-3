@@ -29,7 +29,9 @@ func _process(delta):
 			itemPos = get_global_mouse_position()
 			#itemPos = Vector2(snapped(mouse_pos.x,158),snapped(mouse_pos.y,158))
 			global_position = itemPos
-			
+			if hovering:
+				if Input.is_action_just_pressed("right_mouse_click"):
+					rotation_degrees=rotation_degrees+90
 		elif Input.is_action_just_released("left_mouse_click"):
 			#print("Released")
 			#var mouse_pos : Vector2 = get_global_mouse_position()
@@ -47,9 +49,7 @@ func _process(delta):
 				#tween.tween_property(self,"position",body_ref.position,0.2).set_ease(Tween.EASE_OUT)
 			#else:
 				#tween.tween_property(self,"global_position",Vector2(snapped(mouse_pos.x,83),snapped(mouse_pos.y,83)),0.2).set_ease(Tween.EASE_OUT)
-	if hovering:
-		if Input.is_action_just_pressed("right_mouse_click"):
-			rotation_degrees=rotation_degrees+90
+	
 
 
 func blockIn():
