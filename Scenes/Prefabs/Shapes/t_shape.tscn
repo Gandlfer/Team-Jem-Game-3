@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://bet4n7nso6jw" path="res://Scenes/Prefabs/PuzzlePiece.tscn" id="3_ciwd7"]
 
 [node name="TShape" type="Node2D" groups=["TShape"]]
-position = Vector2(116, 119)
 script = ExtResource("1_r806o")
 
 [node name="GridContainer" type="GridContainer" parent="."]
@@ -73,7 +72,7 @@ texture = ExtResource("2_kio1n")
 collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GridContainer/Area2D"]
-polygon = PackedVector2Array(0, 78, 78, 77, 78, -1, 153, -1, 154, 77, 231, 77, 231, 153, 0, 153)
+polygon = PackedVector2Array(0, 78, 77, 78, 77, -1, 154, -1, 154, 77, 231, 77, 231, 153, 0, 153)
 
 [connection signal="body_entered" from="GridContainer/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="GridContainer/Area2D" to="." method="_on_area_2d_body_exited"]
