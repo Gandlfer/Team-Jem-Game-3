@@ -36,11 +36,11 @@ collision_mask = 0
 position = Vector2(532.5, 7.75)
 shape = SubResource("RectangleShape2D_anvsp")
 
-[node name="Area2D" type="Area2D" parent="." groups=["OutofBounds"]]
+[node name="Area2DLeft" type="Area2D" parent="." groups=["OutofBounds"]]
 collision_layer = 128
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DLeft"]
 position = Vector2(-43, 233)
 shape = SubResource("RectangleShape2D_anvsp")
 
