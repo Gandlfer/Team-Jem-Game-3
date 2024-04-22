@@ -6,7 +6,7 @@
 size = Vector2(77.4167, 77.5833)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_anvsp"]
-size = Vector2(47, 468.719)
+size = Vector2(13.5, 468.719)
 
 [node name="GridCellMaker" type="Node2D"]
 script = ExtResource("1_ojtvt")
@@ -33,7 +33,7 @@ collision_layer = 128
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DRight"]
-position = Vector2(516.5, 8.10938)
+position = Vector2(532.5, 7.75)
 shape = SubResource("RectangleShape2D_anvsp")
 
 [node name="Area2D" type="Area2D" parent="." groups=["OutofBounds"]]
@@ -41,7 +41,7 @@ collision_layer = 128
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-26.5, 234.25)
+position = Vector2(-43, 233)
 shape = SubResource("RectangleShape2D_anvsp")
 
 [node name="Area2DTop" type="Area2D" parent="." groups=["OutofBounds"]]
@@ -51,7 +51,7 @@ collision_layer = 128
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DTop"]
-position = Vector2(-505, -5)
+position = Vector2(-518, -7.99812)
 shape = SubResource("RectangleShape2D_anvsp")
 
 [node name="Area2DBottom" type="Area2D" parent="." groups=["OutofBounds"]]
@@ -60,5 +60,5 @@ collision_layer = 128
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DBottom"]
-position = Vector2(491, -237.281)
+position = Vector2(500.999, -233.002)
 shape = SubResource("RectangleShape2D_anvsp")
