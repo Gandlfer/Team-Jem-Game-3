@@ -29,20 +29,44 @@ modulate = Color(0, 0.835294, 0.235294, 1)
 self_modulate = Color(0, 0.835294, 0.235294, 1)
 layout_mode = 2
 
+[node name="Label" type="Label" parent="Z/PuzzlePieceI"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "1"
+
 [node name="PuzzlePieceII" parent="Z" instance=ExtResource("2_tf3qn")]
 modulate = Color(0, 0.835294, 0.235294, 1)
 self_modulate = Color(0, 0.835294, 0.235294, 1)
 layout_mode = 2
+
+[node name="Label" type="Label" parent="Z/PuzzlePieceII"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "2"
 
 [node name="PuzzlePieceIII" parent="Z" instance=ExtResource("2_tf3qn")]
 modulate = Color(0, 0.835294, 0.235294, 1)
 self_modulate = Color(0, 0.835294, 0.235294, 1)
 layout_mode = 2
 
+[node name="Label" type="Label" parent="Z/PuzzlePieceIII"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "3"
+
 [node name="PuzzlePieceIV" parent="Z" instance=ExtResource("2_tf3qn")]
 modulate = Color(0, 0.835294, 0.235294, 1)
 self_modulate = Color(0, 0.835294, 0.235294, 1)
 layout_mode = 2
+
+[node name="Label" type="Label" parent="Z/PuzzlePieceIV"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "4"
 
 [node name="Blank2" type="TextureRect" parent="Z"]
 modulate = Color(1, 1, 1, 0)
@@ -69,11 +93,14 @@ layout_mode = 2
 texture = ExtResource("1_g21if")
 
 [node name="Area2D" type="Area2D" parent="Z"]
-collision_mask = 2
+collision_layer = 512
+collision_mask = 514
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Z/Area2D"]
 polygon = PackedVector2Array(0, 74, 78, 74, 78, 0, 231, 0, 231, 75, 153, 75, 153, 153, 0, 153)
 
+[connection signal="area_entered" from="Z/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Z/Area2D" to="." method="_on_area_2d_area_exited"]
 [connection signal="body_entered" from="Z/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Z/Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="mouse_entered" from="Z/Area2D" to="." method="_on_area_2d_mouse_entered"]
