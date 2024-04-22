@@ -32,6 +32,8 @@ func _process(delta):
 			if hovering:
 				if Input.is_action_just_pressed("right_mouse_click"):
 					rotation_degrees=rotation_degrees+90
+					if rotation_degrees == 360:
+						rotation_degrees = 0
 		elif Input.is_action_just_released("left_mouse_click"):
 			#print("Released")
 			#var mouse_pos : Vector2 = get_global_mouse_position()
@@ -56,7 +58,10 @@ func _process(delta):
 func getClosest():
 	var smallest_dict = 0
 	var dist = 100000.0
+	var x_offset = 0
+	var y_offset = 0
 	for x in list.keys():
+		print(rotation_degrees)
 		var calcDist=global_position.distance_to(Vector2(list[x].global_position.x + 37.5,list[x].global_position.y + 37.5))
 		if dist > calcDist:
 			smallest_dict = x
@@ -64,9 +69,21 @@ func getClosest():
 		#global_position.distance_to()
 		#print(list[x].global_position.x - 37.5)
 		#print(global_position.distance_to(Vector2(list[x].global_position.x - 37.5,list[x].global_position.y - 37.5)))
-		pass
+		#pass
 	#print(list[smallest_dict].get_node("../Label").text)
-	return Vector2(list[smallest_dict].global_position.x + 37.5,list[smallest_dict].global_position.y + 37.5)
+	if rotation_degrees == 0:
+		x_offset = -1
+		y_offset = -1
+	elif rotation_degrees == 90:
+		x_offset = 2
+		y_offset = -1
+	elif rotation_degrees == 180:
+		x_offset = 2.5
+		y_offset = 3.5
+	elif rotation_degrees == 270:
+		x_offset = -2.5
+		y_offset = 3.5
+	return Vector2(list[smallest_dict].global_position.x + (37.5+x_offset),list[smallest_dict].global_position.y + (37.5+y_offset))
 	
 func blockIn():
 	var inside = true
