@@ -2,16 +2,17 @@ extends Node2D
 
 var cell = preload("res://Scenes/Prefabs/Cell.tscn")
 var rng = RandomNumberGenerator.new()
-var arr = [-1,-1,-1]
+#var arr = [-1,-1,-1]
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var numbers = []
+	var arr = []
 	for x in range(0,36):
 		numbers.append(x)
-
-	for x in range (0,3):
+	for x in range (0,Global.level):
 		var randNum = rng.randi_range(0,numbers.size()-1)
-		arr[x] = numbers[randNum]
+		arr.append(numbers[randNum])
+		#arr[x] = numbers[randNum]
 		numbers.remove_at(randNum)
 			
 	for x in range(0,36):

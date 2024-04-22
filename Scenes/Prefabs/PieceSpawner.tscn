@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cf0xre6u821sn"]
 
-[ext_resource type="Script" path="res://Scripts/Prefabs/Piece Spawner.gd" id="1_of1kl"]
+[ext_resource type="Script" path="res://Scripts/Prefabs/Piece Spawner.gd" id="1_rlw8i"]
 [ext_resource type="PackedScene" uid="uid://c51rc5w7qrimf" path="res://Scenes/Prefabs/Shapes/Z_Shape.tscn" id="2_jsmmc"]
 [ext_resource type="PackedScene" uid="uid://dxqvuo1fweml3" path="res://Scenes/Prefabs/Shapes/t_shape.tscn" id="3_6n3qo"]
 [ext_resource type="PackedScene" uid="uid://dypq7bk547kem" path="res://Scenes/Prefabs/Shapes/I_Shape.tscn" id="4_f0bfs"]
@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c3ou86e8s1732" path="res://Scenes/Prefabs/Shapes/square_shape.tscn" id="6_rsuin"]
 
 [node name="PieceSpawner" type="CanvasLayer"]
-script = ExtResource("1_of1kl")
+script = ExtResource("1_rlw8i")
 
 [node name="ZShape" parent="." instance=ExtResource("2_jsmmc")]
 position = Vector2(1016, 176)
