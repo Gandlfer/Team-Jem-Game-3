@@ -6,11 +6,15 @@
 [node name="Puzzle" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+offset = Vector2(400, 225)
+transform = Transform2D(1, 0, 0, 1, 400, 225)
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -396.0
+offset_top = -224.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.388235, 0.388235, 0.388235, 1)
@@ -24,3 +28,5 @@ limit_bottom = 100
 position = Vector2(336, 72)
 
 [node name="PieceSpawner" parent="CanvasLayer" instance=ExtResource("2_t2gl5")]
+offset = Vector2(400, 225)
+transform = Transform2D(1, 0, 0, 1, 400, 225)
