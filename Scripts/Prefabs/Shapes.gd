@@ -7,6 +7,7 @@ var body_ref
 var initialPos: Vector2
 var itemPos : Vector2
 var list = {}
+var collidedPiecesList = {}
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	initialPos = global_position
@@ -21,7 +22,7 @@ func _process(delta):
 		
 		if Input.is_action_just_pressed("left_mouse_click"):
 			#initialPos = global_position
-			pass
+			#pass
 			Global.is_dragging = true
 		if Input.is_action_pressed("left_mouse_click"):
 			#print("Pressed")
@@ -37,7 +38,7 @@ func _process(delta):
 		elif Input.is_action_just_released("left_mouse_click"):
 			#print("Released")
 			#var mouse_pos : Vector2 = get_global_mouse_position()
-			if is_inside_dropable:
+			if is_inside_dropable and collidedPiecesList.size()==0:
 				#getClosest()
 				#global_position = itemPos
 				global_position = getClosest()
@@ -61,7 +62,7 @@ func getClosest():
 	var x_offset = 0
 	var y_offset = 0
 	for x in list.keys():
-		print(rotation_degrees)
+		#print(rotation_degrees)
 		var calcDist=global_position.distance_to(Vector2(list[x].global_position.x + 37.5,list[x].global_position.y + 37.5))
 		if dist > calcDist:
 			smallest_dict = x
@@ -120,6 +121,7 @@ func _on_area_2d_body_entered(body):
 
 
 func _on_area_2d_body_exited(body):
+
 	if body.is_in_group('Dropable'):
 		#print("Exit from L shape ",body.name,body.get_node("../Label").text)
 		list.erase(body.get_node("../Label").text)
@@ -145,3 +147,17 @@ func _on_area_2d_mouse_exited():
 		#Global.is_dragging = false
 		#print("Mouse Left")
 	pass # Replace with function body.
+
+
+func _on_area_2d_area_entered(area):
+	#if 
+	#print(area.get_groups())
+	print("Entering ",area.get_node("../..").name)
+	collidedPiecesList[area.get_node("../..").name] = ""
+	#pass # Replace with function body.
+
+
+func _on_area_2d_area_exited(area):
+	print("Exiting ",area.get_node("../..").name)
+	collidedPiecesList.erase(area.get_node("../..").name)
+	#pass # Replace with function body.
