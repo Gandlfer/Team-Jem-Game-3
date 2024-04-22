@@ -11,16 +11,16 @@
 script = ExtResource("1_of1kl")
 
 [node name="ZShape" parent="." instance=ExtResource("2_jsmmc")]
-position = Vector2(984, 160)
+position = Vector2(1016, 176)
 
 [node name="TShape" parent="." instance=ExtResource("3_6n3qo")]
-position = Vector2(144, 544)
+position = Vector2(136, 576)
 
 [node name="IShape" parent="." instance=ExtResource("4_f0bfs")]
-position = Vector2(128, 176)
+position = Vector2(56, 160)
 
 [node name="LShape" parent="." instance=ExtResource("5_mv1qt")]
-position = Vector2(967, 337)
+position = Vector2(1024, 360)
 
 [node name="Square_shape" parent="." instance=ExtResource("6_rsuin")]
-position = Vector2(992, 496)
+position = Vector2(1008, 496)
