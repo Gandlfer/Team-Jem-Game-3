@@ -42,8 +42,14 @@ func _process(delta):
 				#getClosest()
 				#global_position = itemPos
 				global_position = getClosest()
+				Global.piecesInside[get_node(".").get_groups()[0]][get_node(".").name]=""
+				print(Global.piecesInside)
+				#print(get_node(".").get_groups()[0])
+				#Global.piecesInside[]
 			else:
 				global_position = initialPos
+				Global.piecesInside[get_node(".").get_groups()[0]].erase(get_node(".").name)
+				print(Global.piecesInside)
 				queue_free()
 			Global.is_dragging = false
 			Global.needAdd = true
