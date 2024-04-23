@@ -14,6 +14,20 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	for x in Global.piecesInside.keys():
-		#if Global.piecesInside[x].size() == 3
 		get_node(x).value = Global.piecesInside[x].size() * 33.3
-	pass
+		var attr 
+		match x:
+			"ZShape":
+				attr = "Health"
+			"LShape":
+				attr = "Wisdom"
+			"TShape":
+				attr = "Agility"
+			"IShape":
+				attr = "Strength"
+			"Square_shape":
+				attr = "Dexerity"
+		if Global.piecesInside[x].size() >= 3:
+			Global.currentMade[attr]= ""
+		else:
+			Global.currentMade.erase(attr)
