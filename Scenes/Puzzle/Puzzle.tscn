@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://c87nchcsjooys"]
+[gd_scene load_steps=7 format=3 uid="uid://c87nchcsjooys"]
 
 [ext_resource type="PackedScene" uid="uid://boyqpn5qxpipp" path="res://Scenes/Prefabs/GridCellMaker.tscn" id="2_esk54"]
 [ext_resource type="PackedScene" uid="uid://cf0xre6u821sn" path="res://Scenes/Prefabs/PieceSpawner.tscn" id="2_t2gl5"]
 [ext_resource type="PackedScene" uid="uid://ct5hj2ny83nhl" path="res://Scenes/Prefabs/Progress Bar.tscn" id="3_6e7e4"]
+[ext_resource type="PackedScene" uid="uid://vs1tn23tkayx" path="res://Scenes/Prefabs/RNGPotion.tscn" id="4_16xrf"]
+[ext_resource type="Script" path="res://Scenes/Puzzle/Sprite2D.gd" id="5_geulb"]
+[ext_resource type="Texture2D" uid="uid://doux471hgrs3" path="res://Assets/NoVote.png" id="5_kf3jf"]
 
 [node name="Puzzle" type="Node2D"]
 
@@ -34,3 +37,13 @@ transform = Transform2D(1, 0, 0, 1, 400, 225)
 
 [node name="ProgressBar" parent="CanvasLayer" instance=ExtResource("3_6e7e4")]
 position = Vector2(816, -169)
+
+[node name="RngPotion" parent="CanvasLayer" instance=ExtResource("4_16xrf")]
+position = Vector2(8, -105)
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+visible = false
+position = Vector2(544, -97)
+scale = Vector2(0.186782, 0.20656)
+texture = ExtResource("5_kf3jf")
+script = ExtResource("5_geulb")
