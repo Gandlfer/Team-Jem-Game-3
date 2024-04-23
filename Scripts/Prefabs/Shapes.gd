@@ -43,13 +43,13 @@ func _process(delta):
 				#global_position = itemPos
 				global_position = getClosest()
 				Global.piecesInside[get_node(".").get_groups()[0]][get_node(".").name]=""
-				print(Global.piecesInside)
+				#print(Global.piecesInside)
 				#print(get_node(".").get_groups()[0])
 				#Global.piecesInside[]
 			else:
 				global_position = initialPos
 				Global.piecesInside[get_node(".").get_groups()[0]].erase(get_node(".").name)
-				print(Global.piecesInside)
+				#print(Global.piecesInside)
 				queue_free()
 			Global.is_dragging = false
 			Global.needAdd = true
@@ -158,12 +158,12 @@ func _on_area_2d_mouse_exited():
 func _on_area_2d_area_entered(area):
 	#if 
 	#print(area.get_groups())
-	print("Entering ",area.get_node("../..").name)
+	#print("Entering ",area.get_node("../..").name)
 	collidedPiecesList[area.get_node("../..").name] = ""
 	#pass # Replace with function body.
 
 
 func _on_area_2d_area_exited(area):
-	print("Exiting ",area.get_node("../..").name)
+	#print("Exiting ",area.get_node("../..").name)
 	collidedPiecesList.erase(area.get_node("../..").name)
 	#pass # Replace with function body.
