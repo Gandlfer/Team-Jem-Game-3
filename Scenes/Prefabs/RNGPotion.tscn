@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://vs1tn23tkayx"]
 
-[ext_resource type="Script" path="res://Scenes/Prefabs/RNGPotion.gd" id="1_cl8u8"]
+[ext_resource type="Script" path="res://Scripts/Prefabs/RNGPotion.gd" id="1_cl8u8"]
 
 [node name="RngPotion" type="Node2D"]
 script = ExtResource("1_cl8u8")

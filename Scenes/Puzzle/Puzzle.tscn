@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ct5hj2ny83nhl" path="res://Scenes/Prefabs/Progress Bar.tscn" id="3_6e7e4"]
 [ext_resource type="PackedScene" uid="uid://vs1tn23tkayx" path="res://Scenes/Prefabs/RNGPotion.tscn" id="4_16xrf"]
 [ext_resource type="Texture2D" uid="uid://dqoxxvnmx1hsa" path="res://Assets/NextButton.png" id="5_4keb7"]
-[ext_resource type="Script" path="res://Scenes/Puzzle/Sprite2D.gd" id="5_geulb"]
+[ext_resource type="Script" path="res://Scripts/Prefabs/Button.gd" id="5_geulb"]
 
 [node name="Puzzle" type="Node2D"]
 

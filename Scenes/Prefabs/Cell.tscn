@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://ddcbkn301si20"]
+[gd_scene load_steps=6 format=3 uid="uid://ddcbkn301si20"]
 
 [ext_resource type="Script" path="res://Scripts/Prefabs/Cell.gd" id="1_ttf25"]
-[ext_resource type="Script" path="res://Scenes/Prefabs/Area2D.gd" id="2_gw3qd"]
 [ext_resource type="Texture2D" uid="uid://doux471hgrs3" path="res://Assets/NoVote.png" id="3_g5doq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_82a14"]
@@ -49,7 +48,6 @@ default_color = Color(0, 0, 0, 1)
 position = Vector2(-21, 23)
 collision_layer = 16
 collision_mask = 4
-script = ExtResource("2_gw3qd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GridCellBody/Area2DCell"]
 position = Vector2(59, 15)
