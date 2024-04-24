@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://1aesbsr2vtpr"]
 
-[ext_resource type="Script" path="res://Scenes/GameOver.gd" id="1_7mujb"]
+[ext_resource type="Script" path="res://Scripts/GameOver.gd" id="1_7mujb"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_1m42e"]
 specular_color = Color(0, 0, 0, 1)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b5pxeb3e7jahi"]
 
-[ext_resource type="Script" path="res://Scenes/Win.gd" id="1_hj6dr"]
+[ext_resource type="Script" path="res://Scripts/Win.gd" id="1_hj6dr"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_3mp14"]
 specular_color = Color(0, 0, 0, 1)
