@@ -6,9 +6,13 @@ var currentMade = {}
 var is_dragging = false
 var needAdd = false
 var node = ""
-var level = 5
+var level = 3
 var piecesInside = {"ZShape":{},"LShape":{},"TShape":{},"IShape":{},"Square_shape":{}}
 var achieved = true
+
+func _ready():
+	reset()
+	
 func _process(delta):
 	#checkAchieved()
 	achieved = checkAchieved()
@@ -22,3 +26,8 @@ func checkAchieved():
 			done = done and true
 			
 	return done
+
+func reset():
+	piecesInside = {"ZShape":{},"LShape":{},"TShape":{},"IShape":{},"Square_shape":{}}
+	requested = {}
+	currentMade = {}
