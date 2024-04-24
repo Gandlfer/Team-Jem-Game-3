@@ -47,6 +47,7 @@ offset_right = 227.0
 offset_bottom = 286.0
 
 [node name="Label" type="Label" parent="PuzzlePieceZ"]
+layout_mode = 0
 offset_left = -154.0
 offset_top = -2.0
 offset_right = -2.0
@@ -64,6 +65,7 @@ offset_right = 226.0
 offset_bottom = 367.0
 
 [node name="Label" type="Label" parent="PuzzlePiece_a"]
+layout_mode = 0
 offset_left = -154.0
 offset_top = -2.0
 offset_right = -2.0
@@ -81,11 +83,28 @@ offset_right = 227.0
 offset_bottom = 449.0
 
 [node name="Label" type="Label" parent="PuzzlePieceA"]
+layout_mode = 0
 offset_left = -154.0
 offset_top = -2.0
 offset_right = -2.0
 offset_bottom = 72.0
 text = "Agility"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PuzzlePiece" parent="." instance=ExtResource("1_ebv27")]
+offset_left = 157.0
+offset_top = 464.0
+offset_right = 227.0
+offset_bottom = 534.0
+
+[node name="Label" type="Label" parent="PuzzlePiece"]
+layout_mode = 0
+offset_left = -157.0
+offset_top = -8.0
+offset_right = -5.0
+offset_bottom = 72.0
+text = "Filler"
 horizontal_alignment = 1
 vertical_alignment = 1
 
