@@ -18,6 +18,7 @@ func _ready():
 	for x in range(0,36):
 		var node = cell.instantiate()
 		node.num=x
+		#node.get_node("Lable").visible = false
 		if x in arr:#x == 7 or x == 21 or x == 30:#
 			node.get_node("GridCellBody/Area2DCell").add_to_group("BlockedBox")
 			node.get_node("GridCellBody/Area2DCell/Blocked").visible = true

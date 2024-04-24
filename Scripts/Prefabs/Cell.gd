@@ -4,6 +4,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Label.visible=false
 	pass # Replace with function body.
 
 
