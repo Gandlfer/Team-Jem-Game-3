@@ -9,6 +9,7 @@ var node = ""
 var level = 3
 var piecesInside = {"ZShape":{},"LShape":{},"TShape":{},"IShape":{},"Square_shape":{}}
 var achieved = true
+var roundEnd = false
 
 func _ready():
 	reset()
