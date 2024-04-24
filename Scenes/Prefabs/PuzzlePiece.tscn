@@ -26,7 +26,7 @@ position = Vector2(36.5, 37)
 shape = SubResource("RectangleShape2D_lfld7")
 
 [node name="TextureRect" type="TextureRect" parent="PuzzlePieceBody"]
-custom_minimum_size = Vector2(70, 70)
+custom_minimum_size = Vector2(75, 75)
 offset_right = 70.0
 offset_bottom = 70.0
 texture = ExtResource("1_q1q5k")
