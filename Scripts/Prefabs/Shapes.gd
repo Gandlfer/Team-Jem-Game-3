@@ -8,10 +8,17 @@ var initialPos: Vector2
 var itemPos : Vector2
 var list = {}
 var collidedPiecesList = {}
+var dropSound
+var pickupSound
+var audioPlayer : AudioStreamPlayer
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	dropSound = preload("res://Audio/clothes-drop-2-40202.mp3")
+	pickupSound = preload("res://Audio/paper-collect-6-186720.mp3")
+	audioPlayer = AudioStreamPlayer.new()
+	add_child(audioPlayer)
 	initialPos = global_position
-	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -19,10 +26,12 @@ func _process(delta):
 	blockIn()
 	
 	if draggable:
-		
 		if Input.is_action_just_pressed("left_mouse_click"):
 			#initialPos = global_position
 			#pass
+			audioPlayer.stream = pickupSound
+			audioPlayer.volume_db = -15  # Lower the volume
+			audioPlayer.play()
 			Global.is_dragging = true
 		if Input.is_action_pressed("left_mouse_click"):
 			Global.is_dragging = true
@@ -41,6 +50,9 @@ func _process(delta):
 			#print("Released")
 			#var mouse_pos : Vector2 = get_global_mouse_position()
 			if is_inside_dropable and collidedPiecesList.size()==0:
+				audioPlayer.stream = dropSound
+				audioPlayer.volume_db = 0.5  # Lower the volume
+				audioPlayer.play()
 				#getClosest()
 				#global_position = itemPos
 				global_position = getClosest()

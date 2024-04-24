@@ -2,9 +2,20 @@ extends Node2D
 
 var cell = preload("res://Scenes/Prefabs/Cell.tscn")
 var rng = RandomNumberGenerator.new()
-#var arr = [-1,-1,-1]
+var bgMusicPlayer : AudioStreamPlayer
+var bgMusic : AudioStreamMP3 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	bgMusic = load("res://Audio/027682_boss39s-music-for-gamemp3-68640.mp3")
+	bgMusicPlayer = AudioStreamPlayer.new()  # Create a new AudioStreamPlayer for the background music
+	bgMusic.loop = true  # Set loop to true for the background music
+	bgMusicPlayer.stream = bgMusic
+	bgMusicPlayer.volume_db = -10
+	add_child(bgMusicPlayer)
+	bgMusicPlayer.play()
+	
+	
 	var numbers = []
 	var arr = []
 	for x in range(0,36):
