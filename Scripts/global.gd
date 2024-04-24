@@ -32,3 +32,6 @@ func reset():
 	piecesInside = {"ZShape":{},"LShape":{},"TShape":{},"IShape":{},"Square_shape":{}}
 	requested = {}
 	currentMade = {}
+	is_dragging = false
+	needAdd = false
+	node = ""

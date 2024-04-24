@@ -4,7 +4,7 @@ var rng = RandomNumberGenerator.new()
 var arr = []
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var tmp = Global.attr
+	var tmp = ["Health","Strength","Wisdom","Agility","Dexerity"]#Global.attr
 	var index
 	if Global.level == 5:
 		index = rng.randi_range(0,len(tmp)-1)
