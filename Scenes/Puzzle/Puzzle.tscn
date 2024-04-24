@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c87nchcsjooys"]
+[gd_scene load_steps=10 format=3 uid="uid://c87nchcsjooys"]
 
 [ext_resource type="PackedScene" uid="uid://boyqpn5qxpipp" path="res://Scenes/Prefabs/GridCellMaker.tscn" id="2_esk54"]
 [ext_resource type="PackedScene" uid="uid://cf0xre6u821sn" path="res://Scenes/Prefabs/PieceSpawner.tscn" id="2_t2gl5"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://Scripts/Prefabs/Button.gd" id="5_geulb"]
 [ext_resource type="PackedScene" uid="uid://cunekbj63ga8o" path="res://Scenes/Timer.tscn" id="7_lo11e"]
 [ext_resource type="PackedScene" uid="uid://j6g8m4fklwjd" path="res://Scenes/Transition.tscn" id="8_5s7dl"]
+[ext_resource type="PackedScene" uid="uid://cddmeibbnppwg" path="res://Scenes/Prefabs/AttributeGuide.tscn" id="9_vich7"]
 
 [node name="Puzzle" type="Node2D"]
 
@@ -62,5 +63,8 @@ offset_right = 643.0
 offset_bottom = -74.0
 
 [node name="Transition" parent="CanvasLayer" instance=ExtResource("8_5s7dl")]
+
+[node name="AttributeGuide" parent="CanvasLayer" instance=ExtResource("9_vich7")]
+position = Vector2(-350, 0)
 
 [connection signal="pressed" from="CanvasLayer/TextureButton" to="CanvasLayer/TextureButton" method="_on_pressed"]

@@ -1,0 +1,99 @@
+[gd_scene load_steps=2 format=3 uid="uid://cddmeibbnppwg"]
+
+[ext_resource type="PackedScene" uid="uid://bet4n7nso6jw" path="res://Scenes/Prefabs/PuzzlePiece.tscn" id="1_ebv27"]
+
+[node name="AttributeGuide" type="Node2D"]
+
+[node name="PuzzlePiece4" parent="." instance=ExtResource("1_ebv27")]
+modulate = Color(0.188235, 1, 1, 1)
+self_modulate = Color(0.188235, 1, 1, 1)
+offset_left = 155.0
+offset_top = 53.0
+offset_right = 225.0
+offset_bottom = 123.0
+
+[node name="Label" type="Label" parent="PuzzlePiece4"]
+layout_mode = 0
+offset_left = -152.0
+offset_bottom = 74.0
+text = "Strength"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PuzzlePieceI" parent="." instance=ExtResource("1_ebv27")]
+modulate = Color(0, 0.835294, 0.235294, 1)
+self_modulate = Color(0, 0.835294, 0.235294, 1)
+offset_left = 156.0
+offset_top = 135.0
+offset_right = 226.0
+offset_bottom = 205.0
+
+[node name="Label" type="Label" parent="PuzzlePieceI"]
+layout_mode = 0
+offset_left = -154.0
+offset_top = -2.0
+offset_right = -2.0
+offset_bottom = 72.0
+text = "Health"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PuzzlePieceZ" parent="." instance=ExtResource("1_ebv27")]
+modulate = Color(0.705882, 0.32549, 1, 1)
+self_modulate = Color(0.705882, 0.32549, 1, 1)
+offset_left = 157.0
+offset_top = 216.0
+offset_right = 227.0
+offset_bottom = 286.0
+
+[node name="Label" type="Label" parent="PuzzlePieceZ"]
+offset_left = -154.0
+offset_top = -2.0
+offset_right = -2.0
+offset_bottom = 72.0
+text = "Wisdom"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PuzzlePiece_a" parent="." instance=ExtResource("1_ebv27")]
+modulate = Color(1, 0.188235, 0.541176, 1)
+self_modulate = Color(1, 0.188235, 0.541176, 1)
+offset_left = 156.0
+offset_top = 297.0
+offset_right = 226.0
+offset_bottom = 367.0
+
+[node name="Label" type="Label" parent="PuzzlePiece_a"]
+offset_left = -154.0
+offset_top = -2.0
+offset_right = -2.0
+offset_bottom = 72.0
+text = "Dexterity"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PuzzlePieceA" parent="." instance=ExtResource("1_ebv27")]
+modulate = Color(1, 1, 0.380392, 1)
+self_modulate = Color(1, 1, 0.380392, 1)
+offset_left = 157.0
+offset_top = 379.0
+offset_right = 227.0
+offset_bottom = 449.0
+
+[node name="Label" type="Label" parent="PuzzlePieceA"]
+offset_left = -154.0
+offset_top = -2.0
+offset_right = -2.0
+offset_bottom = 72.0
+text = "Agility"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="."]
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 231.0
+offset_bottom = 44.0
+text = "Attribute Guide"
+horizontal_alignment = 1
+vertical_alignment = 1
