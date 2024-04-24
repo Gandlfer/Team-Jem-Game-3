@@ -25,9 +25,11 @@ func _process(delta):
 			#pass
 			Global.is_dragging = true
 		if Input.is_action_pressed("left_mouse_click"):
-			#print("Pressed")
+			Global.is_dragging = true
+			print("Pressed on ",get_node(".").get_groups()[0])
 			#print(global_position, " ",get_global_mouse_position())
 			itemPos = get_global_mouse_position()
+			#print("Clicking")
 			#itemPos = Vector2(snapped(mouse_pos.x,158),snapped(mouse_pos.y,158))
 			global_position = itemPos
 			if hovering:
@@ -60,7 +62,7 @@ func _process(delta):
 				#tween.tween_property(self,"position",body_ref.position,0.2).set_ease(Tween.EASE_OUT)
 			#else:
 				#tween.tween_property(self,"global_position",Vector2(snapped(mouse_pos.x,83),snapped(mouse_pos.y,83)),0.2).set_ease(Tween.EASE_OUT)
-	
+
 
 func getClosest():
 	var smallest_dict = 0
@@ -136,8 +138,9 @@ func _on_area_2d_body_exited(body):
 
 func _on_area_2d_mouse_entered():
 	#if not Global.is_dragging:
-	#print("Mouse inside")
+	
 	if not Global.is_dragging:
+		#print("Mouse inside")
 		draggable = true
 		hovering = true
 		
@@ -147,7 +150,7 @@ func _on_area_2d_mouse_entered():
 func _on_area_2d_mouse_exited():
 	#print("Mouse Left")
 	if not Global.is_dragging:
-	#print("Mouse left")
+		#print("Mouse left")
 		draggable = false
 		hovering = false
 		#Global.is_dragging = false
