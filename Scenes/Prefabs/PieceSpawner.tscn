@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cf0xre6u821sn"]
+[gd_scene load_steps=8 format=3 uid="uid://cf0xre6u821sn"]
 
 [ext_resource type="Script" path="res://Scripts/Prefabs/Piece Spawner.gd" id="1_rlw8i"]
 [ext_resource type="PackedScene" uid="uid://c51rc5w7qrimf" path="res://Scenes/Prefabs/Shapes/Z_Shape.tscn" id="2_jsmmc"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dypq7bk547kem" path="res://Scenes/Prefabs/Shapes/I_Shape.tscn" id="4_f0bfs"]
 [ext_resource type="PackedScene" uid="uid://c7bm3m70pc1v7" path="res://Scenes/Prefabs/Shapes/L_Shape.tscn" id="5_mv1qt"]
 [ext_resource type="PackedScene" uid="uid://c3ou86e8s1732" path="res://Scenes/Prefabs/Shapes/square_shape.tscn" id="6_rsuin"]
+[ext_resource type="PackedScene" uid="uid://px0qcydpve6b" path="res://Scenes/Prefabs/Shapes/FillerShape.tscn" id="7_wkf1c"]
 
 [node name="PieceSpawner" type="CanvasLayer"]
 script = ExtResource("1_rlw8i")
@@ -24,3 +25,6 @@ position = Vector2(1024, 360)
 
 [node name="Square_shape" parent="." instance=ExtResource("6_rsuin")]
 position = Vector2(1008, 496)
+
+[node name="FillerShape" parent="." instance=ExtResource("7_wkf1c")]
+position = Vector2(208, 208)

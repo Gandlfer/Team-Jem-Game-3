@@ -10,6 +10,8 @@ var L_Node = preload("res://Scenes/Prefabs/Shapes/L_Shape.tscn")
 var L_pos : Vector2
 var Square_Node = preload("res://Scenes/Prefabs/Shapes/square_shape.tscn")
 var Square_pos : Vector2
+var Filler_Node = preload("res://Scenes/Prefabs/Shapes/FillerShape.tscn")
+var Filler_pos : Vector2
 var tmp : Node2D
 
 # Called when the node enters the scene tree for the first time.
@@ -19,6 +21,7 @@ func _ready():
 	I_pos = $IShape.position
 	L_pos = $LShape.position
 	Square_pos = $Square_shape.position
+	Filler_pos = $FillerShape.position
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -44,5 +47,8 @@ func spawner():
 		"Square_shape":
 			tmp = Square_Node.instantiate()
 			tmp.position = Square_pos
+		"FillerShape":
+			tmp = Filler_Node.instantiate()
+			tmp.position = Filler_pos
 	add_child(tmp)
 	
