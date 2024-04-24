@@ -11,10 +11,10 @@ script = ExtResource("1_n0fhv")
 
 [node name="Z" type="GridContainer" parent="."]
 custom_minimum_size = Vector2(75, 75)
-offset_left = -76.0
-offset_top = -76.0
-offset_right = 77.0
-offset_bottom = 77.0
+offset_left = -36.5
+offset_top = -35.5
+offset_right = 116.5
+offset_bottom = 117.5
 mouse_filter = 2
 theme_override_constants/h_separation = 8
 theme_override_constants/v_separation = 8
@@ -41,12 +41,15 @@ self_modulate = Color(1, 0.188235, 0.541176, 1)
 layout_mode = 2
 
 [node name="Area2D" type="Area2D" parent="Z"]
-collision_mask = 2
+collision_layer = 512
+collision_mask = 514
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Z/Area2D"]
 position = Vector2(77, 76)
 shape = SubResource("RectangleShape2D_dsgvt")
 
+[connection signal="area_entered" from="Z/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Z/Area2D" to="." method="_on_area_2d_area_exited"]
 [connection signal="body_entered" from="Z/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Z/Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="mouse_entered" from="Z/Area2D" to="." method="_on_area_2d_mouse_entered"]

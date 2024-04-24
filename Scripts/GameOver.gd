@@ -17,8 +17,14 @@ func _ready():
 func _process(delta):
 	pass
 
+
 func _on_main_menu_pressed():
+	Global.level=3
 	get_tree().change_scene_to_file("res://Scenes/menu.tscn")
+	
+
 
 func _on_restart_pressed():
+	Global.level=3
 	get_tree().change_scene_to_file("res://Scenes/Puzzle/Puzzle.tscn")
+	

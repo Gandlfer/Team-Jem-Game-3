@@ -24,7 +24,7 @@ func _ready():
 func _process(delta):
 	if Global.needAdd:
 		Global.needAdd = false
-		print(Global.node)
+		#print(Global.node)
 		spawner()
 
 func spawner():

@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://cu5i6nb82lbv4"]
+
+[ext_resource type="Texture2D" uid="uid://deqngv7tv0qpb" path="res://Assets/backgroungGame3.png" id="1_nnown"]
+
+[node name="CutScene1" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+layout_direction = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_nnown")
+expand_mode = 1
