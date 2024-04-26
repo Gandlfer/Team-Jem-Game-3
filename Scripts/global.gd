@@ -11,7 +11,7 @@ var piecesInside = {"ZShape":{},"LShape":{},"TShape":{},"IShape":{},"Square_shap
 var achieved = true
 var roundEnd = false
 var sum = 0
-
+var eachAttrAchieved = {}
 func _ready():
 	reset()
 	
@@ -25,8 +25,12 @@ func checkAchieved():
 	for x in requested.keys():
 		if x not in currentMade.keys():
 			done = done and false
+			if !eachAttrAchieved.has(x):
+				eachAttrAchieved[x] = false
+			
 		else:
 			done = done and true
+			eachAttrAchieved[x] = true
 	#var sum = 0
 	for x in piecesInside.keys():
 		if x != "FillerShape":
@@ -47,3 +51,4 @@ func reset():
 	needAdd = false
 	node = ""
 	sum = 0
+	eachAttrAchieved = {}
