@@ -1,16 +1,23 @@
 extends TextureButton
 
 var nextPuzzle = load("res://Scenes/Puzzle/Puzzle.tscn")
-
+var appearSound
+var audioPlayer : AudioStreamPlayer
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
+	appearSound = preload("res://Audio/sound-effect-twinklesparkle-115095.mp3")
+	audioPlayer = AudioStreamPlayer.new()
+	add_child(audioPlayer)
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Global.achieved:
+		if !get_node(".").visible:
+			audioPlayer.stream = appearSound
+			audioPlayer.volume_db = -1  # Lower the volume
+			audioPlayer.play()
 		get_node(".").visible = true
 		get_node(".").disabled = false
 	else:
