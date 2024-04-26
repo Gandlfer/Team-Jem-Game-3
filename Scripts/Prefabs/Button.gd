@@ -20,12 +20,15 @@ func _process(delta):
 
 
 func _on_pressed():
-	Global.level+=1
 	Global.reset()
-	#Global.piecesInside = {"ZShape":{},"LShape":{},"TShape":{},"IShape":{},"Square_shape":{}}
-	get_tree().change_scene_to_file("res://Scenes/Puzzle/Puzzle.tscn")
-	#print(Global.requested)
-	#print(Global.currentMade)
-	print("Next Scene")
+	if Global.level == 5:
+		Global.level = 3
+		get_tree().change_scene_to_file("res://Scenes/Win.tscn")
+	else:
+		Global.level+=1
+		#Global.reset()
+		get_tree().change_scene_to_file("res://Scenes/Puzzle/Puzzle.tscn")
+	
+	#print("Next Scene")
 	
 	pass # Replace with function body.
