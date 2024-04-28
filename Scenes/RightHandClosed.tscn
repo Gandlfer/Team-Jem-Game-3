@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dptt3yyifspwk"]
+
+[ext_resource type="Script" path="res://Scripts/RightHand.gd" id="1_boipm"]
+[ext_resource type="Texture2D" uid="uid://esnfq73o3j7v" path="res://Assets/Holding_Hand_PNG_Clipart.png" id="2_xmdnx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_21k0y"]
+size = Vector2(86, 130.5)
+
+[node name="Right hand closed" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_boipm")
+
+[node name="HoldingHandPngClipart" type="Sprite2D" parent="."]
+position = Vector2(-1, 0)
+rotation = 0.5044
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_xmdnx")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-69, -85)
+shape = SubResource("RectangleShape2D_21k0y")
