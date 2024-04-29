@@ -1,62 +1,104 @@
-[gd_scene load_steps=10 format=3 uid="uid://bgrjtujlsrjwb"]
+[gd_scene load_steps=12 format=3 uid="uid://bgrjtujlsrjwb"]
 
-[ext_resource type="Script" path="res://Scenes/Prefabs/Witch/witchmvmt.gd" id="1_r1bru"]
+[ext_resource type="Script" path="res://Scenes/Prefabs/Witch/witch.gd" id="1_4fsyu"]
 [ext_resource type="Texture2D" uid="uid://bsnnph0igcpk3" path="res://Assets/witchani.png" id="2_7f4j3"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_u6c8m"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ot7r"]
 atlas = ExtResource("2_7f4j3")
-region = Rect2(0, 830, 258, 415)
+region = Rect2(0, 830, 261, 415)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kj7r7"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_15y84"]
 atlas = ExtResource("2_7f4j3")
-region = Rect2(258, 830, 258, 415)
+region = Rect2(261, 830, 261, 415)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2lc38"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_dwmsn"]
 atlas = ExtResource("2_7f4j3")
-region = Rect2(516, 830, 258, 415)
+region = Rect2(522, 830, 261, 415)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rfv1u"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_hkdkv"]
 atlas = ExtResource("2_7f4j3")
-region = Rect2(774, 830, 258, 415)
+region = Rect2(783, 830, 261, 415)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6bvha"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vo63"]
 atlas = ExtResource("2_7f4j3")
-region = Rect2(1032, 830, 258, 415)
+region = Rect2(1044, 830, 261, 415)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i6avm"]
+resource_local_to_scene = true
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_u6c8m")
+"texture": SubResource("AtlasTexture_7ot7r")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kj7r7")
+"texture": SubResource("AtlasTexture_15y84")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2lc38")
+"texture": SubResource("AtlasTexture_dwmsn")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rfv1u")
+"texture": SubResource("AtlasTexture_hkdkv")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6bvha")
+"texture": SubResource("AtlasTexture_5vo63")
 }],
 "loop": true,
-"name": &"default",
+"name": &"walk",
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7frgg"]
-radius = 127.0
-height = 348.0
+[sub_resource type="Animation" id="Animation_j58sm"]
+resource_name = "walk"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 0, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
-script = ExtResource("1_r1bru")
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_okf5h"]
+_data = {
+"walk": SubResource("Animation_j58sm")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7frgg"]
+radius = 105.074
+height = 352.072
+
+[node name="witch" type="CharacterBody2D"]
+position = Vector2(-16, 145)
+scale = Vector2(0.783544, 0.780391)
+script = ExtResource("1_4fsyu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(259, 330)
 sprite_frames = SubResource("SpriteFrames_i6avm")
+animation = &"walk"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../AnimatedSprite2D")
+libraries = {
+"": SubResource("AnimationLibrary_okf5h")
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(251, 366)
+position = Vector2(246.317, 361.357)
 shape = SubResource("CapsuleShape2D_7frgg")

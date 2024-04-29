@@ -1,0 +1,159 @@
+[gd_scene load_steps=4 format=3 uid="uid://boevc1l5tw6ts"]
+
+[sub_resource type="GDScript" id="GDScript_gb1ce"]
+script/source = "extends CanvasLayer
+
+const CHAR_READ_RATE = 0.05
+
+@onready var textbox_container : Node = $\"TextboxContainer\"
+@onready var label : Label = $\"TextboxContainer/MarginContainer/HBoxContainer/Label\"
+@onready var timer: Timer = $Timer1
+
+enum State {
+	READY,
+	READING,
+	FINISHED
+}
+
+var current_state : State = State.READY
+var text_queue : Array = []
+
+func _ready():
+	print(\"Starting state: State.READY\")
+	hide_textbox_container()
+	queue_text(\"HAULT WITCH!\")
+	queue_text(\"If you want to escape, I need a potion from you.\")
+	queue_text(\"Make me the potion I want and I will give you the key.\")
+	# queue_text(\"Thanks for watching!\")
+	# timer.connect(\"timeout\", self, \"_on_Timer_timeout\")
+	timer.start()
+
+func show_textbox_container(duration: float):
+	# Show the textbox container
+	textbox_container.visible = true
+	# Start the timer for the specified duration
+	timer.wait_time = duration
+	timer.start()
+
+
+func hide_textbox_container():
+	# Hide the textbox container
+	textbox_container.visible = false
+
+func _on_Timer_timeout():
+	# Code to execute after timer expires
+	print(\"Delay completed!\")
+	if current_state == State.READY:
+		display_text()
+
+func _process(delta: float) -> void:
+	match current_state:
+		State.READY:
+			pass
+		State.READING:
+			pass
+		State.FINISHED:
+			pass
+
+func queue_text(next_text: String) -> void:
+	text_queue.append(next_text)
+
+func display_text() -> void:
+	var next_text : String = text_queue.pop_front()
+	label.text = next_text
+	change_state(State.READING)
+	# show_textbox_container()
+
+func change_state(next_state : State) -> void:
+	current_state = next_state
+	match current_state:
+		State.READY:
+			print(\"Changing state to: State.READY\")
+		State.READING:
+			print(\"Changing state to: State.READING\")
+		State.FINISHED:
+			print(\"Changing state to: State.FINISHED\")
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_14rcg"]
+bg_color = Color(0.290196, 0.0588235, 0.188235, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.529412, 0.458824, 0.313726, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_0a75u"]
+font_names = PackedStringArray("", "Marlett")
+
+[node name="TextBox" type="CanvasLayer"]
+script = SubResource("GDScript_gb1ce")
+
+[node name="Timer1" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="TextboxContainer" type="MarginContainer" parent="."]
+layout_direction = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 80.0
+offset_top = -158.0
+offset_right = -76.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="Panel" type="Panel" parent="TextboxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_14rcg")
+
+[node name="MarginContainer" type="MarginContainer" parent="TextboxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Panel" type="Panel" parent="TextboxContainer/MarginContainer"]
+visible = false
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextboxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Start" type="Label" parent="TextboxContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(17, 0)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_fonts/font = SubResource("SystemFont_0a75u")
+theme_override_font_sizes/font_size = 40
+text = "*
+
+"
+
+[node name="Label" type="Label" parent="TextboxContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(934, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_fonts/font = SubResource("SystemFont_0a75u")
+theme_override_font_sizes/font_size = 40
+text = "Placeholder text here. the quick brown fox jumped over the
+"
+autowrap_mode = 2
+clip_text = true
+
+[node name="End" type="Label" parent="TextboxContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(17, 0)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_fonts/font = SubResource("SystemFont_0a75u")
+theme_override_font_sizes/font_size = 40
+text = " 
+*"
