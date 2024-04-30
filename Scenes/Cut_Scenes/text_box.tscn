@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://boevc1l5tw6ts"]
+[gd_scene load_steps=4 format=3 uid="uid://jvu1j57if0o8"]
 
 [sub_resource type="GDScript" id="GDScript_gb1ce"]
 script/source = "extends CanvasLayer

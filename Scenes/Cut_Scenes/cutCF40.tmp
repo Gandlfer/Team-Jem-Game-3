@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cu5i6nb82lbv4"]
+[gd_scene load_steps=7 format=3 uid="uid://cu5i6nb82lbv4"]
 
 [ext_resource type="PackedScene" uid="uid://bgrjtujlsrjwb" path="res://Scenes/Prefabs/Witch/witch.tscn" id="1_nce73"]
 [ext_resource type="Texture2D" uid="uid://deqngv7tv0qpb" path="res://Assets/backgroungGame3.png" id="1_nnown"]
 [ext_resource type="PackedScene" uid="uid://btv6hg5s5eh2c" path="res://Scenes/Prefabs/Guards/guard1.tscn" id="3_ubyko"]
 [ext_resource type="Script" path="res://Scenes/Cut_Scenes/TextboxContainer.gd" id="4_imrym"]
-[ext_resource type="AudioStream" uid="uid://dc0afq6d4amqe" path="res://Assets/spellcraft-142264.mp3" id="5_nqofx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0n3b7"]
 bg_color = Color(0.290196, 0.0588235, 0.188235, 1)
@@ -21,10 +20,6 @@ font_names = PackedStringArray("", "Marlett")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 10
-
-[node name="BGsounds" type="AudioStreamPlayer" parent="CanvasLayer"]
-stream = ExtResource("5_nqofx")
-volume_db = -11.788
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 light_mask = 512
@@ -68,9 +63,6 @@ theme_override_constants/margin_top = 2
 theme_override_constants/margin_right = 2
 theme_override_constants/margin_bottom = 2
 script = ExtResource("4_imrym")
-
-[node name="Timer" type="Timer" parent="CanvasLayer/TextboxContainer"]
-autostart = true
 
 [node name="Panel" type="Panel" parent="CanvasLayer/TextboxContainer"]
 layout_mode = 2
@@ -117,3 +109,6 @@ theme_override_fonts/font = SubResource("SystemFont_6mbq2")
 theme_override_font_sizes/font_size = 40
 text = " 
 *"
+
+[node name="Timer" type="Timer" parent="CanvasLayer/TextboxContainer"]
+autostart = true
