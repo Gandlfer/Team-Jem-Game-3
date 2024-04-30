@@ -1,19 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://cu5i6nb82lbv4"]
+[gd_scene load_steps=7 format=3 uid="uid://cu5i6nb82lbv4"]
 
 [ext_resource type="PackedScene" uid="uid://bgrjtujlsrjwb" path="res://Scenes/Prefabs/Witch/witch.tscn" id="1_nce73"]
 [ext_resource type="Texture2D" uid="uid://deqngv7tv0qpb" path="res://Assets/backgroungGame3.png" id="1_nnown"]
+[ext_resource type="Script" path="res://Scenes/Cut_Scenes/cut_scene_1.gd" id="1_xbbob"]
 [ext_resource type="PackedScene" uid="uid://btv6hg5s5eh2c" path="res://Scenes/Prefabs/Guards/guard1.tscn" id="3_ubyko"]
 [ext_resource type="AudioStream" uid="uid://dc0afq6d4amqe" path="res://Assets/spellcraft-142264.mp3" id="5_nqofx"]
 [ext_resource type="PackedScene" uid="uid://jvu1j57if0o8" path="res://Scenes/Cut_Scenes/text_box.tscn" id="6_6if8o"]
 
 [node name="CutScene1" type="Node2D"]
+script = ExtResource("1_xbbob")
+
+[node name="BGsounds" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_nqofx")
+volume_db = -11.788
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 10
-
-[node name="BGsounds" type="AudioStreamPlayer" parent="CanvasLayer"]
-stream = ExtResource("5_nqofx")
-volume_db = -11.788
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 light_mask = 512
