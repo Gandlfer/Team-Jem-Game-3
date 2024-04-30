@@ -1,21 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cu5i6nb82lbv4"]
+[gd_scene load_steps=6 format=3 uid="uid://cu5i6nb82lbv4"]
 
 [ext_resource type="PackedScene" uid="uid://bgrjtujlsrjwb" path="res://Scenes/Prefabs/Witch/witch.tscn" id="1_nce73"]
 [ext_resource type="Texture2D" uid="uid://deqngv7tv0qpb" path="res://Assets/backgroungGame3.png" id="1_nnown"]
 [ext_resource type="PackedScene" uid="uid://btv6hg5s5eh2c" path="res://Scenes/Prefabs/Guards/guard1.tscn" id="3_ubyko"]
-[ext_resource type="Script" path="res://Scenes/Cut_Scenes/TextboxContainer.gd" id="4_imrym"]
 [ext_resource type="AudioStream" uid="uid://dc0afq6d4amqe" path="res://Assets/spellcraft-142264.mp3" id="5_nqofx"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0n3b7"]
-bg_color = Color(0.290196, 0.0588235, 0.188235, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.529412, 0.458824, 0.313726, 1)
-
-[sub_resource type="SystemFont" id="SystemFont_6mbq2"]
-font_names = PackedStringArray("", "Marlett")
+[ext_resource type="PackedScene" uid="uid://jvu1j57if0o8" path="res://Scenes/Cut_Scenes/text_box.tscn" id="6_6if8o"]
 
 [node name="CutScene1" type="Node2D"]
 
@@ -50,70 +39,6 @@ scale = Vector2(0.967287, 0.848096)
 position = Vector2(952, 685)
 scale = Vector2(0.726695, 0.649403)
 
-[node name="TextboxContainer" type="MarginContainer" parent="CanvasLayer"]
-layout_direction = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 80.0
-offset_top = -124.0
-offset_right = -76.0
-offset_bottom = 9.0
-grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(0.985609, 0.826237)
-theme_override_constants/margin_left = 2
-theme_override_constants/margin_top = 2
-theme_override_constants/margin_right = 2
-theme_override_constants/margin_bottom = 2
-script = ExtResource("4_imrym")
-
-[node name="Timer" type="Timer" parent="CanvasLayer/TextboxContainer"]
-autostart = true
-
-[node name="Panel" type="Panel" parent="CanvasLayer/TextboxContainer"]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_0n3b7")
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/TextboxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
-
-[node name="Panel" type="Panel" parent="CanvasLayer/TextboxContainer/MarginContainer"]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/TextboxContainer/MarginContainer"]
-layout_mode = 2
-
-[node name="Start" type="Label" parent="CanvasLayer/TextboxContainer/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(17, 0)
-layout_mode = 2
-size_flags_vertical = 0
-theme_override_fonts/font = SubResource("SystemFont_6mbq2")
-theme_override_font_sizes/font_size = 40
-text = "*
-
-"
-
-[node name="Label" type="Label" parent="CanvasLayer/TextboxContainer/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(934, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-theme_override_fonts/font = SubResource("SystemFont_6mbq2")
-theme_override_font_sizes/font_size = 40
-autowrap_mode = 2
-clip_text = true
-
-[node name="End" type="Label" parent="CanvasLayer/TextboxContainer/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(17, 0)
-layout_mode = 2
-size_flags_vertical = 8
-theme_override_fonts/font = SubResource("SystemFont_6mbq2")
-theme_override_font_sizes/font_size = 40
-text = " 
-*"
+[node name="TextBox" parent="CanvasLayer" instance=ExtResource("6_6if8o")]
+position = Vector2(974, 1070)
+scale = Vector2(1.20135, 1.05067)

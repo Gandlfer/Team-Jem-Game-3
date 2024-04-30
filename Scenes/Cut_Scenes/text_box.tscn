@@ -1,78 +1,59 @@
 [gd_scene load_steps=4 format=3 uid="uid://jvu1j57if0o8"]
 
 [sub_resource type="GDScript" id="GDScript_gb1ce"]
-script/source = "extends CanvasLayer
+script/source = "extends Node2D
 
-const CHAR_READ_RATE = 0.05
+var messages = [
+	#\"        \", 
+	\"         \",
+	\"Hault Witch! You will not be escaping!.... \",
+	\"Unless you make me a potion that I want!\",
+	\"But I'm not telling you what potion I want. HA!\"
+]
 
-@onready var textbox_container : Node = $\"TextboxContainer\"
-@onready var label : Label = $\"TextboxContainer/MarginContainer/HBoxContainer/Label\"
-@onready var timer: Timer = $Timer1
+var typing_speed = .07
+var read_time = .8
 
-enum State {
-	READY,
-	READING,
-	FINISHED
-}
-
-var current_state : State = State.READY
-var text_queue : Array = []
+var current_message = 0
+var display = \"  \"
+var current_char = 0
 
 func _ready():
-	print(\"Starting state: State.READY\")
-	hide_textbox_container()
-	queue_text(\"HAULT WITCH!\")
-	queue_text(\"If you want to escape, I need a potion from you.\")
-	queue_text(\"Make me the potion I want and I will give you the key.\")
-	# queue_text(\"Thanks for watching!\")
-	# timer.connect(\"timeout\", self, \"_on_Timer_timeout\")
-	timer.start()
+	start_dialogue()
+	
+func start_dialogue():
+	current_message = 0
+	display = \"  \"
+	current_char = 0
+	
+	$next_char.set_wait_time(typing_speed)
+	$next_char.start()
 
-func show_textbox_container(duration: float):
-	# Show the textbox container
-	textbox_container.visible = true
-	# Start the timer for the specified duration
-	timer.wait_time = duration
-	timer.start()
+func stop_dialogue():
+	# get_parent().remove_child(self)
+	queue_free()
 
+func _on_next_char_timeout():
+	if (current_char < len(messages[current_message])):
+		var next_char = messages[current_message][current_char]
+		display += next_char
+		
+		$TextboxContainer/MarginContainer/HBoxContainer/Label.text = display
+		current_char += 1
+	else:
+		$next_char.stop()
+		$next_message.one_shot = true
+		$next_message.set_wait_time(read_time)
+		$next_message.start()
 
-func hide_textbox_container():
-	# Hide the textbox container
-	textbox_container.visible = false
-
-func _on_Timer_timeout():
-	# Code to execute after timer expires
-	print(\"Delay completed!\")
-	if current_state == State.READY:
-		display_text()
-
-func _process(delta: float) -> void:
-	match current_state:
-		State.READY:
-			pass
-		State.READING:
-			pass
-		State.FINISHED:
-			pass
-
-func queue_text(next_text: String) -> void:
-	text_queue.append(next_text)
-
-func display_text() -> void:
-	var next_text : String = text_queue.pop_front()
-	label.text = next_text
-	change_state(State.READING)
-	# show_textbox_container()
-
-func change_state(next_state : State) -> void:
-	current_state = next_state
-	match current_state:
-		State.READY:
-			print(\"Changing state to: State.READY\")
-		State.READING:
-			print(\"Changing state to: State.READING\")
-		State.FINISHED:
-			print(\"Changing state to: State.FINISHED\")
+func _on_next_message_timeout():
+	if (current_message == len(messages) - 1):
+		stop_dialogue()
+	else: 
+		current_message += 1
+		display = \" \"
+		current_char = 0
+		$next_char.start()
 "
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_14rcg"]
@@ -86,10 +67,14 @@ border_color = Color(0.529412, 0.458824, 0.313726, 1)
 [sub_resource type="SystemFont" id="SystemFont_0a75u"]
 font_names = PackedStringArray("", "Marlett")
 
-[node name="TextBox" type="CanvasLayer"]
+[node name="TextBox" type="Node2D"]
+texture_filter = 1
+position = Vector2(564, 633)
 script = SubResource("GDScript_gb1ce")
 
-[node name="Timer1" type="Timer" parent="."]
+[node name="next_message" type="Timer" parent="."]
+
+[node name="next_char" type="Timer" parent="."]
 wait_time = 2.0
 
 [node name="TextboxContainer" type="MarginContainer" parent="."]
@@ -144,7 +129,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 1
 theme_override_fonts/font = SubResource("SystemFont_0a75u")
 theme_override_font_sizes/font_size = 40
-text = "Placeholder text here. the quick brown fox jumped over the
+text = "
 "
 autowrap_mode = 2
 clip_text = true
@@ -157,3 +142,6 @@ theme_override_fonts/font = SubResource("SystemFont_0a75u")
 theme_override_font_sizes/font_size = 40
 text = " 
 *"
+
+[connection signal="timeout" from="next_message" to="." method="_on_next_message_timeout"]
+[connection signal="timeout" from="next_char" to="." method="_on_next_char_timeout"]
