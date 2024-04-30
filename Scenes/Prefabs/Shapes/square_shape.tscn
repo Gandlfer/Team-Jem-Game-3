@@ -46,6 +46,7 @@ collision_mask = 514
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Z/Area2D"]
 position = Vector2(77, 76)
+scale = Vector2(0.85, 0.85)
 shape = SubResource("RectangleShape2D_dsgvt")
 
 [connection signal="area_entered" from="Z/Area2D" to="." method="_on_area_2d_area_entered"]
