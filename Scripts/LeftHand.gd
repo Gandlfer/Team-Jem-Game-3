@@ -15,8 +15,8 @@ func _physics_process(delta):
 func get_input():
 	var input_direction = Input.get_vector("move_left_l", "move_right_l", "move_up_l", "move_down_l")
 	velocity = input_direction * MAX_SPEED
-
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
+	
+	if Input.is_action_pressed("grab_l"):
 		hand_sprite.texture = hand_closed_texture
 	else:
 		hand_sprite.texture = hand_open_texture

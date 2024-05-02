@@ -16,7 +16,7 @@ func get_input():
 	var input_direction = Input.get_vector("move_left_r", "move_right_r", "move_up_r", "move_down_r")
 	velocity = input_direction * MAX_SPEED
 
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+	if Input.is_action_pressed("grab_r"):
 		hand_sprite.texture = hand_closed_texture
 	else:
 		hand_sprite.texture = hand_open_texture

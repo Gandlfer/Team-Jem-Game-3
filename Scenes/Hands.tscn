@@ -8,6 +8,7 @@
 script = ExtResource("1_64mig")
 
 [node name="Left hand" parent="." instance=ExtResource("2_qt5ss")]
+position = Vector2(145, 199)
 
 [node name="LeftHandParticles" type="CPUParticles2D" parent="Left hand"]
 position = Vector2(-32, 140)
@@ -24,7 +25,7 @@ initial_velocity_max = 695.23
 scale_amount_max = 3.0
 
 [node name="Right hand" parent="." instance=ExtResource("3_pdhtk")]
-position = Vector2(261, 1)
+position = Vector2(1734, 884)
 
 [node name="RightHandParticles" type="CPUParticles2D" parent="Right hand"]
 position = Vector2(27, 138)

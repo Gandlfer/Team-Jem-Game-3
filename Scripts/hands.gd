@@ -1,13 +1,15 @@
 extends Node2D
 var ltor
 var rtol
-var max_distance = 750
+var max_distance = 1000
 var threshold_distance = 100
 
 # Colors for near and far distances
 var near_color = Color(0, 1, 0) # Green
 var middle_color = Color(1, 1, 0)  # Yellow
 var far_color = Color(1, 0, 0)  # Red
+
+var viewRect := get_viewport_rect()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -48,3 +50,11 @@ func _process(delta):
 	$"Left hand/LeftHandParticles".color = particle_color
 	$"Right hand/RightHandParticles".color = particle_color
 	
+	$"Left hand".position.x = clamp($"Left hand".position.x, 0, 1920)
+	$"Left hand".position.y = clamp($"Left hand".position.y, 0, 1920)
+	
+	$"Right hand".position.x = clamp($"Right hand".position.x, 0, 1080)
+	$"Right hand".position.y = clamp($"Right hand".position.y, 0, 1080)
+	
+	if Input.is_action_just_pressed("esc"):
+		get_tree().quit()

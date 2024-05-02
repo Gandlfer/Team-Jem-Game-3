@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://bjfjw4p7sq65p"]
+[gd_scene load_steps=5 format=3 uid="uid://bjfjw4p7sq65p"]
 
 [ext_resource type="Script" path="res://Scripts/RightHand.gd" id="1_qwkif"]
 [ext_resource type="Texture2D" uid="uid://2qbemtna01vi" path="res://Scenes/Hands/rightOpen.png" id="2_vikmr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ww5mu"]
+size = Vector2(232, 344)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_21k0y"]
 size = Vector2(111, 181.25)
@@ -12,11 +15,15 @@ collision_mask = 2
 script = ExtResource("1_qwkif")
 
 [node name="HoldingHandPngClipart" type="Sprite2D" parent="."]
-position = Vector2(-4.29221, 16.7519)
-rotation = 0.020944
+position = Vector2(-6.55651e-07, 3.81283e-06)
 scale = Vector2(0.710953, 0.742208)
 texture = ExtResource("2_vikmr")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-81.5, -59.625)
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ww5mu")
+
+[node name="Grabbox" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-42, -68)
 shape = SubResource("RectangleShape2D_21k0y")
+debug_color = Color(0.917647, 0.247059, 0.368627, 0.572549)
