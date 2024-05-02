@@ -46,7 +46,7 @@ func _on_next_char_timeout():
 func _on_next_message_timeout():
 	if (current_message == len(messages) - 1):
 		stop_dialogue()
-		#get_tree().change_scene_to_file("res://Scenes/Puzzle/Puzzle.tscn")
+		get_tree().change_scene_to_file("res://Scenes/Puzzle/Puzzle.tscn")
 	else: 
 		current_message += 1
 		display = " "

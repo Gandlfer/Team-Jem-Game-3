@@ -21,7 +21,7 @@ func _process(delta):
 
 func _on_restart_pressed():
 	Global.level=3
-	get_tree().change_scene_to_file("res://Scenes/Puzzle/Puzzle.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Cut_Scenes/cut_scene_1.tscn")
 
 
 func _on_main_menu_pressed():
