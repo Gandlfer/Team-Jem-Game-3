@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://x1irtodvxqb7"]
+
+[ext_resource type="AudioStream" uid="uid://dc0afq6d4amqe" path="res://Assets/spellcraft-142264.mp3" id="1_pqef7"]
+[ext_resource type="Script" path="res://Scenes/Cut_Scenes/cut_scene_3.gd" id="1_qx04w"]
+[ext_resource type="Texture2D" uid="uid://deqngv7tv0qpb" path="res://Assets/backgroungGame3.png" id="2_kbksn"]
+[ext_resource type="PackedScene" uid="uid://bgrjtujlsrjwb" path="res://Scenes/Prefabs/Witch/witch.tscn" id="3_xkdpr"]
+[ext_resource type="PackedScene" uid="uid://b2givfkvmhrfj" path="res://Scenes/Prefabs/Guards/guard3.tscn" id="4_e8shb"]
+[ext_resource type="PackedScene" uid="uid://cwqkbc3c5odpn" path="res://Scenes/Cut_Scenes/text_box_3.tscn" id="4_uj1xw"]
+
+[node name="CutScene3" type="Node2D"]
+script = ExtResource("1_qx04w")
+
+[node name="BGsounds" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_pqef7")
+volume_db = -11.143
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+light_mask = 512
+visibility_layer = 256
+layout_direction = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = -3.0
+offset_right = 3.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_kbksn")
+expand_mode = 1
+
+[node name="witch" parent="CanvasLayer" instance=ExtResource("3_xkdpr")]
+position = Vector2(-98, 431)
+scale = Vector2(0.967287, 0.848096)
+
+[node name="CharacterBody2D" parent="CanvasLayer" instance=ExtResource("4_e8shb")]
+position = Vector2(198, 126)
+scale = Vector2(1.30431, 1.24041)
+
+[node name="Textbox3" parent="CanvasLayer" instance=ExtResource("4_uj1xw")]
+position = Vector2(1009, 1051)
+scale = Vector2(1.02634, 0.878329)

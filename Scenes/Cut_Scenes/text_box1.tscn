@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://jvu1j57if0o8"]
+[gd_scene load_steps=4 format=3 uid="uid://b1q0cumn7c1r0"]
 
 [sub_resource type="GDScript" id="GDScript_gb1ce"]
 script/source = "extends Node2D
