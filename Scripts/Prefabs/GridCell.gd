@@ -9,13 +9,13 @@ var bgMusic : AudioStreamMP3
 func _ready():
 	#var temp = []
 	#temp.remove_at()
-	bgMusic = load("res://Audio/027682_boss39s-music-for-gamemp3-68640.mp3")
+	bgMusic = load("res://Audio/cotton-candy-children-puzzle-game-music-197733.mp3")
 	bgMusicPlayer = AudioStreamPlayer.new()  # Create a new AudioStreamPlayer for the background music
 	bgMusic.loop = true  # Set loop to true for the background music
 	bgMusicPlayer.stream = bgMusic
-	bgMusicPlayer.volume_db = -10
+	bgMusicPlayer.volume_db = -25
 	add_child(bgMusicPlayer)
-	#bgMusicPlayer.play()
+	bgMusicPlayer.play()
 	
 	
 	var numbers = {}
