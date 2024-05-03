@@ -1,9 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://1aesbsr2vtpr"]
 
 [ext_resource type="Script" path="res://Scripts/GameOver.gd" id="1_7mujb"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_1m42e"]
-specular_color = Color(0, 0, 0, 1)
+[ext_resource type="Texture2D" uid="uid://deqngv7tv0qpb" path="res://Assets/backgroungGame3.png" id="2_p0jwn"]
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -16,14 +14,13 @@ script = ExtResource("1_7mujb")
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
-modulate = Color(0.176471, 0.176471, 0.176471, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("CanvasTexture_1m42e")
+texture = ExtResource("2_p0jwn")
 expand_mode = 1
 
 [node name="Restart" type="Button" parent="."]

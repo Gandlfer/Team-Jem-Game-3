@@ -23,7 +23,6 @@ func _process(delta):
 	else:
 		get_node(".").visible = false
 		get_node(".").disabled = true
-	pass
 
 
 func _on_pressed():
@@ -31,10 +30,17 @@ func _on_pressed():
 	if Global.level == 5:
 		Global.level = 3
 		get_tree().change_scene_to_file("res://Scenes/Win.tscn")
-	else:
+	elif Global.level == 4:
 		Global.level+=1
-		#Global.reset()
-		get_tree().change_scene_to_file("res://Scenes/Puzzle/Puzzle.tscn")
+		get_tree().change_scene_to_file("res://Scenes/Cut_Scenes/cut_scene_3.tscn")
+	elif Global.level == 3:
+		Global.level+=1
+		get_tree().change_scene_to_file("res://Scenes/Cut_Scenes/cut_scene_2.tscn")
+	#else:
+		#Global.level+=1
+		##Global.reset()
+		##get_tree().change_scene_to_file("res://Scenes/Puzzle/Puzzle.tscn")
+		#get_tree().change_scene_to_file("res://Scenes/Cut_Scenes/cut_scene_2.tscn")
 	
 	#print("Next Scene")
 	

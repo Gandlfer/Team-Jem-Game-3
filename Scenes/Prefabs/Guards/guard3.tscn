@@ -1,0 +1,84 @@
+[gd_scene load_steps=11 format=3 uid="uid://b2givfkvmhrfj"]
+
+[ext_resource type="Script" path="res://Scenes/Prefabs/Guards/guard3.gd" id="1_44w7i"]
+[ext_resource type="Texture2D" uid="uid://bmk2s2k3hy1fa" path="res://Assets/guard3.png" id="1_l83b1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qj7be"]
+atlas = ExtResource("1_l83b1")
+region = Rect2(0, 0, 518, 810)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5n2p7"]
+atlas = ExtResource("1_l83b1")
+region = Rect2(635, 0, 518, 810)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kcntf"]
+atlas = ExtResource("1_l83b1")
+region = Rect2(0, 810, 518, 810)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bm8sh"]
+atlas = ExtResource("1_l83b1")
+region = Rect2(635, 810, 518, 810)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_22n4d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qj7be")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5n2p7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kcntf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bm8sh")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 1.0
+}]
+
+[sub_resource type="Animation" id="Animation_udr4j"]
+resource_name = "idle"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3, 3.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cfdcj"]
+_data = {
+"idle": SubResource("Animation_udr4j")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ac46x"]
+size = Vector2(272, 386)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_44w7i")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(817, 431)
+scale = Vector2(0.593387, 0.551779)
+sprite_frames = SubResource("SpriteFrames_22n4d")
+animation = &"idle"
+frame_progress = 0.163635
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../AnimatedSprite2D")
+libraries = {
+"": SubResource("AnimationLibrary_cfdcj")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(804, 439)
+shape = SubResource("RectangleShape2D_ac46x")

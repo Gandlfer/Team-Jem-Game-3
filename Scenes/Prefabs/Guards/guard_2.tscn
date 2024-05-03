@@ -1,0 +1,83 @@
+[gd_scene load_steps=11 format=3 uid="uid://b6qaboykk4qbq"]
+
+[ext_resource type="Script" path="res://Scenes/Prefabs/Guards/guard_2.gd" id="1_0qcil"]
+[ext_resource type="Texture2D" uid="uid://b58fslq2ey2f1" path="res://Assets/guard2.png" id="1_6l7bq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u6dds"]
+atlas = ExtResource("1_6l7bq")
+region = Rect2(0, 0, 614, 767)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5eph0"]
+atlas = ExtResource("1_6l7bq")
+region = Rect2(614, 0, 614, 767)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2dn56"]
+atlas = ExtResource("1_6l7bq")
+region = Rect2(0, 853, 614, 767)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5m81"]
+atlas = ExtResource("1_6l7bq")
+region = Rect2(614, 853, 614, 767)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o2emn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u6dds")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5eph0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2dn56")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s5m81")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 1.0
+}]
+
+[sub_resource type="Animation" id="Animation_6omb2"]
+resource_name = "idle"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3, 3.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3ntn1"]
+_data = {
+"idle": SubResource("Animation_6omb2")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_us4o4"]
+size = Vector2(277, 354)
+
+[node name="guard2" type="CharacterBody2D"]
+script = ExtResource("1_0qcil")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(528.125, 353.188)
+scale = Vector2(0.566368, 0.581975)
+sprite_frames = SubResource("SpriteFrames_o2emn")
+animation = &"idle"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../AnimatedSprite2D")
+libraries = {
+"": SubResource("AnimationLibrary_3ntn1")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(502, 377)
+shape = SubResource("RectangleShape2D_us4o4")

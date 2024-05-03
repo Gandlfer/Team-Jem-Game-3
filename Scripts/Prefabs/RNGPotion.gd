@@ -9,6 +9,7 @@ func _ready():
 	var tmp = ["Health","Strength","Wisdom","Agility","Dexerity"]
 	var index
 	if Global.level == 5:
+		tmp = ["Health","Wisdom","Agility"]
 		index = rng.randi_range(0,len(tmp)-1)
 		arr.append(tmp[index])
 		tmp.remove_at(index)
