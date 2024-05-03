@@ -1,9 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b5pxeb3e7jahi"]
 
 [ext_resource type="Script" path="res://Scripts/Win.gd" id="1_hj6dr"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_3mp14"]
-specular_color = Color(0, 0, 0, 1)
+[ext_resource type="Texture2D" uid="uid://deqngv7tv0qpb" path="res://Assets/backgroungGame3.png" id="2_8bmiv"]
 
 [node name="Win" type="Control"]
 layout_mode = 3
@@ -15,16 +13,14 @@ grow_vertical = 2
 script = ExtResource("1_hj6dr")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-modulate = Color(0.176471, 0.176471, 0.176471, 1)
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = -1
+anchor_right = 0.998
 anchor_bottom = 1.0
-offset_right = 50.0
-offset_bottom = 44.0
+offset_right = 0.303955
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("CanvasTexture_3mp14")
+texture = ExtResource("2_8bmiv")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="."]
