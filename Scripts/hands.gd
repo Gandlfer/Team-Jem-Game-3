@@ -1,7 +1,7 @@
 extends Node2D
 var ltor
 var rtol
-var max_distance = 1000
+var max_distance = 1700
 var threshold_distance = 100
 
 # Colors for near and far distances
@@ -49,12 +49,6 @@ func _process(delta):
 	# Set the color of the particles
 	$"Left hand/LeftHandParticles".color = particle_color
 	$"Right hand/RightHandParticles".color = particle_color
-	
-	$"Left hand".position.x = clamp($"Left hand".position.x, 0, 1920)
-	$"Left hand".position.y = clamp($"Left hand".position.y, 0, 1920)
-	
-	$"Right hand".position.x = clamp($"Right hand".position.x, 0, 1080)
-	$"Right hand".position.y = clamp($"Right hand".position.y, 0, 1080)
 	
 	if Input.is_action_just_pressed("esc"):
 		get_tree().quit()
