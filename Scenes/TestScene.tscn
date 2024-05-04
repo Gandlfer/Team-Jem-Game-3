@@ -1,0 +1,90 @@
+[gd_scene load_steps=11 format=3 uid="uid://d2n3namvbpgpr"]
+
+[ext_resource type="Texture2D" uid="uid://deqngv7tv0qpb" path="res://Assets/backgroungGame3.png" id="1_0rvdk"]
+[ext_resource type="PackedScene" uid="uid://boyqpn5qxpipp" path="res://Scenes/Prefabs/GridCellMaker.tscn" id="2_ykd84"]
+[ext_resource type="PackedScene" uid="uid://cf0xre6u821sn" path="res://Scenes/Prefabs/PieceSpawner.tscn" id="3_1kudy"]
+[ext_resource type="PackedScene" uid="uid://cunekbj63ga8o" path="res://Scenes/Timer.tscn" id="4_hxxlr"]
+[ext_resource type="PackedScene" uid="uid://vs1tn23tkayx" path="res://Scenes/Prefabs/RNGPotion.tscn" id="5_ljuof"]
+[ext_resource type="PackedScene" uid="uid://ct5hj2ny83nhl" path="res://Scenes/Prefabs/Progress Bar.tscn" id="6_f2d13"]
+[ext_resource type="PackedScene" uid="uid://cddmeibbnppwg" path="res://Scenes/Prefabs/AttributeGuide.tscn" id="6_j510u"]
+[ext_resource type="PackedScene" uid="uid://j6g8m4fklwjd" path="res://Scenes/Transition.tscn" id="8_eorhh"]
+[ext_resource type="Texture2D" uid="uid://dqoxxvnmx1hsa" path="res://Assets/NextButton.png" id="9_qvrur"]
+[ext_resource type="Script" path="res://Scripts/Prefabs/Button.gd" id="10_fjbg4"]
+
+[node name="TestScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_0rvdk")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="GridCellMaker" parent="Control" instance=ExtResource("2_ykd84")]
+position = Vector2(-200, -196)
+
+[node name="RngPotion" parent="Control" instance=ExtResource("5_ljuof")]
+position = Vector2(-648, -412)
+
+[node name="AttributeGuide" parent="Control" instance=ExtResource("6_j510u")]
+position = Vector2(-880, -196)
+
+[node name="PieceSpawner" parent="Control" instance=ExtResource("3_1kudy")]
+layout_mode = 1
+anchors_preset = -1
+offset_left = -560.0
+offset_top = -268.0
+offset_right = -560.0
+offset_bottom = -268.0
+
+[node name="ProgressBar" parent="Control" instance=ExtResource("6_f2d13")]
+position = Vector2(304, -484)
+
+[node name="Timer" parent="Control" instance=ExtResource("4_hxxlr")]
+layout_mode = 1
+anchors_preset = -1
+offset_left = -48.0
+offset_top = -420.0
+offset_right = 104.0
+offset_bottom = -348.0
+mouse_filter = 2
+
+[node name="Transition" parent="Control" instance=ExtResource("8_eorhh")]
+
+[node name="TextureButton" type="TextureButton" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = -24.0
+offset_top = 372.0
+offset_right = 104.0
+offset_bottom = 466.0
+texture_normal = ExtResource("9_qvrur")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("10_fjbg4")
+
+[connection signal="pressed" from="Control/TextureButton" to="Control/TextureButton" method="_on_pressed"]

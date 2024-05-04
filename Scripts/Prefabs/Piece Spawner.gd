@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends Control
 
 var Z_Node = preload("res://Scenes/Prefabs/Shapes/Z_Shape.tscn")
 var Z_pos : Vector2
