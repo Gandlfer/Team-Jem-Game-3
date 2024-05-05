@@ -220,7 +220,7 @@ func _on_area_2d_area_entered(area):
 					handsIn["Grab"].JustRelease.connect(JustReleaseHandler)
 					draggable = true
 				#print("Grab is ", handsIn["Grab"])
-			else:
+			elif len(handsIn.keys())==1:
 				handsIn["Rotate"]=area.get_node("..")
 				handsIn["Rotate"].JustPress.connect(JustPressHandler)
 				#area.get_node("..").JustRelease.connect(JustReleaseHandler)
@@ -242,9 +242,10 @@ func _on_area_2d_area_entered(area):
 func _on_area_2d_area_exited(area):
 	
 	if area.is_in_group("Hands"):
-		print("Hand out")
+		#print("Hand out")
 		if not Global.is_dragging:
 		#handsIn.erase(area.get_groups()[1])
+			#print(handsIn.find_key(area.get_node("..")))
 			if handsIn.find_key(area.get_node("..")) == "Grab":
 				if len(handsIn.keys())==2:
 					#print("Before swap", handsIn["Grab"].name)
@@ -252,6 +253,8 @@ func _on_area_2d_area_exited(area):
 					handsIn["Grab"].JustRelease.disconnect(JustReleaseHandler)
 					handsIn["Rotate"].JustPress.disconnect(JustPressHandler)
 					handsIn["Grab"]=handsIn["Rotate"]
+					handsIn["Grab"].JustPress.connect(GrabJustPressHandler)
+					handsIn["Grab"].JustRelease.connect(JustReleaseHandler)
 					hovering = false
 					#print("Hands swap")
 					#print(handsIn["Grab"].name)
@@ -263,9 +266,19 @@ func _on_area_2d_area_exited(area):
 					handsIn.erase("Grab")
 					
 					draggable = false
+				#grabjustpress = false
 			elif handsIn.find_key(area.get_node("..")) == "Rotate":
+				print("Rotate")
 				handsIn["Rotate"].JustPress.disconnect(JustPressHandler)
 				handsIn.erase("Rotate")
+				justrelease = false
+				hovering = false
+		if Global.is_dragging:
+			if handsIn.find_key(area.get_node("..")) == "Rotate":
+				print("Rotate")
+				handsIn["Rotate"].JustPress.disconnect(JustPressHandler)
+				handsIn.erase("Rotate")
+				justrelease = false
 				hovering = false
 		#print(justrelease)
 	else:
@@ -273,6 +286,7 @@ func _on_area_2d_area_exited(area):
 		collidedPiecesList.erase(area.get_node("../..").name)
 
 func JustPressHandler():
+	#print("Activated")
 	justpress = true
 func JustReleaseHandler():
 	justrelease = true
