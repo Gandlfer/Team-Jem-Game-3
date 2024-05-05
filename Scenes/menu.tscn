@@ -1,9 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://dip1tgctgbvy2"]
+[gd_scene load_steps=6 format=3 uid="uid://dip1tgctgbvy2"]
 
 [ext_resource type="Script" path="res://Scripts/Control.gd" id="1_nmhd2"]
+[ext_resource type="FontFile" uid="uid://c46lf7yxlyx8j" path="res://Assets/Fonts/Potionmaster-L3P55.ttf" id="3_bs4mb"]
 [ext_resource type="AudioStream" uid="uid://dc0afq6d4amqe" path="res://Assets/spellcraft-142264.mp3" id="3_grbsc"]
+[ext_resource type="Script" path="res://Scripts/PlayButton.gd" id="4_tmml7"]
+[ext_resource type="Script" path="res://Scripts/QuitButton.gd" id="5_1w2fv"]
 
-[node name="Control" type="Control"]
+[node name="Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,34 +16,59 @@ grow_vertical = 2
 script = ExtResource("1_nmhd2")
 metadata/_edit_use_anchors_ = true
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.254
-anchor_top = 0.876
-anchor_right = 0.728
-anchor_bottom = 0.908
-offset_left = 50.392
-offset_top = -30.648
-offset_right = -30.6561
-offset_bottom = 25.616
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_font_sizes/font_size = 50
-text = "Play"
-
 [node name="SoundBG" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_grbsc")
 volume_db = -17.155
 autoplay = true
 
 [node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 447.0
-offset_top = 184.0
-offset_right = 1234.0
-offset_bottom = 607.0
-theme_override_font_sizes/font_size = 50
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -728.5
+offset_top = 54.0
+offset_right = 728.5
+offset_bottom = 216.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_bs4mb")
+theme_override_font_sizes/font_size = 300
 text = "Elixir Escape"
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 364.0
+offset_top = 435.0
+offset_right = 1532.0
+offset_bottom = 863.0
+
+[node name="PlayButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Play"
+script = ExtResource("4_tmml7")
+
+[node name="StoryButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Story"
+
+[node name="ControlsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Controls"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Quit"
+script = ExtResource("5_1w2fv")
+
+[connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/StoryButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/StoryButton" to="." method="_on_story_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ControlsButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ControlsButton" to="." method="_on_controls_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

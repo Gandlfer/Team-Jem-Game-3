@@ -44,16 +44,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -855.5
-offset_top = -326.5
-offset_right = 855.5
-offset_bottom = 210.5
+offset_left = -855.0
+offset_top = -326.0
+offset_right = 856.0
+offset_bottom = -14.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 30
-text = "You’re the most brilliant alchemist in the land and you’ve been wrongly imprisoned for suspected use of Black Magic. Your escape from the king’s dungeon depends on your alchemical expertise. You must craft potions to bribe the gatekeepers of each floor. Time is crucial. Give the guards what they want before time runs out or be thrown back into the depths of the dungeon forever.
-
-Every guard will request a different type of potion, with different attributes. Your task is to figure out the attribute(s) they want, which will initially appear as a ‘?’. If you fill an attribute’s bar to 100%, you will be able to tell if the guard wants it or not. Once you have all the attributes you need, you still have to fill the progress bar to 100% to complete the potion.
+theme_override_font_sizes/font_size = 35
+text = "Every guard will request a different type of potion, with different attributes. Your task is to figure out the attribute(s) they want, which will initially appear as a ‘?’. If you fill an attribute’s bar to 100%, you will be able to tell if the guard wants it or not. Once you have all the attributes you need, you still have to fill the progress bar to 100% to complete the potion.
 
 Oh, one more thing. Your arms are bound by magical lightning handcuffs. It would probably hurt if your hands drifted too far apart!
 "

@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://2vreeits7ghs"]
+
+[node name="Story" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Story" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 60.0
+offset_top = 292.0
+offset_right = 1821.0
+offset_bottom = 829.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "You’re the most brilliant alchemist in the land and you’ve been wrongly imprisoned for suspected use of Black Magic. Your escape from the king’s dungeon depends on your alchemical expertise. You must craft potions to bribe the gatekeepers of each floor. Time is crucial. Give the guards what they want before time runs out or be thrown back into the depths of the dungeon forever.
+"
+horizontal_alignment = 1
+autowrap_mode = 3
