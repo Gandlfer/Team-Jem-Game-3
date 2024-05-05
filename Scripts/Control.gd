@@ -13,11 +13,11 @@ func _process(delta):
 
 
 func _on_play_button_pressed():
-	get_tree().change_scene_to_file("res://Scenes/Cut_Scenes/cut_scene_1.tcsn")
+	get_tree().change_scene_to_file("res://Scenes/Cut_Scenes/cut_scene_1.tscn")
 
 
 func _on_story_button_pressed():
-	get_tree().change_scene_to_file("res://Scenes/Cut_Scenes/cut_scene_1.tcsn")
+	get_tree().change_scene_to_file("res://Scenes/Story.tscn")
 
 
 func _on_controls_button_pressed():

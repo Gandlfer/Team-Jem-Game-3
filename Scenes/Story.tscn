@@ -1,24 +1,79 @@
-[gd_scene format=3 uid="uid://2vreeits7ghs"]
+[gd_scene load_steps=6 format=3 uid="uid://dtwogeofavghf"]
 
-[node name="Story" type="Control"]
+[ext_resource type="FontFile" uid="uid://c46lf7yxlyx8j" path="res://Assets/Fonts/Potionmaster-L3P55.ttf" id="1_0riwh"]
+[ext_resource type="Script" path="res://Scripts/instructions.gd" id="1_xpire"]
+[ext_resource type="FontFile" uid="uid://d0ca2gcvuro7f" path="res://Assets/Fonts/Bobby Jones Soft.otf" id="4_kb2ei"]
+[ext_resource type="Script" path="res://Scripts/BackButton.gd" id="5_r4ntw"]
+[ext_resource type="AudioStream" uid="uid://dc0afq6d4amqe" path="res://Assets/spellcraft-142264.mp3" id="6_ofssg"]
+
+[node name="Instructions" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xpire")
 
-[node name="Story" type="Label" parent="."]
+[node name="Instructions" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 60.0
-offset_top = 292.0
-offset_right = 1821.0
-offset_bottom = 829.0
+offset_left = -910.5
+offset_top = -354.5
+offset_right = 910.5
+offset_bottom = 374.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 50
-text = "You’re the most brilliant alchemist in the land and you’ve been wrongly imprisoned for suspected use of Black Magic. Your escape from the king’s dungeon depends on your alchemical expertise. You must craft potions to bribe the gatekeepers of each floor. Time is crucial. Give the guards what they want before time runs out or be thrown back into the depths of the dungeon forever.
+theme_override_font_sizes/font_size = 42
+text = "You are the most brilliant alchemist in the land and you’ve been wrongly imprisoned for suspected use of Black Magic. Your escape from the king’s dungeon depends on your alchemical expertise. You must craft potions to bribe the gatekeepers of each floor. Give the guards what they want before time runs out or be thrown back into the depths of the dungeon forever.
+
+Every guard is unique and will request a different kind of potion to suit their desires. You have to figure out what they want and make it fast, before someone else sees you.
+
+To make matters worse, your wrists are bound by magical handcuffs that deliver a powerful electric shock if your hands get too far apart! This might make potionmaking difficult…
 "
 horizontal_alignment = 1
 autowrap_mode = 3
+
+[node name="HowToPlay" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -508.5
+offset_top = 34.0
+offset_right = 508.5
+offset_bottom = 143.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_0riwh")
+theme_override_font_sizes/font_size = 200
+text = "Story"
+horizontal_alignment = 1
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -243.0
+offset_top = -144.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("4_kb2ei")
+theme_override_font_sizes/font_size = 80
+text = "Back"
+script = ExtResource("5_r4ntw")
+
+[node name="SoundBG" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_ofssg")
+volume_db = -17.155
+autoplay = true
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

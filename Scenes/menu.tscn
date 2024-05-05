@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dip1tgctgbvy2"]
+[gd_scene load_steps=7 format=3 uid="uid://dip1tgctgbvy2"]
 
 [ext_resource type="Script" path="res://Scripts/Control.gd" id="1_nmhd2"]
 [ext_resource type="FontFile" uid="uid://c46lf7yxlyx8j" path="res://Assets/Fonts/Potionmaster-L3P55.ttf" id="3_bs4mb"]
 [ext_resource type="AudioStream" uid="uid://dc0afq6d4amqe" path="res://Assets/spellcraft-142264.mp3" id="3_grbsc"]
+[ext_resource type="FontFile" uid="uid://d0ca2gcvuro7f" path="res://Assets/Fonts/Bobby Jones Soft.otf" id="4_6hh2m"]
 [ext_resource type="Script" path="res://Scripts/PlayButton.gd" id="4_tmml7"]
 [ext_resource type="Script" path="res://Scripts/QuitButton.gd" id="5_1w2fv"]
 
@@ -40,35 +41,40 @@ layout_mode = 0
 offset_left = 364.0
 offset_top = 435.0
 offset_right = 1532.0
-offset_bottom = 863.0
+offset_bottom = 832.0
+theme_override_constants/separation = 35
 
 [node name="PlayButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_6hh2m")
 theme_override_font_sizes/font_size = 50
 text = "Play"
 script = ExtResource("4_tmml7")
 
 [node name="StoryButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_6hh2m")
 theme_override_font_sizes/font_size = 50
 text = "Story"
 
 [node name="ControlsButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_6hh2m")
 theme_override_font_sizes/font_size = 50
-text = "Controls"
+text = "How to Play"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_6hh2m")
 theme_override_font_sizes/font_size = 50
 text = "Quit"
 script = ExtResource("5_1w2fv")
 
-[connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/StoryButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/StoryButton" to="." method="_on_story_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/ControlsButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/StoryButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/ControlsButton" to="." method="_on_controls_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ControlsButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_button_pressed"]
