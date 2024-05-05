@@ -94,7 +94,7 @@ texture = ExtResource("1_g21if")
 
 [node name="Area2D" type="Area2D" parent="Z"]
 collision_layer = 512
-collision_mask = 514
+collision_mask = 2562
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Z/Area2D"]
 polygon = PackedVector2Array(8, 86, 88, 86, 88, 7, 223, 7, 223, 67, 146, 67, 146, 147, 8, 147)

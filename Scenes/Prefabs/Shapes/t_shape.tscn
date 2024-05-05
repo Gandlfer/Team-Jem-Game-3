@@ -70,7 +70,7 @@ texture = ExtResource("2_kio1n")
 
 [node name="Area2D" type="Area2D" parent="GridContainer"]
 collision_layer = 512
-collision_mask = 514
+collision_mask = 2562
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GridContainer/Area2D"]
 polygon = PackedVector2Array(9, 89, 89, 89, 89, 9, 145, 9, 145, 89, 225, 89, 225, 145, 9, 145)

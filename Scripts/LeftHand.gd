@@ -6,6 +6,9 @@ const FRICTION = 550
 
 var input = Vector2.ZERO
 
+signal JustPress()
+signal JustRelease()
+
 @onready var hand_sprite = $HoldingHandPngClipart
 @export var grabbing = false
 
@@ -46,9 +49,12 @@ func player_movement(delta):
 	move_and_slide()
 
 func handle_grabs():
-	if Input.is_action_pressed("grab_l"):
+	if Input.is_action_just_pressed("grab_l"):
+		JustPress.emit()
+	elif Input.is_action_pressed("grab_l"):
 		hand_sprite.texture = hand_closed_texture
 		grabbing = true
-	else:
+	elif Input.is_action_just_released("grab_l"):
+		JustRelease.emit()
 		hand_sprite.texture = hand_open_texture
 		grabbing = false

@@ -9,6 +9,9 @@ var input = Vector2.ZERO
 @onready var hand_sprite = $HoldingHandPngClipart
 @export var grabbing = false
 
+signal JustPress()
+signal JustRelease()
+
 var hand_open_texture = preload("res://Scenes/Hands/rightOpen.png")
 var hand_closed_texture = preload("res://Scenes/Hands/rightClosed.png")
 
@@ -46,9 +49,14 @@ func player_movement(delta):
 	move_and_slide()
 
 func handle_grabs():
-	if Input.is_action_pressed("grab_r"):
+	if Input.is_action_just_pressed("grab_r"):
+		JustPress.emit()
+	elif Input.is_action_pressed("grab_r"):
 		hand_sprite.texture = hand_closed_texture
 		grabbing = true
-	else:
+	elif Input.is_action_just_released("grab_r"):
+		JustRelease.emit()
 		hand_sprite.texture = hand_open_texture
 		grabbing = false
+
+		

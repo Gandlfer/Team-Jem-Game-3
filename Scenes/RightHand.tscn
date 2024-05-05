@@ -23,15 +23,15 @@ texture = ExtResource("2_vikmr")
 visible = false
 shape = SubResource("RectangleShape2D_ww5mu")
 
-[node name="GrabArea" type="Area2D" parent="."]
+[node name="GrabArea" type="Area2D" parent="." groups=["Hands"]]
 collision_layer = 2048
 collision_mask = 0
 
-[node name="GrabCollisionBox" type="CollisionShape2D" parent="GrabArea"]
+[node name="GrabCollisionShape" type="CollisionShape2D" parent="GrabArea"]
 position = Vector2(-89, -127)
 shape = SubResource("CircleShape2D_6hqve")
 debug_color = Color(0.917647, 0.247059, 0.368627, 0.572549)
 
-[node name="Sprite2D" type="Sprite2D" parent="GrabArea/GrabCollisionBox"]
+[node name="Sprite2D" type="Sprite2D" parent="GrabArea/GrabCollisionShape"]
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("3_sslb8")

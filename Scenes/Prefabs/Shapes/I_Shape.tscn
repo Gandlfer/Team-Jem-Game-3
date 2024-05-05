@@ -82,7 +82,7 @@ layout_mode = 2
 
 [node name="Area2D" type="Area2D" parent="GridContainer"]
 collision_layer = 512
-collision_mask = 514
+collision_mask = 2562
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GridContainer/Area2D"]
 position = Vector2(64, 37)
