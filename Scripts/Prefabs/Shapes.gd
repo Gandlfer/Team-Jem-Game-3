@@ -13,6 +13,7 @@ var pickupSound
 var audioPlayer : AudioStreamPlayer
 var handsIn= {}
 var justpress = false
+var grabjustpress = false
 var justrelease = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -30,7 +31,7 @@ func _process(delta):
 		#print(handsIn[x].position)
 	if len(handsIn.keys()) >0:
 		if draggable:
-			if handsIn["Grab"].grabbing:
+			if handsIn["Grab"].grabbing and grabjustpress:
 				Global.is_dragging = true
 				#print("Here")
 				global_position =  handsIn["Grab"].get_node("GrabArea/GrabCollisionShape").global_position
@@ -43,7 +44,9 @@ func _process(delta):
 							rotation_degrees = 0
 				#pass
 			elif justrelease:
+				print("Here")
 				justrelease = false
+				#grabjustpress = false
 				if is_inside_dropable and collidedPiecesList.size()==0:
 					#print("True")
 					global_position = getClosest()
@@ -58,6 +61,7 @@ func _process(delta):
 				Global.is_dragging = false
 				Global.needAdd = true
 				Global.node = get_groups()[0]
+
 			#pass
 		#if Input.is_action_just_pressed("left_mouse_click"):
 			##initialPos = global_position
@@ -212,13 +216,13 @@ func _on_area_2d_area_entered(area):
 				#if not Global.is_dragging:
 				if not Global.is_dragging:
 					handsIn["Grab"]=area.get_node("..")
-					#area.get_node("..").JustPress.connect(JustPressHandler)
-					area.get_node("..").JustRelease.connect(JustReleaseHandler)
+					handsIn["Grab"].JustPress.connect(GrabJustPressHandler)
+					handsIn["Grab"].JustRelease.connect(JustReleaseHandler)
 					draggable = true
 				#print("Grab is ", handsIn["Grab"])
 			else:
 				handsIn["Rotate"]=area.get_node("..")
-				area.get_node("..").JustPress.connect(JustPressHandler)
+				handsIn["Rotate"].JustPress.connect(JustPressHandler)
 				#area.get_node("..").JustRelease.connect(JustReleaseHandler)
 				#print("Here")
 				hovering = true
@@ -238,29 +242,32 @@ func _on_area_2d_area_entered(area):
 func _on_area_2d_area_exited(area):
 	
 	if area.is_in_group("Hands"):
-		#print("Hand out")
+		print("Hand out")
+		if not Global.is_dragging:
 		#handsIn.erase(area.get_groups()[1])
-		if handsIn.find_key(area.get_node("..")) == "Grab":
-			if len(handsIn.keys())==2:
-				#print("Before swap", handsIn["Grab"].name)
-				#handsIn["Grab"].JustPress.disconnect(JustPressHandler)
-				handsIn["Grab"].JustRelease.disconnect(JustReleaseHandler)
-				handsIn["Grab"]=handsIn["Rotate"]
-				hovering = false
-				#print("Hands swap")
-				#print(handsIn["Grab"].name)
-				
+			if handsIn.find_key(area.get_node("..")) == "Grab":
+				if len(handsIn.keys())==2:
+					#print("Before swap", handsIn["Grab"].name)
+					handsIn["Grab"].JustPress.disconnect(GrabJustPressHandler)
+					handsIn["Grab"].JustRelease.disconnect(JustReleaseHandler)
+					handsIn["Rotate"].JustPress.disconnect(JustPressHandler)
+					handsIn["Grab"]=handsIn["Rotate"]
+					hovering = false
+					#print("Hands swap")
+					#print(handsIn["Grab"].name)
+					
+					handsIn.erase("Rotate")
+				else:
+					handsIn["Grab"].JustPress.disconnect(GrabJustPressHandler)
+					handsIn["Grab"].JustRelease.disconnect(JustReleaseHandler)
+					handsIn.erase("Grab")
+					
+					draggable = false
+			elif handsIn.find_key(area.get_node("..")) == "Rotate":
+				handsIn["Rotate"].JustPress.disconnect(JustPressHandler)
 				handsIn.erase("Rotate")
-			else:
-				#handsIn["Grab"].JustPress.disconnect(JustPressHandler)
-				handsIn["Grab"].JustRelease.disconnect(JustReleaseHandler)
-				handsIn.erase("Grab")
-				
-				draggable = false
-		else:
-			area.get_node("..").JustPress.disconnect(JustPressHandler)
-			handsIn.erase("Rotate")
-			hovering = false
+				hovering = false
+		#print(justrelease)
 	else:
 		#print("Exiting from ",get_node(".").name," to ",area.get_node("../..").name)
 		collidedPiecesList.erase(area.get_node("../..").name)
@@ -269,4 +276,6 @@ func JustPressHandler():
 	justpress = true
 func JustReleaseHandler():
 	justrelease = true
-	
+	grabjustpress = false
+func GrabJustPressHandler():
+	grabjustpress = true
