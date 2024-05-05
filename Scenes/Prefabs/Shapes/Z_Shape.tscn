@@ -30,6 +30,7 @@ self_modulate = Color(0, 0.835294, 0.235294, 1)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="Z/PuzzlePieceI"]
+visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
@@ -41,6 +42,7 @@ self_modulate = Color(0, 0.835294, 0.235294, 1)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="Z/PuzzlePieceII"]
+visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
@@ -52,6 +54,7 @@ self_modulate = Color(0, 0.835294, 0.235294, 1)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="Z/PuzzlePieceIII"]
+visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
@@ -63,6 +66,7 @@ self_modulate = Color(0, 0.835294, 0.235294, 1)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="Z/PuzzlePieceIV"]
+visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
