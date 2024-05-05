@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dip1tgctgbvy2"]
+[gd_scene load_steps=3 format=3 uid="uid://dip1tgctgbvy2"]
 
 [ext_resource type="Script" path="res://Scripts/Control.gd" id="1_nmhd2"]
-[ext_resource type="Texture2D" uid="uid://d4a6p5ngcbxci" path="res://Assets/title_screen.png" id="2_gchn3"]
 [ext_resource type="AudioStream" uid="uid://dc0afq6d4amqe" path="res://Assets/spellcraft-142264.mp3" id="3_grbsc"]
 
 [node name="Control" type="Control"]
@@ -12,18 +11,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_nmhd2")
-metadata/_edit_use_anchors_ = true
-
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_direction = 1
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.00521
-anchor_bottom = 1.00772
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_gchn3")
-expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Button" type="Button" parent="."]
@@ -46,5 +33,14 @@ text = "Play"
 stream = ExtResource("3_grbsc")
 volume_db = -17.155
 autoplay = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 447.0
+offset_top = 184.0
+offset_right = 1234.0
+offset_bottom = 607.0
+theme_override_font_sizes/font_size = 50
+text = "Elixir Escape"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,99 @@
+[gd_scene load_steps=6 format=3 uid="uid://dr7vljttsfnev"]
+
+[ext_resource type="Script" path="res://Scripts/instructions.gd" id="1_yl7k3"]
+[ext_resource type="Texture2D" uid="uid://dd6ierv6ngk3h" path="res://Assets/controls.png" id="2_tj8qu"]
+[ext_resource type="FontFile" uid="uid://d0ca2gcvuro7f" path="res://Assets/Fonts/Bobby Jones Soft.otf" id="3_yfoy2"]
+[ext_resource type="FontFile" uid="uid://c46lf7yxlyx8j" path="res://Assets/Fonts/Potionmaster-L3P55.ttf" id="4_o884t"]
+[ext_resource type="AudioStream" uid="uid://dc0afq6d4amqe" path="res://Assets/spellcraft-142264.mp3" id="5_n0q50"]
+
+[node name="Instructions" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yl7k3")
+
+[node name="Controls" type="Sprite2D" parent="."]
+position = Vector2(367, 920)
+scale = Vector2(0.606809, 0.607752)
+texture = ExtResource("2_tj8qu")
+
+[node name="AnyKeyToPlay" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -474.0
+offset_top = -87.0
+offset_right = -35.0
+offset_bottom = -35.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_yfoy2")
+theme_override_font_sizes/font_size = 40
+text = "Press any button to play!"
+
+[node name="Instructions" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -855.5
+offset_top = -326.5
+offset_right = 855.5
+offset_bottom = 210.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "You’re the most brilliant alchemist in the land and you’ve been wrongly imprisoned for suspected use of Black Magic. Your escape from the king’s dungeon depends on your alchemical expertise. You must craft potions to bribe the gatekeepers of each floor. Time is crucial. Give the guards what they want before time runs out or be thrown back into the depths of the dungeon forever.
+
+Every guard will request a different type of potion, with different attributes. Your task is to figure out the attribute(s) they want, which will initially appear as a ‘?’. If you fill an attribute’s bar to 100%, you will be able to tell if the guard wants it or not. Once you have all the attributes you need, you still have to fill the progress bar to 100% to complete the potion.
+
+Oh, one more thing. Your arms are bound by magical lightning handcuffs. It would probably hurt if your hands drifted too far apart!
+"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="HowToPlay" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -508.5
+offset_top = 34.0
+offset_right = 508.5
+offset_bottom = 143.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("4_o884t")
+theme_override_font_sizes/font_size = 200
+text = "How to Play"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -251.5
+offset_top = -253.0
+offset_right = 251.5
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_yfoy2")
+theme_override_font_sizes/font_size = 40
+text = "TO ROTATE A PIECE, Hold IT with one hand and HOVER OVER IT WITH THE OTHER HAND, Then PRESS grab"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="SoundBG" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_n0q50")
+volume_db = -17.155
+autoplay = true

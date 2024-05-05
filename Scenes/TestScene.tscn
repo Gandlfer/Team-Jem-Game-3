@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://bfn1byu0rfj8i"]
 
 [ext_resource type="Texture2D" uid="uid://deqngv7tv0qpb" path="res://Assets/backgroungGame3.png" id="1_0rvdk"]
-[ext_resource type="Script" path="res://Scenes/TestScene.gd" id="1_34qkc"]
+[ext_resource type="Script" path="res://Scripts/TestScene.gd" id="1_34qkc"]
 [ext_resource type="PackedScene" uid="uid://boyqpn5qxpipp" path="res://Scenes/Prefabs/GridCellMaker.tscn" id="2_ykd84"]
 [ext_resource type="PackedScene" uid="uid://cf0xre6u821sn" path="res://Scenes/Prefabs/PieceSpawner.tscn" id="3_1kudy"]
 [ext_resource type="PackedScene" uid="uid://cunekbj63ga8o" path="res://Scenes/Timer.tscn" id="4_hxxlr"]
