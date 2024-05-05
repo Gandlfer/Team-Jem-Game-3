@@ -7,7 +7,8 @@ const FRICTION = 550
 var input = Vector2.ZERO
 
 @onready var hand_sprite = $HoldingHandPngClipart
-var grabbing = false
+@export var grabbing = false
+
 var hand_open_texture = preload("res://Scenes/Hands/rightOpen.png")
 var hand_closed_texture = preload("res://Scenes/Hands/rightClosed.png")
 

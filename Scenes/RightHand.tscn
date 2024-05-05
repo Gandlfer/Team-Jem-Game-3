@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bjfjw4p7sq65p"]
+[gd_scene load_steps=6 format=3 uid="uid://bjfjw4p7sq65p"]
 
 [ext_resource type="Script" path="res://Scripts/RightHand.gd" id="1_qwkif"]
 [ext_resource type="Texture2D" uid="uid://2qbemtna01vi" path="res://Scenes/Hands/rightOpen.png" id="2_vikmr"]
+[ext_resource type="Texture2D" uid="uid://cd8eltl106eac" path="res://Assets/crosshair.png" id="3_sslb8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ww5mu"]
 size = Vector2(232, 344)
@@ -22,7 +23,15 @@ texture = ExtResource("2_vikmr")
 visible = false
 shape = SubResource("RectangleShape2D_ww5mu")
 
-[node name="Grabbox" type="CollisionShape2D" parent="."]
-position = Vector2(-72, -89)
+[node name="GrabArea" type="Area2D" parent="."]
+collision_layer = 2048
+collision_mask = 0
+
+[node name="GrabCollisionBox" type="CollisionShape2D" parent="GrabArea"]
+position = Vector2(-89, -127)
 shape = SubResource("CircleShape2D_6hqve")
 debug_color = Color(0.917647, 0.247059, 0.368627, 0.572549)
+
+[node name="Sprite2D" type="Sprite2D" parent="GrabArea/GrabCollisionBox"]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_sslb8")

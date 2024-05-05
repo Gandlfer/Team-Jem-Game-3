@@ -97,7 +97,7 @@ collision_layer = 0
 collision_mask = 0
 
 [node name="LeftHandParticles" type="CPUParticles2D" parent="Left hand"]
-position = Vector2(-32, 140)
+position = Vector2(-32, 123)
 amount = 532
 lifetime = 0.25
 preprocess = 0.6
@@ -116,7 +116,7 @@ collision_layer = 0
 collision_mask = 0
 
 [node name="RightHandParticles" type="CPUParticles2D" parent="Right hand"]
-position = Vector2(27, 138)
+position = Vector2(24, 126)
 amount = 532
 lifetime = 0.25
 preprocess = 0.6
