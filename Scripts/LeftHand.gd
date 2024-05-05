@@ -7,13 +7,13 @@ const FRICTION = 550
 var input = Vector2.ZERO
 
 @onready var hand_sprite = $HoldingHandPngClipart
-var hand_closed = false
+var grabbing = false
 var hand_open_texture = preload("res://Scenes/Hands/leftOpen.png")
 var hand_closed_texture = preload("res://Scenes/Hands/leftClosed.png")
 
 func _physics_process(delta):
 	player_movement(delta)
-	grab_visuals()
+	handle_grabs()
 	
 	if Input.is_action_just_pressed("esc"):
 		get_tree().quit()
@@ -44,8 +44,10 @@ func player_movement(delta):
 		
 	move_and_slide()
 
-func grab_visuals():
+func handle_grabs():
 	if Input.is_action_pressed("grab_l"):
 		hand_sprite.texture = hand_closed_texture
+		grabbing = true
 	else:
 		hand_sprite.texture = hand_open_texture
+		grabbing = false

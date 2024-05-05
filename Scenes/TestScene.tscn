@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://d2n3namvbpgpr"]
+[gd_scene load_steps=14 format=3 uid="uid://bfn1byu0rfj8i"]
 
 [ext_resource type="Texture2D" uid="uid://deqngv7tv0qpb" path="res://Assets/backgroungGame3.png" id="1_0rvdk"]
+[ext_resource type="Script" path="res://Scenes/TestScene.gd" id="1_34qkc"]
 [ext_resource type="PackedScene" uid="uid://boyqpn5qxpipp" path="res://Scenes/Prefabs/GridCellMaker.tscn" id="2_ykd84"]
 [ext_resource type="PackedScene" uid="uid://cf0xre6u821sn" path="res://Scenes/Prefabs/PieceSpawner.tscn" id="3_1kudy"]
 [ext_resource type="PackedScene" uid="uid://cunekbj63ga8o" path="res://Scenes/Timer.tscn" id="4_hxxlr"]
@@ -10,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://j6g8m4fklwjd" path="res://Scenes/Transition.tscn" id="8_eorhh"]
 [ext_resource type="Texture2D" uid="uid://dqoxxvnmx1hsa" path="res://Assets/NextButton.png" id="9_qvrur"]
 [ext_resource type="Script" path="res://Scripts/Prefabs/Button.gd" id="10_fjbg4"]
+[ext_resource type="PackedScene" uid="uid://daofc3dmss87g" path="res://Scenes/LeftHand.tscn" id="11_pabyc"]
+[ext_resource type="PackedScene" uid="uid://bjfjw4p7sq65p" path="res://Scenes/RightHand.tscn" id="12_x3y7g"]
 
 [node name="TestScene" type="Control"]
 layout_mode = 3
@@ -19,6 +22,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+script = ExtResource("1_34qkc")
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -86,5 +90,43 @@ texture_normal = ExtResource("9_qvrur")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("10_fjbg4")
+
+[node name="Left hand" parent="." instance=ExtResource("11_pabyc")]
+position = Vector2(1019, 251)
+collision_layer = 0
+collision_mask = 0
+
+[node name="LeftHandParticles" type="CPUParticles2D" parent="Left hand"]
+position = Vector2(-32, 140)
+amount = 532
+lifetime = 0.25
+preprocess = 0.6
+fixed_fps = 60
+emission_shape = 3
+emission_rect_extents = Vector2(40, 40)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 695.23
+initial_velocity_max = 695.23
+scale_amount_max = 3.0
+
+[node name="Right hand" parent="." instance=ExtResource("12_x3y7g")]
+position = Vector2(1725, 274)
+collision_layer = 0
+collision_mask = 0
+
+[node name="RightHandParticles" type="CPUParticles2D" parent="Right hand"]
+position = Vector2(27, 138)
+amount = 532
+lifetime = 0.25
+preprocess = 0.6
+fixed_fps = 60
+emission_shape = 3
+emission_rect_extents = Vector2(40, 40)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 695.23
+initial_velocity_max = 695.23
+scale_amount_max = 3.0
 
 [connection signal="pressed" from="Control/TextureButton" to="Control/TextureButton" method="_on_pressed"]
