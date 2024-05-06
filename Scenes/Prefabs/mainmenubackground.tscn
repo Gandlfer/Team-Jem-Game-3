@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcs0j7ld23w4i"]
+
+[ext_resource type="Script" path="res://Scenes/Prefabs/mainmenubackground.gd" id="1_wc5r1"]
+
+[node name="Mainmenubackground" type="AudioStreamPlayer"]
+script = ExtResource("1_wc5r1")
