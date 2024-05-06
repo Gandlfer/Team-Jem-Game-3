@@ -17,6 +17,7 @@ config/features=PackedStringArray("4.2", "Forward Plus")
 [autoload]
 
 Global="*res://Scripts/global.gd"
+Mainmenubackground="*res://Scenes/Prefabs/mainmenubackground.tscn"
 
 [display]
 
