@@ -21,8 +21,8 @@ var customScale = 1.2
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	dropSound = preload("res://Audio/clothes-drop-2-40202.mp3")
-	pickupSound = preload("res://Audio/paper-collect-6-186720.mp3")
+	dropSound = preload("res://Audio/piece_interact.wav")
+	pickupSound = preload("res://Audio/piece_interact.wav")
 	audioPlayer = AudioStreamPlayer.new()
 	add_child(audioPlayer)
 	initialPos = global_position

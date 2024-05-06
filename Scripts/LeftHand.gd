@@ -40,10 +40,20 @@ func player_movement(delta):
 		velocity += (input * ACCELERATION * delta)
 		velocity = velocity.limit_length(MAX_SPEED)
 		
-	if(position.x < 0 or position.x > 1920):
+	if(position.x < 0):
+		position.x = 0
 		velocity.x *= -1
 	
-	if(position.y < 0 or position.y > 1080):
+	if(position.x > 1920):
+		position.x = 1920
+		velocity.x *= -1
+	
+	if(position.y < 0):
+		position.y = 0
+		velocity.y *= -1
+	
+	if(position.y > 1080):
+		position.y = 1080
 		velocity.y *= -1
 		
 	move_and_slide()
