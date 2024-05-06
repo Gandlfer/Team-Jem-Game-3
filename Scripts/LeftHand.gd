@@ -49,7 +49,7 @@ func player_movement(delta):
 	move_and_slide()
 
 func handle_grabs():
-	if !Global.handFlashing:
+	#if !Global.handFlashing:
 		if Input.is_action_just_pressed("grab_l"):
 			JustPress.emit()
 		elif Input.is_action_pressed("grab_l"):
@@ -59,8 +59,8 @@ func handle_grabs():
 			JustRelease.emit()
 			hand_sprite.texture = hand_open_texture
 			grabbing = false
-	elif Global.handFlashing:
-		if grabbing:
-			JustRelease.emit()
-			hand_sprite.texture = hand_open_texture
-		grabbing = false
+	#elif Global.handFlashing:
+		#if grabbing:
+			#JustRelease.emit()
+			#hand_sprite.texture = hand_open_texture
+		#grabbing = false
