@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://cddmeibbnppwg"]
+[gd_scene load_steps=2 format=3 uid="uid://dwjwrjymj8hon"]
 
 [ext_resource type="PackedScene" uid="uid://bet4n7nso6jw" path="res://Scenes/Prefabs/PuzzlePiece.tscn" id="1_ebv27"]
 
@@ -16,6 +16,7 @@ offset_bottom = 123.0
 layout_mode = 0
 offset_left = -152.0
 offset_bottom = 74.0
+theme_override_font_sizes/font_size = 20
 text = "Strength"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -34,6 +35,7 @@ offset_left = -154.0
 offset_top = -2.0
 offset_right = -2.0
 offset_bottom = 72.0
+theme_override_font_sizes/font_size = 20
 text = "Health"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -52,6 +54,7 @@ offset_left = -154.0
 offset_top = -2.0
 offset_right = -2.0
 offset_bottom = 72.0
+theme_override_font_sizes/font_size = 20
 text = "Wisdom"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -59,10 +62,10 @@ vertical_alignment = 1
 [node name="PuzzlePiece_a" parent="." instance=ExtResource("1_ebv27")]
 modulate = Color(1, 0.188235, 0.541176, 1)
 self_modulate = Color(1, 0.188235, 0.541176, 1)
-offset_left = 156.0
-offset_top = 297.0
-offset_right = 226.0
-offset_bottom = 367.0
+offset_left = 377.0
+offset_top = 54.0
+offset_right = 447.0
+offset_bottom = 124.0
 
 [node name="Label" type="Label" parent="PuzzlePiece_a"]
 layout_mode = 0
@@ -70,6 +73,7 @@ offset_left = -154.0
 offset_top = -2.0
 offset_right = -2.0
 offset_bottom = 72.0
+theme_override_font_sizes/font_size = 20
 text = "Dexterity"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -77,10 +81,10 @@ vertical_alignment = 1
 [node name="PuzzlePieceA" parent="." instance=ExtResource("1_ebv27")]
 modulate = Color(1, 1, 0.380392, 1)
 self_modulate = Color(1, 1, 0.380392, 1)
-offset_left = 157.0
-offset_top = 379.0
-offset_right = 227.0
-offset_bottom = 449.0
+offset_left = 378.0
+offset_top = 134.0
+offset_right = 448.0
+offset_bottom = 204.0
 
 [node name="Label" type="Label" parent="PuzzlePieceA"]
 layout_mode = 0
@@ -88,31 +92,34 @@ offset_left = -154.0
 offset_top = -2.0
 offset_right = -2.0
 offset_bottom = 72.0
+theme_override_font_sizes/font_size = 20
 text = "Agility"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PuzzlePiece" parent="." instance=ExtResource("1_ebv27")]
-offset_left = 157.0
-offset_top = 464.0
-offset_right = 227.0
-offset_bottom = 534.0
-
-[node name="Label" type="Label" parent="PuzzlePiece"]
-layout_mode = 0
-offset_left = -157.0
-offset_top = -8.0
-offset_right = -5.0
-offset_bottom = 72.0
-text = "Filler"
+[node name="Label" type="Label" parent="."]
+offset_left = 176.0
+offset_top = 2.0
+offset_right = 406.0
+offset_bottom = 44.0
+theme_override_font_sizes/font_size = 27
+text = "Attribute Guide"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label" type="Label" parent="."]
-offset_left = 1.0
-offset_top = 2.0
-offset_right = 231.0
-offset_bottom = 44.0
-text = "Attribute Guide"
+[node name="PuzzlePiece" parent="." instance=ExtResource("1_ebv27")]
+offset_left = 377.0
+offset_top = 218.0
+offset_right = 447.0
+offset_bottom = 288.0
+
+[node name="Label" type="Label" parent="PuzzlePiece"]
+layout_mode = 0
+offset_left = -154.0
+offset_top = -2.0
+offset_right = -2.0
+offset_bottom = 72.0
+theme_override_font_sizes/font_size = 20
+text = "Filler"
 horizontal_alignment = 1
 vertical_alignment = 1

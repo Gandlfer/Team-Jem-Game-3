@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dr7vljttsfnev"]
+[gd_scene load_steps=7 format=3 uid="uid://dr7vljttsfnev"]
 
 [ext_resource type="Script" path="res://Scripts/instructions.gd" id="1_yl7k3"]
 [ext_resource type="Texture2D" uid="uid://dd6ierv6ngk3h" path="res://Assets/controls.png" id="2_tj8qu"]
 [ext_resource type="FontFile" uid="uid://d0ca2gcvuro7f" path="res://Assets/Fonts/Bobby Jones Soft.otf" id="3_yfoy2"]
 [ext_resource type="FontFile" uid="uid://c46lf7yxlyx8j" path="res://Assets/Fonts/Potionmaster-L3P55.ttf" id="4_o884t"]
+[ext_resource type="PackedScene" uid="uid://dwjwrjymj8hon" path="res://Scenes/AttributeGuide.tscn" id="6_c7wqb"]
 [ext_resource type="Script" path="res://Scripts/BackButton.gd" id="6_vp2iw"]
 
 [node name="Instructions" type="Control"]
@@ -16,7 +17,7 @@ grow_vertical = 2
 script = ExtResource("1_yl7k3")
 
 [node name="Controls" type="Sprite2D" parent="."]
-position = Vector2(522, 868)
+position = Vector2(333, 868)
 scale = Vector2(0.606809, 0.607752)
 texture = ExtResource("2_tj8qu")
 
@@ -62,9 +63,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 114.0
+offset_left = -274.0
 offset_top = -324.0
-offset_right = 617.0
+offset_right = 229.0
 offset_bottom = -107.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -91,5 +92,8 @@ theme_override_fonts/font = ExtResource("3_yfoy2")
 theme_override_font_sizes/font_size = 80
 text = "Back"
 script = ExtResource("6_vp2iw")
+
+[node name="AttributeGuide" parent="." instance=ExtResource("6_c7wqb")]
+position = Vector2(1200, 720)
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
