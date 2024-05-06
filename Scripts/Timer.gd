@@ -11,7 +11,11 @@ func _process(delta):
 	$Label.text=str(int($Timer.time_left))
 	
 	if Global.justZapped:
-		$Timer.start($Timer.get_time_left() - 10)
+		if $Timer.time_left >= 12:
+			$Timer.start($Timer.time_left - 12)
+			print("Time left after deduct",$Timer.time_left)
+		else:
+			$Timer.start(1)
 		Global.justZapped = false
 
 

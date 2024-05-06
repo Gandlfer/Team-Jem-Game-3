@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b5pxeb3e7jahi"]
+[gd_scene load_steps=5 format=3 uid="uid://b5pxeb3e7jahi"]
 
 [ext_resource type="Script" path="res://Scripts/Win.gd" id="1_hj6dr"]
 [ext_resource type="Texture2D" uid="uid://deqngv7tv0qpb" path="res://Assets/backgroungGame3.png" id="2_8bmiv"]
 [ext_resource type="FontFile" uid="uid://d0ca2gcvuro7f" path="res://Assets/Fonts/Bobby Jones Soft.otf" id="3_2ovgs"]
+[ext_resource type="Script" path="res://Scripts/Restart.gd" id="4_0ls4b"]
 
 [node name="Win" type="Control"]
 layout_mode = 3
@@ -60,6 +61,7 @@ theme_override_fonts/font = ExtResource("3_2ovgs")
 theme_override_font_sizes/font_size = 50
 text = "Restart
 "
+script = ExtResource("4_0ls4b")
 
 [node name="Main Menu" type="Button" parent="."]
 layout_mode = 1
