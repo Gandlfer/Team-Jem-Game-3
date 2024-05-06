@@ -59,6 +59,9 @@ func _process(delta):
 					#placed = true
 				elif is_inside_dropable and collidedPiecesList.size()==0:
 					#print("True")
+					audioPlayer.stream = dropSound
+					audioPlayer.volume_db = 0.5  # Lower the volume
+					audioPlayer.play()
 					global_position = getClosest()
 					Global.piecesInside[get_node(".").get_groups()[0]][get_node(".").name]=""
 					Global.needAdd = true
@@ -275,6 +278,9 @@ func _on_area_2d_area_exited(area):
 			if handsIn.find_key(area.get_node("..")) == "Grab":
 				if len(handsIn.keys())==2:
 					#print("Before swap", handsIn["Grab"].name)
+					grabjustpress = false
+					justrelease = false
+					justpress = false
 					handsIn["Grab"].JustPress.disconnect(GrabJustPressHandler)
 					handsIn["Grab"].JustRelease.disconnect(JustReleaseHandler)
 					handsIn["Rotate"].JustPress.disconnect(JustPressHandler)
@@ -303,14 +309,17 @@ func _on_area_2d_area_exited(area):
 						#print("Removing detectedGrab ", Global.detectedGrabPiece)
 					#Global.detectedGrabPiece[len(Global.detectedGrabPiece.key())]=handsIn["Grab"]
 					handsIn.erase("Grab")
-					
+					grabjustpress = false
+					justrelease = false
+					#Global.handInDetect = false
 					draggable = false
+					Global.handInDetect = false
 				#grabjustpress = false
 			elif handsIn.find_key(area.get_node("..")) == "Rotate":
 				#print("Rotate")
 				handsIn["Rotate"].JustPress.disconnect(JustPressHandler)
 				handsIn.erase("Rotate")
-				justrelease = false
+				justpress = false
 				hovering = false
 		if Global.is_dragging:
 			#if handsIn.find_key(area.get_node("..")) == "Grab":
@@ -326,7 +335,7 @@ func _on_area_2d_area_exited(area):
 				#print("Rotate")
 				handsIn["Rotate"].JustPress.disconnect(JustPressHandler)
 				handsIn.erase("Rotate")
-				justrelease = false
+				justpress = false
 				hovering = false
 		#print(justrelease)
 	else:
