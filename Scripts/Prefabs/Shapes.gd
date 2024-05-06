@@ -49,6 +49,9 @@ func _process(delta):
 				#grabjustpress = false
 				if is_inside_dropable and collidedPiecesList.size()==0:
 					#print("True")
+					audioPlayer.stream = dropSound
+					audioPlayer.volume_db = 0.5  # Lower the volume
+					audioPlayer.play()
 					global_position = getClosest()
 					Global.piecesInside[get_node(".").get_groups()[0]][get_node(".").name]=""
 				else:
@@ -214,7 +217,8 @@ func _on_area_2d_area_entered(area):
 		
 			if len(handsIn.keys())==0:
 				#if not Global.is_dragging:
-				if not Global.is_dragging:
+				if not Global.is_dragging and not Global.handInDetect:
+					Global.handInDetect = true
 					handsIn["Grab"]=area.get_node("..")
 					handsIn["Grab"].JustPress.connect(GrabJustPressHandler)
 					handsIn["Grab"].JustRelease.connect(JustReleaseHandler)
@@ -249,6 +253,9 @@ func _on_area_2d_area_exited(area):
 			if handsIn.find_key(area.get_node("..")) == "Grab":
 				if len(handsIn.keys())==2:
 					#print("Before swap", handsIn["Grab"].name)
+					grabjustpress = false
+					justrelease = false
+					justpress = false
 					handsIn["Grab"].JustPress.disconnect(GrabJustPressHandler)
 					handsIn["Grab"].JustRelease.disconnect(JustReleaseHandler)
 					handsIn["Rotate"].JustPress.disconnect(JustPressHandler)
@@ -264,21 +271,24 @@ func _on_area_2d_area_exited(area):
 					handsIn["Grab"].JustPress.disconnect(GrabJustPressHandler)
 					handsIn["Grab"].JustRelease.disconnect(JustReleaseHandler)
 					handsIn.erase("Grab")
-					
+					grabjustpress = false
+					justrelease = false
+					#Global.handInDetect = false
 					draggable = false
+					Global.handInDetect = false
 				#grabjustpress = false
 			elif handsIn.find_key(area.get_node("..")) == "Rotate":
 				print("Rotate")
 				handsIn["Rotate"].JustPress.disconnect(JustPressHandler)
 				handsIn.erase("Rotate")
-				justrelease = false
+				justpress = false
 				hovering = false
 		if Global.is_dragging:
 			if handsIn.find_key(area.get_node("..")) == "Rotate":
 				print("Rotate")
 				handsIn["Rotate"].JustPress.disconnect(JustPressHandler)
 				handsIn.erase("Rotate")
-				justrelease = false
+				justpress = false
 				hovering = false
 		#print(justrelease)
 	else:
