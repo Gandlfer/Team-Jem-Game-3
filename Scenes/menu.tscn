@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dip1tgctgbvy2"]
+[gd_scene load_steps=10 format=3 uid="uid://dip1tgctgbvy2"]
 
 [ext_resource type="Script" path="res://Scripts/Control.gd" id="1_nmhd2"]
 [ext_resource type="Texture2D" uid="uid://bp0ctxfugq3kj" path="res://Assets/bg_thisone.png" id="2_opynn"]
@@ -7,6 +7,8 @@
 [ext_resource type="FontFile" uid="uid://d0ca2gcvuro7f" path="res://Assets/Fonts/Bobby Jones Soft.otf" id="4_6hh2m"]
 [ext_resource type="Script" path="res://Scripts/PlayButton.gd" id="4_tmml7"]
 [ext_resource type="Script" path="res://Scripts/QuitButton.gd" id="5_1w2fv"]
+[ext_resource type="Script" path="res://Scripts/StoryButton.gd" id="7_1f88v"]
+[ext_resource type="Script" path="res://Scripts/ControlsButton.gd" id="8_vhqd7"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -19,6 +21,7 @@ script = ExtResource("1_nmhd2")
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
+visible = false
 layout_direction = 1
 layout_mode = 1
 anchors_preset = 15
@@ -35,26 +38,32 @@ volume_db = -17.155
 autoplay = true
 
 [node name="Label" type="Label" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -728.5
-offset_top = 112.0
+offset_top = 147.0
 offset_right = 728.5
-offset_bottom = 274.0
+offset_bottom = 309.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("3_bs4mb")
 theme_override_font_sizes/font_size = 300
 text = "Elixir Escape"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 364.0
-offset_top = 435.0
-offset_right = 1532.0
-offset_bottom = 832.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -584.0
+offset_top = -63.5
+offset_right = 584.0
+offset_bottom = 333.5
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/separation = 35
 
 [node name="PlayButton" type="Button" parent="VBoxContainer"]
@@ -69,12 +78,14 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("4_6hh2m")
 theme_override_font_sizes/font_size = 50
 text = "Story"
+script = ExtResource("7_1f88v")
 
 [node name="ControlsButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_6hh2m")
 theme_override_font_sizes/font_size = 50
 text = "How to Play"
+script = ExtResource("8_vhqd7")
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2

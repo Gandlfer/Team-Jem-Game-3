@@ -19,7 +19,9 @@ var detectPiece = false
 var handFlashing = false;
 var handFlashesDefault = 9;
 var handFlashes = handFlashesDefault;
+var justZapped = false
 
+var menuPlace = 1
 
 func _ready():
 	reset()

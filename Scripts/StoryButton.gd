@@ -3,7 +3,7 @@ extends Button
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if Global.menuPlace == 1:
+	if Global.menuPlace == 2:
 		grab_focus()
 
 

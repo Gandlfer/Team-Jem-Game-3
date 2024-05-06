@@ -37,7 +37,7 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 40
 text = "Every guard will request a different type of potion, with different attributes. Your task is to figure out the attribute(s) they want, which will initially appear as a question mark at the top of the screen. Each piece is an ingredient that corresponds to a certain attribute. Place ingredients on the board to contribute to an attribute. If you fill an attribute’s bar to 100%, you will be able to tell if the guard wants it or not. Once you have all the attributes you need, you still have to add more ingredients to fill the progress bar to 100% to complete the potion.
 
-If your hands drift too far apart, the shock will cause you to lose some progress on your potion.
+If your hands drift too far apart, the shock will cause you to lose some time.
 "
 horizontal_alignment = 1
 autowrap_mode = 3

@@ -8,7 +8,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	$Label.text=str(int($Timer.time_left),"s")
+	$Label.text=str(int($Timer.time_left))
+	
+	if Global.justZapped:
+		$Timer.start($Timer.get_time_left() - 10)
+		Global.justZapped = false
 
 
 func _on_timer_timeout():

@@ -17,6 +17,7 @@ grow_vertical = 2
 script = ExtResource("1_xpire")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+visible = false
 layout_direction = 1
 layout_mode = 1
 anchors_preset = 15

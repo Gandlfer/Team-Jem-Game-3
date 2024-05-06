@@ -3,7 +3,7 @@ extends Node2D
 var rng = RandomNumberGenerator.new()
 var arr = []
 #var checkingArr = []
-const UNKNOWN = "?"
+const UNKNOWN = " ???"
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var tmp = ["Health","Strength","Wisdom","Agility","Dexerity"]
@@ -28,7 +28,7 @@ func _ready():
 		Global.requested[x]=""
 
 func _process(delta):
-	$PotionChoice.text = ToString()
+	$HBoxContainer/PotionChoice.text = ToString()
 	
 func ToString():
 	var msg = ""

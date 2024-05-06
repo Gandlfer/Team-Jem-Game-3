@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cunekbj63ga8o"]
+[gd_scene load_steps=3 format=3 uid="uid://cunekbj63ga8o"]
 
 [ext_resource type="Script" path="res://Scripts/Timer.gd" id="1_8jppe"]
+[ext_resource type="FontFile" uid="uid://d0ca2gcvuro7f" path="res://Assets/Fonts/Bobby Jones Soft.otf" id="2_73ner"]
 
 [node name="Timer" type="Control"]
 layout_mode = 3
@@ -9,9 +10,11 @@ script = ExtResource("1_8jppe")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_right = 161.0
-offset_bottom = 52.0
-theme_override_font_sizes/font_size = 40
+offset_left = 880.0
+offset_right = 1040.0
+offset_bottom = 129.0
+theme_override_fonts/font = ExtResource("2_73ner")
+theme_override_font_sizes/font_size = 100
 horizontal_alignment = 1
 vertical_alignment = 1
 

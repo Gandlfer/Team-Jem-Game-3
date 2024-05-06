@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b5pxeb3e7jahi"]
+[gd_scene load_steps=4 format=3 uid="uid://b5pxeb3e7jahi"]
 
 [ext_resource type="Script" path="res://Scripts/Win.gd" id="1_hj6dr"]
 [ext_resource type="Texture2D" uid="uid://deqngv7tv0qpb" path="res://Assets/backgroungGame3.png" id="2_8bmiv"]
+[ext_resource type="FontFile" uid="uid://d0ca2gcvuro7f" path="res://Assets/Fonts/Bobby Jones Soft.otf" id="3_2ovgs"]
 
 [node name="Win" type="Control"]
 layout_mode = 3
@@ -25,16 +26,19 @@ expand_mode = 1
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 298.0
-offset_top = 81.0
-offset_right = -245.0
-offset_bottom = -360.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -683.5
+offset_top = -235.5
+offset_right = 683.5
+offset_bottom = -68.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 50
+theme_override_fonts/font = ExtResource("3_2ovgs")
+theme_override_font_sizes/font_size = 130
 text = "You bribed your way out!"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -46,13 +50,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -411.0
+offset_left = -420.0
 offset_top = 141.0
-offset_right = -91.0
+offset_right = -100.0
 offset_bottom = 221.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("3_2ovgs")
+theme_override_font_sizes/font_size = 50
 text = "Restart
 "
 
@@ -63,13 +68,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 111.0
+offset_left = 100.0
 offset_top = 141.0
-offset_right = 431.0
+offset_right = 420.0
 offset_bottom = 221.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("3_2ovgs")
+theme_override_font_sizes/font_size = 50
 text = "Main Menu"
 
 [connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]

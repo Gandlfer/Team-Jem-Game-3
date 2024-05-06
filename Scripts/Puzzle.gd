@@ -54,8 +54,8 @@ func _process(_delta):
 		$Control/FlashingTimer.start()
 		$"Left hand".visible = false
 		$"Right hand".visible = false
-	
-	
+		Global.justZapped = true
+		$Oof.play()
 
 
 func _on_flashing_timer_timeout():

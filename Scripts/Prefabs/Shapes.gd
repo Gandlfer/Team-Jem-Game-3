@@ -16,6 +16,9 @@ var justpress = false
 var grabjustpress = false
 var justrelease = false
 var placed = false
+
+var customScale = 1.2
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	dropSound = preload("res://Audio/clothes-drop-2-40202.mp3")
@@ -167,7 +170,7 @@ func getClosest():
 	elif rotation_degrees == 270:
 		x_offset = -2.5
 		y_offset = 3.5
-	return Vector2(list[smallest_dict].global_position.x + (37.5+x_offset),list[smallest_dict].global_position.y + (37.5+y_offset))
+	return Vector2(list[smallest_dict].global_position.x + (37.5+x_offset)*customScale,list[smallest_dict].global_position.y + (37.5+y_offset)*customScale)
 	
 func blockIn():
 	var inside = true
