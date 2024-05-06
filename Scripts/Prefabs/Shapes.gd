@@ -37,6 +37,9 @@ func _process(delta):
 		if draggable:
 			if grabjustpress and Global.holdingPiece == null: #and handsIn["Grab"]==Global.detectedGrabPiece[len(Global.detectedGrabPiece.keys())-1]:
 				#print(handsIn["Grab"])
+				audioPlayer.stream = pickupSound
+				audioPlayer.volume_db = -15  # Lower the volume
+				audioPlayer.play()
 				Global.is_dragging = true
 				Global.holdingPiece = get_node(".")
 				#Global.is_grabbing = true
@@ -62,11 +65,17 @@ func _process(delta):
 				#grabjustpress = false
 				if is_inside_dropable and collidedPiecesList.size()==0 and placed:
 					#print("True")
+					audioPlayer.stream = dropSound
+					audioPlayer.volume_db = 0.5  # Lower the volume
+					audioPlayer.play()
 					global_position = getClosest()
 					Global.piecesInside[get_node(".").get_groups()[0]][get_node(".").name]=""
 					#placed = true
 				elif is_inside_dropable and collidedPiecesList.size()==0:
 					#print("True")
+					audioPlayer.stream = dropSound
+					audioPlayer.volume_db = 0.5  # Lower the volume
+					audioPlayer.play()
 					global_position = getClosest()
 					Global.piecesInside[get_node(".").get_groups()[0]][get_node(".").name]=""
 					Global.needAdd = true
