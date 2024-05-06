@@ -12,6 +12,9 @@ var achieved = true
 var roundEnd = false
 var sum = 0
 var eachAttrAchieved = {}
+var detectedGrabPiece = {}
+var holdingPiece = null
+var detectPiece = false
 
 var handFlashing = false;
 var handFlashesDefault = 9;

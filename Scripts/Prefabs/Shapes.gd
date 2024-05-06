@@ -32,12 +32,17 @@ func _process(delta):
 		#print(handsIn[x].position)
 	if len(handsIn.keys()) >0:
 		if draggable:
-			if grabjustpress: #and handsIn["Grab"]==Global.detectedGrabPiece[len(Global.detectedGrabPiece.keys())-1]:
+			if grabjustpress and Global.holdingPiece == null: #and handsIn["Grab"]==Global.detectedGrabPiece[len(Global.detectedGrabPiece.keys())-1]:
 				#print(handsIn["Grab"])
 				Global.is_dragging = true
+				Global.holdingPiece = get_node(".")
+				#Global.is_grabbing = true
 				#Global.detectedGrab = true
-			if handsIn["Grab"].grabbing and grabjustpress :#and handsIn["Grab"]==Global.detectedGrabPiece[len(Global.detectedGrabPiece.keys())-1]:
+			if handsIn["Grab"].grabbing and grabjustpress and Global.holdingPiece == get_node("."):
 				Global.is_dragging = true
+				#Global.holdingPiece = get_node(".")
+				#print(get_node("."))
+				#Global.is_grabbing = true
 				#print("Here")
 				global_position =  handsIn["Grab"].get_node("GrabArea/GrabCollisionShape").global_position
 				if hovering:
@@ -79,6 +84,8 @@ func _process(delta):
 					Global.node = get_groups()[0]
 					queue_free()
 				Global.is_dragging = false
+				Global.holdingPiece = null
+				#Global.is_grabbing = false
 				#Global.needAdd = true
 				#Global.node = get_groups()[0]
 				#placed = true
@@ -236,7 +243,8 @@ func _on_area_2d_area_entered(area):
 		#print(area.get_node(".."))
 		
 			if len(handsIn.keys())==0:
-				if not Global.is_dragging:
+				if not Global.is_dragging and not Global.detectPiece:
+					Global.detectPiece = true
 					#if(Global.)
 					#Global.detectedGrabPiece[len(Global.detectedGrabPiece.keys())]=area.get_node("..")
 					#print("Adding detectedGrab ", Global.detectedGrabPiece)
@@ -303,7 +311,7 @@ func _on_area_2d_area_exited(area):
 						#print("Removing detectedGrab ", Global.detectedGrabPiece)
 					#Global.detectedGrabPiece[len(Global.detectedGrabPiece.key())]=handsIn["Grab"]
 					handsIn.erase("Grab")
-					
+					Global.detectPiece = false
 					draggable = false
 				#grabjustpress = false
 			elif handsIn.find_key(area.get_node("..")) == "Rotate":
@@ -318,10 +326,11 @@ func _on_area_2d_area_exited(area):
 				#Global.detectedGrabPiece[0]=Global.detectedGrabPiece[1]
 				#Global.detectedGrabPiece.erase(1)
 				#print("Result of swap ", Global.detectedGrabPiece)
-			if handsIn.find_key(area.get_node("..")) == "Grab":
-				handsIn["Grab"].JustPress.disconnect(GrabJustPressHandler)
-				handsIn["Grab"].JustRelease.disconnect(JustReleaseHandler)
-				handsIn.erase("Grab")
+			#if handsIn.find_key(area.get_node("..")) == "Grab":
+				#print("Here")
+				#handsIn["Grab"].JustPress.disconnect(GrabJustPressHandler)
+				#handsIn["Grab"].JustRelease.disconnect(JustReleaseHandler)
+				#handsIn.erase("Grab")
 			if handsIn.find_key(area.get_node("..")) == "Rotate":
 				#print("Rotate")
 				handsIn["Rotate"].JustPress.disconnect(JustPressHandler)
