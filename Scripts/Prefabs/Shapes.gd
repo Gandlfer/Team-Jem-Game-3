@@ -15,6 +15,7 @@ var handsIn= {}
 var justpress = false
 var grabjustpress = false
 var justrelease = false
+var placed = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	dropSound = preload("res://Audio/clothes-drop-2-40202.mp3")
@@ -47,20 +48,38 @@ func _process(delta):
 				print("Here")
 				justrelease = false
 				#grabjustpress = false
-				if is_inside_dropable and collidedPiecesList.size()==0:
+				if is_inside_dropable and collidedPiecesList.size()==0 and placed:
 					#print("True")
 					global_position = getClosest()
 					Global.piecesInside[get_node(".").get_groups()[0]][get_node(".").name]=""
+					#placed = true
+				elif is_inside_dropable and collidedPiecesList.size()==0:
+					#print("True")
+					global_position = getClosest()
+					Global.piecesInside[get_node(".").get_groups()[0]][get_node(".").name]=""
+					Global.needAdd = true
+					Global.node = get_groups()[0]
+					placed = true
+				elif placed:
+					global_position = initialPos
+					Global.piecesInside[get_node(".").get_groups()[0]].erase(get_node(".").name)
+					queue_free()
+					
 				else:
 					#print("False")
 					#print(is_inside_dropable)
 					#print(collidedPiecesList.size())
 					global_position = initialPos
 					Global.piecesInside[get_node(".").get_groups()[0]].erase(get_node(".").name)
+					Global.needAdd = true
+					Global.node = get_groups()[0]
 					queue_free()
 				Global.is_dragging = false
-				Global.needAdd = true
-				Global.node = get_groups()[0]
+				#Global.needAdd = true
+				#Global.node = get_groups()[0]
+				#placed = true
+	if justpress:
+		justpress = false
 
 			#pass
 		#if Input.is_action_just_pressed("left_mouse_click"):
@@ -220,7 +239,7 @@ func _on_area_2d_area_entered(area):
 					handsIn["Grab"].JustRelease.connect(JustReleaseHandler)
 					draggable = true
 				#print("Grab is ", handsIn["Grab"])
-			elif len(handsIn.keys())==1:
+			elif len(handsIn.keys())==1 and handsIn.find_key(area.get_node(".."))!="Grab":
 				handsIn["Rotate"]=area.get_node("..")
 				handsIn["Rotate"].JustPress.connect(JustPressHandler)
 				#area.get_node("..").JustRelease.connect(JustReleaseHandler)
