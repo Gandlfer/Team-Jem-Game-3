@@ -32,7 +32,11 @@ func _process(delta):
 		#print(handsIn[x].position)
 	if len(handsIn.keys()) >0:
 		if draggable:
-			if handsIn["Grab"].grabbing and grabjustpress:
+			if grabjustpress: #and handsIn["Grab"]==Global.detectedGrabPiece[len(Global.detectedGrabPiece.keys())-1]:
+				#print(handsIn["Grab"])
+				Global.is_dragging = true
+				#Global.detectedGrab = true
+			if handsIn["Grab"].grabbing and grabjustpress :#and handsIn["Grab"]==Global.detectedGrabPiece[len(Global.detectedGrabPiece.keys())-1]:
 				Global.is_dragging = true
 				#print("Here")
 				global_position =  handsIn["Grab"].get_node("GrabArea/GrabCollisionShape").global_position
@@ -45,7 +49,7 @@ func _process(delta):
 							rotation_degrees = 0
 				#pass
 			elif justrelease:
-				print("Here")
+				#print("Here")
 				justrelease = false
 				#grabjustpress = false
 				if is_inside_dropable and collidedPiecesList.size()==0 and placed:
@@ -232,8 +236,11 @@ func _on_area_2d_area_entered(area):
 		#print(area.get_node(".."))
 		
 			if len(handsIn.keys())==0:
-				#if not Global.is_dragging:
 				if not Global.is_dragging:
+					#if(Global.)
+					#Global.detectedGrabPiece[len(Global.detectedGrabPiece.keys())]=area.get_node("..")
+					#print("Adding detectedGrab ", Global.detectedGrabPiece)
+					#GLoba
 					handsIn["Grab"]=area.get_node("..")
 					handsIn["Grab"].JustPress.connect(GrabJustPressHandler)
 					handsIn["Grab"].JustRelease.connect(JustReleaseHandler)
@@ -271,30 +278,52 @@ func _on_area_2d_area_exited(area):
 					handsIn["Grab"].JustPress.disconnect(GrabJustPressHandler)
 					handsIn["Grab"].JustRelease.disconnect(JustReleaseHandler)
 					handsIn["Rotate"].JustPress.disconnect(JustPressHandler)
+					#Global.detectedGrabPiece[Global.detectedGrabPiece.find_key(handsIn["Grab"])]=handsIn["Rotate"]
 					handsIn["Grab"]=handsIn["Rotate"]
+					
 					handsIn["Grab"].JustPress.connect(GrabJustPressHandler)
 					handsIn["Grab"].JustRelease.connect(JustReleaseHandler)
 					hovering = false
 					#print("Hands swap")
 					#print(handsIn["Grab"].name)
-					
+					#Global.detectedGrabPiece[len(Global.detectedGrabPiece.key())]=area.get_node("..")
 					handsIn.erase("Rotate")
 				else:
 					handsIn["Grab"].JustPress.disconnect(GrabJustPressHandler)
 					handsIn["Grab"].JustRelease.disconnect(JustReleaseHandler)
+					#print("Removing detectedGrab ", Global.detectedGrabPiece)
+					#if len(Global.detectedGrabPiece.keys())==2 and Global.detectedGrabPiece.find_key(handsIn["Grab"])==0:
+						#print("Removing 0 ",Global.detectedGrabPiece[0])
+						#Global.detectedGrabPiece[0]=Global.detectedGrabPiece[1]
+						#Global.detectedGrabPiece.erase(1)
+						#print("Result of swap ", Global.detectedGrabPiece)
+					#else:
+						#print("Removing ",Global.detectedGrabPiece[Global.detectedGrabPiece.find_key(handsIn["Grab"])])
+						#Global.detectedGrabPiece.erase(Global.detectedGrabPiece.find_key(handsIn["Grab"]))
+						#print("Removing detectedGrab ", Global.detectedGrabPiece)
+					#Global.detectedGrabPiece[len(Global.detectedGrabPiece.key())]=handsIn["Grab"]
 					handsIn.erase("Grab")
 					
 					draggable = false
 				#grabjustpress = false
 			elif handsIn.find_key(area.get_node("..")) == "Rotate":
-				print("Rotate")
+				#print("Rotate")
 				handsIn["Rotate"].JustPress.disconnect(JustPressHandler)
 				handsIn.erase("Rotate")
 				justrelease = false
 				hovering = false
 		if Global.is_dragging:
+			#if handsIn.find_key(area.get_node("..")) == "Grab":
+				#print("Removing 0 ",Global.detectedGrabPiece[0])
+				#Global.detectedGrabPiece[0]=Global.detectedGrabPiece[1]
+				#Global.detectedGrabPiece.erase(1)
+				#print("Result of swap ", Global.detectedGrabPiece)
+			if handsIn.find_key(area.get_node("..")) == "Grab":
+				handsIn["Grab"].JustPress.disconnect(GrabJustPressHandler)
+				handsIn["Grab"].JustRelease.disconnect(JustReleaseHandler)
+				handsIn.erase("Grab")
 			if handsIn.find_key(area.get_node("..")) == "Rotate":
-				print("Rotate")
+				#print("Rotate")
 				handsIn["Rotate"].JustPress.disconnect(JustPressHandler)
 				handsIn.erase("Rotate")
 				justrelease = false
