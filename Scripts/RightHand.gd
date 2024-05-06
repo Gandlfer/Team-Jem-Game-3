@@ -49,14 +49,14 @@ func player_movement(delta):
 	move_and_slide()
 
 func handle_grabs():
-	if Input.is_action_just_pressed("grab_r"):
-		JustPress.emit()
-	elif Input.is_action_pressed("grab_r"):
-		hand_sprite.texture = hand_closed_texture
-		grabbing = true
-	elif Input.is_action_just_released("grab_r"):
-		JustRelease.emit()
-		hand_sprite.texture = hand_open_texture
-		grabbing = false
+	if !Global.handFlashing:
+		if Input.is_action_just_pressed("grab_r"):
+			JustPress.emit()
+		elif Input.is_action_pressed("grab_r"):
+			hand_sprite.texture = hand_closed_texture
+			grabbing = true
+		elif Input.is_action_just_released("grab_r"):
+			JustRelease.emit()
+			hand_sprite.texture = hand_open_texture
+			grabbing = false
 
-		
