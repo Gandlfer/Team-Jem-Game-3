@@ -2,7 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://c46lf7yxlyx8j" path="res://Assets/Fonts/Potionmaster-L3P55.ttf" id="1_0riwh"]
 [ext_resource type="Script" path="res://Scripts/instructions.gd" id="1_xpire"]
-[ext_resource type="Texture2D" uid="uid://dgn55j3vljduf" path="res://Assets/backgroundmenu.png" id="2_by5nl"]
+[ext_resource type="Texture2D" uid="uid://bp0ctxfugq3kj" path="res://Assets/bg_thisone.png" id="2_78f8n"]
 [ext_resource type="FontFile" uid="uid://d0ca2gcvuro7f" path="res://Assets/Fonts/Bobby Jones Soft.otf" id="4_kb2ei"]
 [ext_resource type="Script" path="res://Scripts/BackButton.gd" id="5_r4ntw"]
 [ext_resource type="AudioStream" uid="uid://dc0afq6d4amqe" path="res://Assets/spellcraft-142264.mp3" id="6_ofssg"]
@@ -24,7 +24,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_by5nl")
+texture = ExtResource("2_78f8n")
+stretch_mode = 1
 
 [node name="Instructions" type="Label" parent="."]
 layout_mode = 1

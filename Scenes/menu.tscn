@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://dip1tgctgbvy2"]
 
 [ext_resource type="Script" path="res://Scripts/Control.gd" id="1_nmhd2"]
-[ext_resource type="Texture2D" uid="uid://hck1pyghb1v2" path="res://Assets/title_screen.png" id="2_nk67f"]
+[ext_resource type="Texture2D" uid="uid://bp0ctxfugq3kj" path="res://Assets/bg_thisone.png" id="2_opynn"]
 [ext_resource type="FontFile" uid="uid://c46lf7yxlyx8j" path="res://Assets/Fonts/Potionmaster-L3P55.ttf" id="3_bs4mb"]
 [ext_resource type="AudioStream" uid="uid://dc0afq6d4amqe" path="res://Assets/spellcraft-142264.mp3" id="3_grbsc"]
 [ext_resource type="FontFile" uid="uid://d0ca2gcvuro7f" path="res://Assets/Fonts/Bobby Jones Soft.otf" id="4_6hh2m"]
@@ -26,8 +26,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_nk67f")
-expand_mode = 2
+texture = ExtResource("2_opynn")
+stretch_mode = 1
 
 [node name="SoundBG" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_grbsc")
