@@ -59,3 +59,8 @@ func handle_grabs():
 			JustRelease.emit()
 			hand_sprite.texture = hand_open_texture
 			grabbing = false
+	elif Global.handFlashing:
+		if grabbing:
+			JustRelease.emit()
+			hand_sprite.texture = hand_open_texture
+		grabbing = false
