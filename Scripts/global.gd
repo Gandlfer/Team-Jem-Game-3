@@ -12,6 +12,12 @@ var achieved = true
 var roundEnd = false
 var sum = 0
 var eachAttrAchieved = {}
+
+var handFlashing = false;
+var handFlashesDefault = 9;
+var handFlashes = handFlashesDefault;
+
+
 func _ready():
 	reset()
 	

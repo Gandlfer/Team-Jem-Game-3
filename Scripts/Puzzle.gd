@@ -2,7 +2,7 @@ extends Control
 
 var ltor
 var rtol
-var max_distance = 1700
+var max_distance = 1400
 var threshold_distance = 100
 
 # Colors for near and far distances
@@ -16,7 +16,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	# Calculate vector from left hand to right hand and store
 	ltor = Vector2($"Right hand/RightHandParticles".global_position.x - $"Left hand/LeftHandParticles".global_position.x, $"Right hand/RightHandParticles".global_position.y - $"Left hand/LeftHandParticles".global_position.y)
 	rtol = Vector2($"Left hand/LeftHandParticles".global_position.x - $"Right hand/RightHandParticles".global_position.x, $"Left hand/LeftHandParticles".global_position.y - $"Right hand/RightHandParticles".global_position.y)
@@ -48,3 +48,24 @@ func _process(delta):
 	# Set the color of the particles
 	$"Left hand/LeftHandParticles".color = particle_color
 	$"Right hand/RightHandParticles".color = particle_color
+	
+	if ltor.distance_to(rtol) > max_distance and Global.handFlashing == false:
+		Global.handFlashing = true
+		$Control/FlashingTimer.start()
+		$"Left hand".visible = false
+		$"Right hand".visible = false
+	
+	
+
+
+func _on_flashing_timer_timeout():
+	if Global.handFlashes > 0 and Global.handFlashing:
+		$"Left hand".visible = !$"Left hand".visible
+		$"Right hand".visible = !$"Right hand".visible
+		Global.handFlashes -= 1
+		$Control/FlashingTimer.start()
+	else:
+		Global.handFlashing = false
+		Global.handFlashes =  Global.handFlashesDefault
+		$"Left hand".visible = true
+		$"Right hand".visible = true

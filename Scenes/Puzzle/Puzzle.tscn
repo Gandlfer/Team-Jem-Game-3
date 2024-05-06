@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://bfn1byu0rfj8i"]
 
 [ext_resource type="Texture2D" uid="uid://deqngv7tv0qpb" path="res://Assets/backgroungGame3.png" id="1_0rvdk"]
-[ext_resource type="Script" path="res://Scripts/TestScene.gd" id="1_34qkc"]
+[ext_resource type="Script" path="res://Scripts/Puzzle.gd" id="1_34qkc"]
 [ext_resource type="PackedScene" uid="uid://boyqpn5qxpipp" path="res://Scenes/Prefabs/GridCellMaker.tscn" id="2_ykd84"]
 [ext_resource type="PackedScene" uid="uid://cf0xre6u821sn" path="res://Scenes/Prefabs/PieceSpawner.tscn" id="3_1kudy"]
 [ext_resource type="PackedScene" uid="uid://cunekbj63ga8o" path="res://Scenes/Timer.tscn" id="4_hxxlr"]
@@ -91,8 +91,11 @@ ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("10_fjbg4")
 
+[node name="FlashingTimer" type="Timer" parent="Control"]
+wait_time = 0.3
+
 [node name="Left hand" parent="." instance=ExtResource("11_pabyc")]
-position = Vector2(1019, 251)
+position = Vector2(874, 581)
 collision_layer = 0
 collision_mask = 0
 
@@ -111,7 +114,7 @@ initial_velocity_max = 695.23
 scale_amount_max = 3.0
 
 [node name="Right hand" parent="." instance=ExtResource("12_x3y7g")]
-position = Vector2(1725, 274)
+position = Vector2(1121, 581)
 collision_layer = 0
 collision_mask = 0
 
@@ -130,3 +133,4 @@ initial_velocity_max = 695.23
 scale_amount_max = 3.0
 
 [connection signal="pressed" from="Control/TextureButton" to="Control/TextureButton" method="_on_pressed"]
+[connection signal="timeout" from="Control/FlashingTimer" to="." method="_on_flashing_timer_timeout"]

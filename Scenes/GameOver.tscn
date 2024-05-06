@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://1aesbsr2vtpr"]
+[gd_scene load_steps=5 format=3 uid="uid://1aesbsr2vtpr"]
 
 [ext_resource type="Script" path="res://Scripts/GameOver.gd" id="1_7mujb"]
 [ext_resource type="Texture2D" uid="uid://deqngv7tv0qpb" path="res://Assets/backgroungGame3.png" id="2_p0jwn"]
+[ext_resource type="FontFile" uid="uid://d0ca2gcvuro7f" path="res://Assets/Fonts/Bobby Jones Soft.otf" id="3_46uop"]
+[ext_resource type="Script" path="res://Scripts/Restart.gd" id="3_ojupo"]
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -30,15 +32,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -411.0
+offset_left = -421.0
 offset_top = 141.0
-offset_right = -91.0
+offset_right = -101.0
 offset_bottom = 221.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("3_46uop")
+theme_override_font_sizes/font_size = 50
 text = "Try Again
 "
+script = ExtResource("3_ojupo")
 
 [node name="Main Menu" type="Button" parent="."]
 layout_mode = 1
@@ -47,30 +51,29 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 111.0
+offset_left = 102.0
 offset_top = 141.0
-offset_right = 431.0
+offset_right = 422.0
 offset_bottom = 221.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("3_46uop")
+theme_override_font_sizes/font_size = 50
 text = "Main Menu"
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -260.0
-offset_top = -259.0
-offset_right = 254.0
-offset_bottom = -92.0
+offset_left = -554.0
+offset_top = 248.0
+offset_right = 554.0
+offset_bottom = 415.0
 grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 50
-text = "Game Over"
+theme_override_fonts/font = ExtResource("3_46uop")
+theme_override_font_sizes/font_size = 130
+text = "You've been caught!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
