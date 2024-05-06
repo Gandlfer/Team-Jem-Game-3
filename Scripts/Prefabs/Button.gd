@@ -14,12 +14,13 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Global.achieved:
-		if !get_node(".").visible:
-			audioPlayer.stream = appearSound
-			audioPlayer.volume_db = -1  # Lower the volume
-			audioPlayer.play()
-		get_node(".").visible = true
-		get_node(".").disabled = false
+		_on_pressed()
+		#if !get_node(".").visible:
+			#audioPlayer.stream = appearSound
+			#audioPlayer.volume_db = -1  # Lower the volume
+			#audioPlayer.play()
+		#get_node(".").visible = true
+		#get_node(".").disabled = false
 	else:
 		get_node(".").visible = false
 		get_node(".").disabled = true
