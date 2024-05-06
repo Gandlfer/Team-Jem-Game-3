@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b5pxeb3e7jahi"]
 
 [ext_resource type="Script" path="res://Scripts/Win.gd" id="1_hj6dr"]
-[ext_resource type="Texture2D" uid="uid://deqngv7tv0qpb" path="res://Assets/backgroungGame3.png" id="2_8bmiv"]
+[ext_resource type="Texture2D" uid="uid://bqoh2k3gls8fq" path="res://Scenes/Cut_Scenes/disneycastle.jpg" id="2_lcito"]
 
 [node name="Win" type="Control"]
 layout_mode = 3
@@ -20,7 +20,7 @@ anchor_bottom = 1.0
 offset_right = 0.303955
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_8bmiv")
+texture = ExtResource("2_lcito")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="."]
