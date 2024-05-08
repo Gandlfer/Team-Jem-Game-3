@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b5pxeb3e7jahi"]
 
 [ext_resource type="Script" path="res://Scripts/Win.gd" id="1_hj6dr"]
-[ext_resource type="Texture2D" uid="uid://deqngv7tv0qpb" path="res://Assets/backgroungGame3.png" id="2_8bmiv"]
+[ext_resource type="Texture2D" uid="uid://dgys3f5sergvs" path="res://Scenes/Hands/win.png" id="2_5mcvk"]
 [ext_resource type="FontFile" uid="uid://d0ca2gcvuro7f" path="res://Assets/Fonts/Bobby Jones Soft.otf" id="3_2ovgs"]
 [ext_resource type="Script" path="res://Scripts/Restart.gd" id="4_0ls4b"]
 
@@ -22,7 +22,7 @@ anchor_bottom = 1.0
 offset_right = 0.303955
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_8bmiv")
+texture = ExtResource("2_5mcvk")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="."]
