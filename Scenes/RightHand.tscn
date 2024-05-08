@@ -1,8 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://bjfjw4p7sq65p"]
 
 [ext_resource type="Script" path="res://Scripts/RightHand.gd" id="1_qwkif"]
-[ext_resource type="Texture2D" uid="uid://2qbemtna01vi" path="res://Scenes/Hands/rightOpen.png" id="2_vikmr"]
 [ext_resource type="Texture2D" uid="uid://cd8eltl106eac" path="res://Assets/crosshair.png" id="3_sslb8"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_d2n3y"]
+load_path = "res://.godot/imported/rightOpen.png-993b85c41028b1ca932a207db19f6dc4.ctex"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ww5mu"]
 size = Vector2(232, 344)
@@ -17,7 +19,7 @@ script = ExtResource("1_qwkif")
 [node name="HoldingHandPngClipart" type="Sprite2D" parent="."]
 position = Vector2(-6.55651e-07, 3.81283e-06)
 scale = Vector2(0.710953, 0.742208)
-texture = ExtResource("2_vikmr")
+texture = SubResource("CompressedTexture2D_d2n3y")
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 visible = false
