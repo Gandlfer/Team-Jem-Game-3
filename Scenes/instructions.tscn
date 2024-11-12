@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dd6ierv6ngk3h" path="res://Assets/controls.png" id="2_tj8qu"]
 [ext_resource type="FontFile" uid="uid://d0ca2gcvuro7f" path="res://Assets/Fonts/Bobby Jones Soft.otf" id="3_yfoy2"]
 [ext_resource type="FontFile" uid="uid://c46lf7yxlyx8j" path="res://Assets/Fonts/Potionmaster-L3P55.ttf" id="4_o884t"]
-[ext_resource type="PackedScene" uid="uid://dwjwrjymj8hon" path="res://Scenes/AttributeGuide.tscn" id="6_c7wqb"]
+[ext_resource type="PackedScene" uid="uid://dwjwrjymj8hon" path="res://Scenes/Prefabs/AttributeGuide.tscn" id="6_c7wqb"]
 [ext_resource type="Script" path="res://Scripts/BackButton.gd" id="6_vp2iw"]
 
 [node name="Instructions" type="Control"]
